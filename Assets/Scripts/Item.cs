@@ -38,4 +38,9 @@ public class Item : MonoBehaviour
             }
         }
 	}
+
+    public bool Equals(Item i)
+    {
+        return name.Equals(i.name) && type == i.type;
+    }
 }
