@@ -27,8 +27,6 @@ public class Movement : MonoBehaviour
 		P1Rb = P1.GetComponent<Rigidbody>();
 		P2Rb = P2.GetComponent<Rigidbody>();
 		
-		P1Input = Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A) &&
-		          Input.GetKey(KeyCode.D);
 	}
 
 	void Update()
