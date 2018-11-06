@@ -7,9 +7,11 @@ public class Pickup : MonoBehaviour {
     public string pickUpAxis;
     public bool holdingItem;
     public Item itemHeld;
+    public bool counterHere;
 
     List<Item> itemsHere;
     Transform itemHoldingPos;
+    Transform counterPos;
 	// Use this for initialization
 	void Start () {
         itemsHere = new List<Item>();
@@ -18,7 +20,9 @@ public class Pickup : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        //raycast to put items down on table
+        Ray ray = new Ray(transform.position, transform.forward+Vector3.down*0.25f);
+        Debug.DrawRay(ray.origin,ray.direction,Color.yellow);
         //pick up items
 		if(itemsHere.Count > 0)
         {
@@ -31,6 +35,11 @@ public class Pickup : MonoBehaviour {
                 }
                 else
                 {
+                    if (counterHere)
+                    {
+                        itemHeld.transform.position = counterPos.position;
+                        itemHeld.transform.parent = counterPos.parent;
+                    }
                     itemHeld = null;
                 }
             }
@@ -47,6 +56,11 @@ public class Pickup : MonoBehaviour {
         if (other.tag.Equals("Item"))
         {
             itemsHere.Add(other.transform.GetComponent<Item>());
+        }
+        if (other.tag.Equals("Counter"))
+        {
+            counterPos = other.transform.GetChild(0);
+            counterHere = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -67,6 +81,14 @@ public class Pickup : MonoBehaviour {
                 i++;
             }
             itemsHere.RemoveAt(i);
+        }
+        if (other.tag.Equals("Counter"))
+        {
+            if(other.transform.GetChild(0) == counterPos)
+            {
+                counterPos = null;
+                counterHere = false;
+            }
         }
     }
 }
