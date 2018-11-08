@@ -92,11 +92,11 @@ public class Movement : MonoBehaviour
 		}
 		 if (P2Input)
 		{
-			P2Rb.MovePosition(Player2pos+P2InputVector * P2Speed * Time.deltaTime);
+			P2Rb.MovePosition(Player2pos+P2InputVector * P2Speed * Time.smoothDeltaTime);
 		
 			if (Input.GetKey(KeyCode.RightShift))
 			{	
-				P2Rb.MovePosition(Player2pos+P2InputVector * SpeedBoost * Time.deltaTime);
+				P2Rb.MovePosition(Player2pos+P2InputVector * SpeedBoost * Time.smoothDeltaTime);
 			}
 		}
 		
@@ -149,4 +149,9 @@ public class Movement : MonoBehaviour
 		float y = Input.GetAxis(yAxis);
 		return new Vector3(x, 0, y);*/
 	
+	
+	//(Player Boost Timer) 
+	//Ienumerator One bool for p1 one for p2
+	// Bools turn true a few seconds after boost 
+	//After Click boost last 1-1.5 seconds then turns false 
 }

@@ -577,7 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   P1Speed: 5
   P2Speed: 0
-  SpeedBoost: 20
+  SpeedBoost: 30
 --- !u!54 &762024246
 Rigidbody:
   m_ObjectHideFlags: 0
