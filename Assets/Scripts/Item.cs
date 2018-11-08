@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 
-	public int type;//0:nonfood,1:food to be chopped,2:food to be cooked,3:food to be boiled,4:food to be combined,5:base
+	public int type;//0:nonfood,1:food to be chopped,2:food to be cooked,3:food to be boiled,4:food to be combined,5:base,-1:Empty
                     //0 is pan, pot, fire extinguisher
                     //1 is raw lettuce, meat, tomatoes
                     //2 is chopped meat
@@ -17,6 +17,7 @@ public class Item : MonoBehaviour
 
     public Rigidbody rb;
     public string turnInto;//what type it turns into, so lettuce is 14, meat is 124
+    public Item() { type = -1; name = ""; }
     public Item(int t, string s)
     {
         this.type = t;
