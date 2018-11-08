@@ -8,9 +8,12 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="CuttingStation.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="Movement.cs" t="Include" />
+          <e p="Order.cs" t="Include" />
           <e p="Pickup.cs" t="Include" />
+          <e p="ServingCounter.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
