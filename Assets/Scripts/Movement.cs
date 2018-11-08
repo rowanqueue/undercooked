@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
 	private Vector3 playerPos;
 	private Vector3 inputVector;
 	private Rigidbody rb;
+	private bool BoostUp;
 	[FormerlySerializedAs("MyplayerName")] public string myPlayerName;
 	
 	
