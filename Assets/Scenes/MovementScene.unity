@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 111228043}
   - component: {fileID: 111228042}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: Player2
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38b43086400ac7458f727d4aacc4729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  P1Speed: 0
-  P2Speed: 0
-  SpeedBoost: 0
+  speed: 10
+  boostMult: 0
+  myPlayerName: Player2
 --- !u!54 &111228043
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!23 &111228044
 MeshRenderer:
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 762024246}
   - component: {fileID: 762024245}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player1
   m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,9 +575,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38b43086400ac7458f727d4aacc4729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  P1Speed: 5
-  P2Speed: 0
-  SpeedBoost: 30
+  speed: 10
+  boostMult: 20
+  myPlayerName: Player1
 --- !u!54 &762024246
 Rigidbody:
   m_ObjectHideFlags: 0

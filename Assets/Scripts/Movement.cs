@@ -1,109 +1,94 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 //use: moves player
 //loc: on a player
 public class Movement : MonoBehaviour
 {
 
-	public float P1Speed;
-	public float P2Speed;
-	public float SpeedBoost;
-	private Vector3 Player1pos;
-	private Vector3 Player2pos;
-	private Vector3 P1InputVector;
-	private Vector3 P2InputVector;
-	private Rigidbody P1Rb;
-	private Rigidbody P2Rb;
-	private GameObject P1;
-	private GameObject P2;
-	private bool P1Input=false;
-	private bool P2Input=false;
+	public float speed;
+	public float boostMult;
+	private Vector3 speedBoost; 
+	private Vector3 playerPos;
+	private Vector3 inputVector;
+	private Rigidbody rb;
+	private bool BoostUp;
+	[FormerlySerializedAs("MyplayerName")] public string myPlayerName;
+	
+	
+	
+	//private bool P1Input=false;
+	//private bool P2Input=false;
 
 	void Start()
 	{
-		P1 = GameObject.FindGameObjectWithTag("Player1");
-		P2 = GameObject.FindGameObjectWithTag("Player2");
-		P1Rb = P1.GetComponent<Rigidbody>();
-		P2Rb = P2.GetComponent<Rigidbody>();
-		
+		//myPlayerName = name;
+		rb = GetComponent<Rigidbody>();
+	
 	}
 
 	void Update()
 	{
-		Player1pos = P1.transform.position;
-		Player2pos = P2.transform.position;
+		playerPos = transform.position;
+		
+		float Horizontal = Input.GetAxis("Horizontal"+ myPlayerName);
+		float Vertical = Input.GetAxis("Vertical" + myPlayerName);
+		float Boost = Input.GetAxis("Boost" + myPlayerName);
+		
+		inputVector = (Vector3.forward * Vertical);
+		inputVector += (Vector3.right * Horizontal);
+		speedBoost = (inputVector* Boost);	
 		
 		
-
-		float P1Horizontal = Input.GetAxis("HorizontalP1");
-		float P1Vertical = Input.GetAxis("VerticalP1");
-		
-		float P2Horizontal = Input.GetAxis("HorizontalP2");
-		float P2Vertical = Input.GetAxis("VerticalP2");
-
-		P1InputVector = (P1.transform.forward * P1Vertical);
-		P1InputVector += (P1.transform.right * P1Horizontal).normalized;
-		
-		P2InputVector= (P2.transform.forward * P2Vertical);
-		P2InputVector += (P2.transform.right * P2Horizontal).normalized;
-		
-		Vector3 P1Move= Player1pos+P1InputVector;
-		
-
-		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) ||
-		    Input.GetKey(KeyCode.D))
+		if (inputVector != Vector3.zero)
 		{
-			
-			P1Input = true;
-		}
-		else
-		{
-			P1Input = false;
-		}
 
-		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) ||
-		    Input.GetKey(KeyCode.RightArrow))
-		{
-			P2Input = true;
-		}
-		else
-		{
-			P2Input = false;
+
+			transform.forward = inputVector;
 		}
 
 		
 		
 
-	
+
+
 	}
 
 	void FixedUpdate()
 	{
-		if (P1Input)
+		if (inputVector != Vector3.zero)
 		{
-			P1Rb.MovePosition(Player1pos+P1InputVector * P1Speed * Time.deltaTime);
-		
-			if (Input.GetKey(KeyCode.E))
+
+			rb.MovePosition(playerPos + inputVector * speed * Time.deltaTime);
+
+			if (speedBoost != Vector3.zero)
 			{
-				P1Rb.MovePosition(Player1pos+P1InputVector * SpeedBoost * Time.deltaTime);
+				rb.MovePosition(playerPos+speedBoost*boostMult*Time.smoothDeltaTime);
+				
 			}
 			
+
 		}
-		 if (P2Input)
-		{
-			P2Rb.MovePosition(Player2pos+P2InputVector * P2Speed * Time.smoothDeltaTime);
-		
-			if (Input.GetKey(KeyCode.RightShift))
-			{	
-				P2Rb.MovePosition(Player2pos+P2InputVector * SpeedBoost * Time.smoothDeltaTime);
-			}
-		}
-		
+
+
 
 	}
 
-
+	//(Player Boost Timer) 
+	//Ienumerator One bool for p1 one for p2
+	// Bools turn true a few seconds after boost 
+	//After Click boost last 1-1.5 seconds then turns false 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/* public string xAxis;
     public string yAxis; //will actually be z movement bc x,y,z is TRASH!!!!!
 	public float maxSpeed;
@@ -149,9 +134,5 @@ public class Movement : MonoBehaviour
 		float y = Input.GetAxis(yAxis);
 		return new Vector3(x, 0, y);*/
 	
-	
-	//(Player Boost Timer) 
-	//Ienumerator One bool for p1 one for p2
-	// Bools turn true a few seconds after boost 
-	//After Click boost last 1-1.5 seconds then turns false 
+
 }
