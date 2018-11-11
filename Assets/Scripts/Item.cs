@@ -17,6 +17,9 @@ public class Item : MonoBehaviour
 
     public Rigidbody rb;
     public string turnInto;//what type it turns into, so lettuce is 14, meat is 124
+
+    MeshRenderer mr;
+
     public Item() { type = -1; name = ""; }
     public Item(int t, string s)
     {
@@ -26,6 +29,7 @@ public class Item : MonoBehaviour
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+        mr = GetComponent<MeshRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +40,7 @@ public class Item : MonoBehaviour
             if(index+1 < turnInto.Length)
             {
                 type = turnInto[index + 1];
+                mr.material.color = Color.black;
             }
         }
 	}

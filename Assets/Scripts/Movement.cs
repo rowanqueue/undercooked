@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
 		
 		float Horizontal = Input.GetAxis("Horizontal"+ myPlayerName);
 		float Vertical = Input.GetAxis("Vertical" + myPlayerName);
-		float Boost = Input.GetAxis("Boost" + myPlayerName);
+        float Boost = Input.GetAxis("Boost" + myPlayerName);
 		
 		inputVector = (Vector3.forward * Vertical);
 		inputVector += (Vector3.right * Horizontal);
