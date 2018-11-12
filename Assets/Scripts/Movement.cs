@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,15 +9,22 @@ using UnityEngine.Serialization;
 public class Movement : MonoBehaviour
 {
 
-	public float speed;
-	public float boostMult;
+	private float speed;
+	private float bouceSpeed;
+	public float baseSpeed;
+	public float boostMultiplier;
+	public float boostTime;
+	public float boostCooldownTime;
 	private Vector3 speedBoost; 
 	private Vector3 playerPos;
 	private Vector3 inputVector;
 	private Rigidbody rb;
 	private bool BoostUp;
+	private bool boosting=false;
+	private bool boostCooldown=false;
+	private bool bounce=false;
 	[FormerlySerializedAs("MyplayerName")] public string myPlayerName;
-	
+	private IEnumerable coolDown;
 	
 	
 	//private bool P1Input=false;
@@ -26,11 +34,15 @@ public class Movement : MonoBehaviour
 	{
 		//myPlayerName = name;
 		rb = GetComponent<Rigidbody>();
-	
+		coolDown = CoolingDown();
+		speed = baseSpeed;
+		
+
 	}
 
 	void Update()
 	{
+		
 		playerPos = transform.position;
 		
 		float Horizontal = Input.GetAxis("Horizontal"+ myPlayerName);
@@ -39,43 +51,109 @@ public class Movement : MonoBehaviour
 		
 		inputVector = (Vector3.forward * Vertical);
 		inputVector += (Vector3.right * Horizontal);
-		speedBoost = (inputVector* Boost);	
 		
+		speedBoost = Vector3.back * (Vertical);
+		speedBoost += Vector3.left * (Horizontal);
 		
+		IsBoosting();
 		if (inputVector != Vector3.zero)
 		{
 
 
 			transform.forward = inputVector;
 		}
-
+		
 		
 		
 
 
 
 	}
+
 
 	void FixedUpdate()
 	{
 		if (inputVector != Vector3.zero)
 		{
-
-			rb.MovePosition(playerPos + inputVector * speed * Time.deltaTime);
-
-			if (speedBoost != Vector3.zero)
-			{
-				rb.MovePosition(playerPos+speedBoost*boostMult*Time.smoothDeltaTime);
-				
-			}
 			
-
+			rb.MovePosition(playerPos + inputVector * speed * Time.deltaTime);
+			
 		}
+
+		
+		
+		if (bounce)
+		{
+			speed = bouceSpeed;
+			
+		}
+		/*
+		if (boosting && speedBoost!=Vector3.zero)
+		{
+			rb.MovePosition(playerPos + inputVector * boostSpeed * Time.smoothDeltaTime);
+				
+		}*/
 
 
 
 	}
+	
+	
+	void IsBoosting()
+	{
+		
+		if ( (myPlayerName=="Player1" && Input.GetKeyDown(KeyCode.E)) || (myPlayerName=="Player2" && Input.GetKeyDown(KeyCode.RightShift)) && !boostCooldown)
+		{
+			boosting = true;
+			StartCoroutine(coolDown.GetEnumerator());
+			Debug.Log("Boost Time");
+			
+		}
+		
+	}
+	
+	
 
+
+	IEnumerable CoolingDown()
+	{
+		
+		if (boosting && !boostCooldown)
+		{
+			Debug.Log("Boosting");
+			speed = speed * boostMultiplier;
+			bouceSpeed = -speed * boostMultiplier/3f;
+			yield return new WaitForSeconds(boostTime);
+			boostCooldown = true;
+			
+		}
+
+		if (boostCooldown)
+		{
+			bounce = false;
+			boosting = false;
+			bouceSpeed = baseSpeed;
+			speed = baseSpeed;			
+			Debug.Log("Done Boosting");	
+			yield return new WaitForSeconds(boostCooldownTime);
+			boostCooldown = false;
+		}
+	
+
+
+	}
+
+
+	void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.CompareTag("Player") && boosting )
+		{
+			bounce = true;
+
+		}
+		
+	}
+	
 	//(Player Boost Timer) 
 	//Ienumerator One bool for p1 one for p2
 	// Bools turn true a few seconds after boost 

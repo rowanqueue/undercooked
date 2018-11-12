@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 111228042}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player2
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,8 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38b43086400ac7458f727d4aacc4729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  boostMult: 0
+  baseSpeed: 5
+  boostMultiplier: 2.5
+  boostTime: 0.3
+  boostCooldownTime: 2
   myPlayerName: Player2
 --- !u!54 &111228043
 Rigidbody:
@@ -559,7 +561,7 @@ GameObject:
   - component: {fileID: 762024245}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Player1
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -575,8 +577,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38b43086400ac7458f727d4aacc4729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  boostMult: 20
+  baseSpeed: 5
+  boostMultiplier: 2.5
+  boostTime: 0.3
+  boostCooldownTime: 1
   myPlayerName: Player1
 --- !u!54 &762024246
 Rigidbody:
