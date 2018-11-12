@@ -8,6 +8,7 @@ public class Pickup : MonoBehaviour {
     public bool holdingItem;
     public Item itemHeld;
     public bool counterHere;
+    public string myPlayerName;
 
     List<Item> itemsHere;
     Transform itemHoldingPos;
@@ -26,7 +27,7 @@ public class Pickup : MonoBehaviour {
         //pick up items
 		if(itemsHere.Count > 0)
         {
-            if (Input.GetButton(pickUpAxis))
+            if (Input.GetButton(pickUpAxis+myPlayerName))
             {
                 holdingItem = !holdingItem;
                 if (holdingItem)//pickup!
