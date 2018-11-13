@@ -48,6 +48,11 @@ public class Pickup : MonoBehaviour {
                     {
                         itemHeld.transform.position = counterPos.position;
                         itemHeld.transform.parent = counterPos.parent;
+                        Stove stove = counterPos.GetComponent<Stove>();
+                        if(stove != null)
+                        {
+                            stove.itemHere = itemHeld;
+                        }
                     }
                     itemHeld = null;
                 }

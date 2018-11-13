@@ -9,7 +9,7 @@ public class OrderManager : MonoBehaviour {
 	void Start () {
         me = this;
         order = new Order();
-        order.GenerateBurger(Random.Range(0,3));
+        Order.GenerateBurger(Random.Range(0, 3));
 	}
 	
 	// Update is called once per frame
