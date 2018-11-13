@@ -14,13 +14,9 @@ public class Stove : MonoBehaviour {
 	void Update () {
 		if(cooking == false)
         {
-            if (transform.childCount > 1 && itemHere == null)
+            if (itemHere == null)
             {
-                Item item = GetComponentInChildren<Item>();
-                if (item != null)
-                {
-                    itemHere = item;
-                }
+
             }
             if (itemHere != null)
             {
