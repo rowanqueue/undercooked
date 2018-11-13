@@ -11,6 +11,7 @@ public class ServingCounter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timer = 0;
+        requested.Add(Order.GenerateBurger(1));
 	}
 	
 	// Update is called once per frame
