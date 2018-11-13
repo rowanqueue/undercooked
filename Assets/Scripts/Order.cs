@@ -4,63 +4,70 @@ using UnityEngine;
 
 public class Order {
 
-    List<Item> contents;
+    Item[] contents;
 
-    public Order() { contents = new List<Item>(); }
-    public Order(int l) { contents = new List<Item>(l); }
-    public Order(List<Item> o) { contents = new List<Item>(o); }
-
-    public Order GenerateBurger()
+    public Order() //creates order where all items are empty
     {
-        int randOrder = Random.Range(2, 4);
-        List<Item> order = new List<Item>(randOrder);
-        order[0] = new Item(5, "bun");
-        order[randOrder-1] = new Item(4, "burger");
-        if (randOrder > 2)
+        contents = new Item[4];
+        for (int i = 0; i < contents.Length; i++)
         {
-            order[1] = new Item(4, "lettuce");
+            contents[i] = new Item();
         }
-        else
-        {
-            return new Order(order);
-        }
-        if (randOrder > 3)
-        {
-            order[2] = new Item(4, "tomato");
-        }
-        return new Order(order);
     }
 
-    public void Add(Item i)
+    //Random burger generation for orders
+    public Order GenerateBurger(int orderNum) //orderNum integer 0-2, 0:basic burger, 1:lettuce burger, 2:lettuce tomato burger
     {
-        if (i.name.Equals("bun") && !contents.Contains(i))
+        Order order = new Order();
+        order.Add(new Item(5, "bun"));
+        if (orderNum > 0)
         {
-
+            order.Add(new Item(4, "lettuce"));
         }
-        else if (i.name.Equals("bun") && !contents.Contains(i))
+        if (orderNum > 1)
         {
-
+            order.Add(new Item(4, "tomato"));
         }
-        else if (i.name.Equals("lettuce"))
+        order.Add(new Item(4, "burger"));
+        return order;
+    }
+
+    public bool Add(Item i) //Adds i in correct position in contents. Returns true if successful.
+    {
+        if (i.name.Equals("bun") && contents[0].type < 0)
         {
-
+            contents[0] = i;
+            return true;
         }
-        else if (i.name.Equals("tomato"))
-        {
-
+        else if (i.type == 4) {
+            if (i.name.Equals("lettuce") && contents[1].type < 0)
+            {
+                contents[1] = i;
+                return true;
+            }
+            else if (i.name.Equals("tomato") && contents[2].type < 0)
+            {
+                contents[2] = i;
+                return true;
+            }
+            else if (i.name.Equals("burger") && contents[3].type < 0)
+            {
+                contents[3] = i;
+                return true;
+            }
         }
+        return false;
     }
 
     public bool Equals(Order o)
     {
-        bool equals = true;
-        for (int i = 0; i <= o.contents.Count;  i++)
+        for (int i = 0; i <= o.contents.Length;  i++)
         {
             if (!o.contents[i].Equals(contents[i]))
             {
                 return false;
             }
         }
-        return equals;
+        return true;
     }
 }
