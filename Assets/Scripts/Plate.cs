@@ -8,6 +8,8 @@ public class Plate : Item {
 
 	// Use this for initialization
 	void Start () {
+        type = 0;
+        name = "plate";
         rb = GetComponent<Rigidbody>();
         plated = new Order();
 	}
