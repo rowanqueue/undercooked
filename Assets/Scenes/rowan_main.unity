@@ -262,6 +262,46 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66b5c5bf2f7efd347a23b24953e1636f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &224333004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224333005}
+  - component: {fileID: 224333006}
+  m_Layer: 0
+  m_Name: OrderManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &224333005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 224333004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &224333006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 224333004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f431e22bbb51f7499346154ed71cd31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &380914824
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +495,67 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecacc88b824ce324a80be7108f9ec336, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &947924057
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4475583562288310, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475583562288310, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.571
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475583562288310, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475583562288310, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475583562288310, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475583562288310, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475583562288310, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475583562288310, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114206401278882008, guid: 3d179131ba9f1db438b01af8e21dc9a1,
+        type: 2}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114206401278882008, guid: 3d179131ba9f1db438b01af8e21dc9a1,
+        type: 2}
+      propertyPath: name
+      value: lettuce
+      objectReference: {fileID: 0}
+    - target: {fileID: 114206401278882008, guid: 3d179131ba9f1db438b01af8e21dc9a1,
+        type: 2}
+      propertyPath: turnInto
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253317934171080, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+      propertyPath: m_Name
+      value: Item (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1065265454
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,8 +672,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38b43086400ac7458f727d4aacc4729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  boostMult: 20
+  baseSpeed: 10
+  boostMultiplier: 2
+  boostTime: 2
+  boostCooldownTime: 3
   myPlayerName: Player1
 --- !u!1 &1116529703
 GameObject:
@@ -712,13 +815,18 @@ Prefab:
     - target: {fileID: 114206401278882008, guid: 3d179131ba9f1db438b01af8e21dc9a1,
         type: 2}
       propertyPath: name
-      value: lettuce
+      value: burger
       objectReference: {fileID: 0}
     - target: {fileID: 114206401278882008, guid: 3d179131ba9f1db438b01af8e21dc9a1,
         type: 2}
       propertyPath: turnInto
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 23076065188231636, guid: 3d179131ba9f1db438b01af8e21dc9a1,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c86e70615c7e0db47904f0e1c20648e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d179131ba9f1db438b01af8e21dc9a1, type: 2}
   m_IsPrefabAsset: 0

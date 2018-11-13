@@ -36,6 +36,14 @@ public class Pickup : MonoBehaviour {
                 }
                 else
                 {
+                    if(itemsHere.Count > 1)
+                    {
+                        bool added = OrderManager.me.order.Add(itemHeld);
+                        if (added)
+                        {
+                            Destroy(itemHeld.gameObject);
+                        }
+                    }
                     if (counterHere)
                     {
                         itemHeld.transform.position = counterPos.position;
@@ -81,7 +89,10 @@ public class Pickup : MonoBehaviour {
                 }
                 i++;
             }
-            itemsHere.RemoveAt(i);
+            if(itemsHere.Count >= i)
+            {
+                itemsHere.RemoveAt(i);
+            }
         }
         if (other.tag.Equals("Counter"))
         {
