@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Plate : Item {
 
-    Order plated;
+    public Order plated;
 
 	// Use this for initialization
 	void Start () {

@@ -17,4 +17,14 @@ public class ServingCounter : MonoBehaviour {
 	void Update () {
         timer += Time.deltaTime;
 	}
+
+    public int Serve(Plate served)
+    {
+        if (served.plated.Equals(requested[0]))
+        {
+            Debug.Log("Accepted");
+            return 20;
+        }
+        return 0;
+    }
 }
