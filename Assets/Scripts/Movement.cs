@@ -9,20 +9,19 @@ using UnityEngine.Serialization;
 public class Movement : MonoBehaviour
 {
 
-	private float speed;
-	private float bouceSpeed;
-	public float baseSpeed;
-	public float boostMultiplier;
-	public float boostTime;
-	public float boostCooldownTime;
-	private Vector3 speedBoost; 
+	private float speed; //speed of the player
+	private float bounceSpeed; //if players collide this will bounce players backward
+	public float baseSpeed; //speed of player while not boosting 
+	public float boostMultiplier; //basespeed multiplier 
+	public float boostTime; //duration of boost
+	public float boostCooldownTime; //duration of boost cooldown 
 	private Vector3 playerPos;
 	private Vector3 inputVector;
 	private Rigidbody rb;
 	private bool BoostUp;
-	private bool boosting=false;
-	private bool boostCooldown=false;
-	private bool bounce=false;
+	private bool boosting=false; //if player is boosting or not
+	private bool boostCooldown=false; 
+	private bool bounce=false; //if players are colliding 
 	[FormerlySerializedAs("MyplayerName")] public string myPlayerName;
 	private IEnumerable coolDown;
 	
@@ -87,7 +86,7 @@ public class Movement : MonoBehaviour
 	
 		if (bounce)
 		{
-			speed = bouceSpeed;
+			speed = bounceSpeed;
 			
 		}
 		/*
@@ -125,7 +124,7 @@ public class Movement : MonoBehaviour
 		{
 			Debug.Log("Boosting");
 			speed = speed * boostMultiplier;//boost player
-			bouceSpeed = -speed * boostMultiplier/3f; //bounce player backwards if they collide with the other player while boosting 
+			bounceSpeed = -speed * boostMultiplier/3f; //bounce player backwards if they collide with the other player while boosting 
 			yield return new WaitForSeconds(boostTime); //duration of boost
 			boostCooldown = true;
 			
@@ -135,7 +134,7 @@ public class Movement : MonoBehaviour
 		{
 			bounce = false;
 			boosting = false;
-			bouceSpeed = baseSpeed; //reset speed basespeed values 
+			bounceSpeed = baseSpeed; //reset speed basespeed values 
 			speed = baseSpeed;			
 			Debug.Log("Done Boosting");	
 			yield return new WaitForSeconds(boostCooldownTime); //duration of cooldown 
