@@ -14,7 +14,7 @@ public class Stove : MonoBehaviour {
 	void Update () {
 		if(cooking == false)//not cooking
         {
-            if (itemHere != null)//woah we should start cooking
+            if (itemHere != null)//woah we should start cooking, we have an item
             {
                 startTime = Time.time;
                 doneTime = Time.time + 2;
@@ -28,7 +28,7 @@ public class Stove : MonoBehaviour {
             {
                 cooking = false;
             }
-            if(Time.time > doneTime)
+            if(Time.time > doneTime)//we're done cooking
             {
                 itemHere.percentToNextLevel += Time.deltaTime;
                 itemHere = null;
