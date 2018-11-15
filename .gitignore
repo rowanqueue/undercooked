@@ -35,13 +35,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Plugins.meta
 Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll.meta
 Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll
 Assets/Plugins/Editor/JetBrains.meta
-Assets/Plugins/Editor.meta
-Assets/PlayerPrefab/Player2.prefab.meta
-Assets/PlayerPrefab/Player2.prefab
-Assets/PlayerPrefab/Player1.prefab.meta
-Assets/PlayerPrefab/Player1.prefab
-Assets/PlayerPrefab.meta
-.idea/.idea.Undercooked/riderModule.iml
+.idea/
