@@ -47,7 +47,7 @@ public class Pickup : MonoBehaviour {
                 else
                 {
                     potentialItem = hit.collider.GetComponent<Item>();
-                    if (potentialItem == itemHeld)
+                    if (potentialItem == itemHeld)//if the item you're looking at is the one you're holding, FORGET IT
                     {
                         potentialItem = null;
                     }
@@ -55,17 +55,17 @@ public class Pickup : MonoBehaviour {
             }
             if (hit.collider.tag == "Counter")
             {
-                if(potentialCounter != null)
+                if(potentialCounter != null)//you're already looking at a counter
                 {
                     Transform newPotential = hit.collider.transform;
                     float newDistance = Vector3.Distance(transform.position, newPotential.position);
                     float oldDistance = Vector3.Distance(transform.position, potentialCounter.position);
-                    if(oldDistance > newDistance)
+                    if(oldDistance > newDistance)//new counter is closer, you're looking at it instead
                     {
                         potentialCounter = newPotential;
                     }
                 }
-                else
+                else//you're not already looking at a counter
                 {
                     potentialCounter = hit.collider.transform;
                 }
