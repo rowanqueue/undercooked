@@ -47,29 +47,28 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-323">
-              <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+            <state relative-caret-position="-1045">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
-                <marker date="1542311429664" expanded="false" signature="6:125" ph="..." />
-                <marker date="1542311429664" expanded="true" signature="127:165" ph="/* use: moves player ... */" />
-                <marker date="1542311429664" expanded="true" signature="203:4712" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="921:981" ph="/* private bool P1Input=false; ... */" />
-                <marker date="1542311429664" expanded="true" signature="996:1114" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="1130:1691" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="1630:1676" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="1713:2082" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="1789:1875" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="1895:1931" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="1934:2076" ph="/* if (boosting &amp;&amp; speedBoost!=Vector3.zero) ... */" />
-                <marker date="1542311429664" expanded="true" signature="2105:2462" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="2327:2456" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="2495:3140" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="2535:2841" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="2863:3133" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="3182:3381" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="3243:3375" ph="{...}" />
-                <marker date="1542311429664" expanded="true" signature="3385:3555" ph="/* (Player Boost Timer) ... */" />
-                <marker date="1542311429664" expanded="true" signature="3575:4707" ph="/* public string xAxis; ... */" />
+                <marker date="1542311773425" expanded="false" signature="6:125" ph="..." />
+                <marker date="1542311773425" expanded="true" signature="127:165" ph="/* use: moves player ... */" />
+                <marker date="1542311773425" expanded="true" signature="203:4649" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="933:1051" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="1067:1628" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="1567:1613" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="1650:2019" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="1726:1812" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="1832:1868" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="1871:2013" ph="/* if (boosting &amp;&amp; speedBoost!=Vector3.zero) ... */" />
+                <marker date="1542311773425" expanded="true" signature="2042:2399" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="2264:2393" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="2432:3077" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="2472:2778" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="2800:3070" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="3119:3318" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="3180:3312" ph="{...}" />
+                <marker date="1542311773425" expanded="true" signature="3322:3492" ph="/* (Player Boost Timer) ... */" />
+                <marker date="1542311773425" expanded="true" signature="3512:4644" ph="/* public string xAxis; ... */" />
               </folding>
             </state>
           </provider>
@@ -106,7 +105,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1712" />
@@ -177,7 +176,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23751000" />
+    <option name="totallyTimeSpent" value="24093000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -189,7 +188,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
@@ -239,29 +238,28 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+        <state relative-caret-position="-1045">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
-            <marker date="1542311429664" expanded="false" signature="6:125" ph="..." />
-            <marker date="1542311429664" expanded="true" signature="127:165" ph="/* use: moves player ... */" />
-            <marker date="1542311429664" expanded="true" signature="203:4712" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="921:981" ph="/* private bool P1Input=false; ... */" />
-            <marker date="1542311429664" expanded="true" signature="996:1114" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="1130:1691" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="1630:1676" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="1713:2082" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="1789:1875" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="1895:1931" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="1934:2076" ph="/* if (boosting &amp;&amp; speedBoost!=Vector3.zero) ... */" />
-            <marker date="1542311429664" expanded="true" signature="2105:2462" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="2327:2456" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="2495:3140" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="2535:2841" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="2863:3133" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="3182:3381" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="3243:3375" ph="{...}" />
-            <marker date="1542311429664" expanded="true" signature="3385:3555" ph="/* (Player Boost Timer) ... */" />
-            <marker date="1542311429664" expanded="true" signature="3575:4707" ph="/* public string xAxis; ... */" />
+            <marker date="1542311773425" expanded="false" signature="6:125" ph="..." />
+            <marker date="1542311773425" expanded="true" signature="127:165" ph="/* use: moves player ... */" />
+            <marker date="1542311773425" expanded="true" signature="203:4649" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="933:1051" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="1067:1628" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="1567:1613" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="1650:2019" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="1726:1812" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="1832:1868" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="1871:2013" ph="/* if (boosting &amp;&amp; speedBoost!=Vector3.zero) ... */" />
+            <marker date="1542311773425" expanded="true" signature="2042:2399" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="2264:2393" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="2432:3077" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="2472:2778" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="2800:3070" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="3119:3318" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="3180:3312" ph="{...}" />
+            <marker date="1542311773425" expanded="true" signature="3322:3492" ph="/* (Player Boost Timer) ... */" />
+            <marker date="1542311773425" expanded="true" signature="3512:4644" ph="/* public string xAxis; ... */" />
           </folding>
         </state>
       </provider>

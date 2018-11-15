@@ -25,9 +25,7 @@ public class Movement : MonoBehaviour
 	[FormerlySerializedAs("MyplayerName")] public string myPlayerName;
 	private IEnumerable coolDown;
 	
-	
-	//private bool P1Input=false;
-	//private bool P2Input=false;
+
 
 	void Start()
 	{
