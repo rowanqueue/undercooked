@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//this goes literally on items, their objects
 public class Item : MonoBehaviour
 {
-
 	public int type;//0:nonfood,1:food to be chopped,2:food to be cooked,3:food to be boiled,4:food to be combined,5:base,-1:Empty
                     //0 is pan, pot, fire extinguisher
                     //1 is raw lettuce, meat, tomatoes
@@ -34,7 +33,7 @@ public class Item : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		if(percentToNextLevel >= 1)
+		if(percentToNextLevel >= 1)//turns into the next thing it should (needs to be cooked -> needs to be placed)
         {
             int index = turnInto.IndexOf(type.ToString());
             if(index+1 < turnInto.Length)

@@ -5,102 +5,134 @@ using UnityEngine;
 //loc: on pick up cube child of player
 public class Pickup : MonoBehaviour {
     public string pickUpAxis;
-    public bool holdingItem;
-    public Item itemHeld;
-    public bool counterHere;
     public string myPlayerName;
 
-    List<Item> itemsHere;
-    Transform itemHoldingPos;
-    Transform counterPos;
+    public Item itemHeld;//what item you're holding
+
+    public Vector3 holdingPos;//where items are held in front of you
 	// Use this for initialization
 	void Start () {
-        itemsHere = new List<Item>();
-        itemHoldingPos = transform.GetChild(0);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        //raycast to put items down on table
-        Ray ray = new Ray(transform.position, transform.forward+Vector3.down*0.25f);
-        Debug.DrawRay(ray.origin,ray.direction,Color.yellow);
-        //pick up items
-		if(itemsHere.Count > 0)
+
+    // Update is called once per frame
+    void Update() {
+        if (itemHeld != null)//holding an item
         {
-            if (Input.GetButton(pickUpAxis+myPlayerName))
+            itemHeld.transform.position = transform.position + transform.forward;
+        }
+        //this code just looks at what you're seeing
+        Ray ray = new Ray(transform.position, transform.forward);
+        DisplayRay(ray, 1.5f, 1.5f);
+        RaycastHit[] hits = Physics.SphereCastAll(ray, 1.5f, 1.5f);
+        Item potentialItem = null;//where we locally store an item we could pick up
+        Transform potentialCounter = null;//storing a potentialCountertop
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider == null) { continue; }
+            if (hit.collider.tag == "Item")
             {
-                holdingItem = !holdingItem;
-                if (holdingItem)//pickup!
+                if (potentialItem != null)//there's multiple items, oh no! check which one is closer and keep that as the one you interact with
                 {
-                    itemHeld = itemsHere[0];
+                    Item newPotential = hit.collider.GetComponent<Item>();
+                    if (newPotential != itemHeld)//no worries about this new guy being the guy you're holding
+                    {
+                        float newDistance = Vector3.Distance(transform.position, newPotential.transform.position);
+                        float oldDistance = Vector3.Distance(transform.position, potentialItem.transform.position);
+                        if (oldDistance > newDistance)//new item is closer? its now the main one you interact with
+                        {
+                            potentialItem = newPotential;
+                        }
+                    }
                 }
                 else
                 {
-                    if(itemsHere.Count > 1)
+                    potentialItem = hit.collider.GetComponent<Item>();
+                    if (potentialItem == itemHeld)//if the item you're looking at is the one you're holding, FORGET IT
                     {
-                        bool added = OrderManager.me.order.Add(itemHeld);
-                        if (added)
+                        potentialItem = null;
+                    }
+                }
+            }
+            if (hit.collider.tag == "Counter")
+            {
+                if(potentialCounter != null)//you're already looking at a counter
+                {
+                    Transform newPotential = hit.collider.transform;
+                    float newDistance = Vector3.Distance(transform.position, newPotential.position);
+                    float oldDistance = Vector3.Distance(transform.position, potentialCounter.position);
+                    if(oldDistance > newDistance)//new counter is closer, you're looking at it instead
+                    {
+                        potentialCounter = newPotential;
+                    }
+                }
+                else//you're not already looking at a counter
+                {
+                    potentialCounter = hit.collider.transform;
+                }
+            }
+        }
+        if (Input.GetButtonDown(pickUpAxis + myPlayerName))
+        {
+            if(itemHeld != null)//you're holding an item, now gonna drop it
+            {
+                bool placed = false;
+                if(potentialItem != null)//combine items
+                {
+                    //weird shit with combining
+                    if(potentialItem is Plate)
+                    {
+                        Plate plate = (Plate)potentialItem;
+                        placed = plate.plated.Add(itemHeld);
+                        Destroy(itemHeld.gameObject);
+                        itemHeld = null;
+                        Debug.Log(placed);
+                    }
+                }
+                if (placed == false && potentialCounter != null)//place item on counter
+                {
+                    itemHeld.transform.position = potentialCounter.position + Vector3.up * 0.75f;
+
+                    //see if you're putting it on a stove
+                    Stove stove = potentialCounter.GetComponent<Stove>();
+                    if(stove != null)
+                    {
+                        stove.itemHere = itemHeld;
+                    }
+                    //see if you're putting it on the serving counter
+                    ServingCounter servingCounter = potentialCounter.GetComponent<ServingCounter>();
+                    if(servingCounter != null)
+                    {
+                        if(potentialItem is Plate)
                         {
-                            Destroy(itemHeld.gameObject);
+                            servingCounter.Serve((Plate)potentialItem);
                         }
                     }
-                    if (counterHere)
-                    {
-                        itemHeld.transform.position = counterPos.position;
-                        itemHeld.transform.parent = counterPos.parent;
-                    }
+                    itemHeld = null;
+                    placed = true;
+                }
+                if(placed == false)
+                {
+                    itemHeld.rb.isKinematic = false;
                     itemHeld = null;
                 }
             }
-        }
-        //keep item on you
-        if (holdingItem)
-        {
-            itemHeld.transform.position = itemHoldingPos.position;
-            itemHeld.rb.velocity = Vector3.zero;
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag.Equals("Item"))
-        {
-            itemsHere.Add(other.transform.GetComponent<Item>());
-        }
-        if (other.tag.Equals("Counter"))
-        {
-            counterPos = other.transform.GetChild(0);
-            counterHere = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag.Equals("Item"))
-        {
-            int i = 0;
-            foreach(Item item in itemsHere)
+            else//you're holding nothing
             {
-                if(item == itemHeld)
+                if (potentialItem != null)//you're looking at an item
                 {
-                    continue;
+                    Debug.Log("picked up");
+                    itemHeld = potentialItem;
+                    itemHeld.rb.isKinematic = true;
+                    itemHeld.transform.position = transform.position + transform.forward;
                 }
-                if(item.gameObject == other.transform.gameObject)
-                {
-                    break;
-                }
-                i++;
-            }
-            if(itemsHere.Count >= i)
-            {
-                itemsHere.RemoveAt(i);
             }
         }
-        if (other.tag.Equals("Counter"))
-        {
-            if(other.transform.GetChild(0) == counterPos)
-            {
-                counterPos = null;
-                counterHere = false;
-            }
-        }
+
     }
+    void DisplayRay(Ray ray,float radius,float distance)
+    {
+        //Debug.DrawRay(ray.origin, ray.direction, Color.red);
+        Debug.DrawLine(ray.origin, ray.origin+ray.direction*distance,Color.red);
+    }
+
 }
