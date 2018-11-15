@@ -12,17 +12,9 @@ public class Stove : MonoBehaviour {
     bool cooking;
 	// Update is called once per frame
 	void Update () {
-		if(cooking == false)
+		if(cooking == false)//not cooking
         {
-            if (transform.childCount > 1 && itemHere == null)
-            {
-                Item item = GetComponentInChildren<Item>();
-                if (item != null)
-                {
-                    itemHere = item;
-                }
-            }
-            if (itemHere != null)
+            if (itemHere != null)//woah we should start cooking
             {
                 startTime = Time.time;
                 doneTime = Time.time + 2;
@@ -32,13 +24,14 @@ public class Stove : MonoBehaviour {
         }
         else
         {
-            if(itemHere == null)
+            if(itemHere == null)//hey item isn't here anymore
             {
                 cooking = false;
             }
             if(Time.time > doneTime)
             {
                 itemHere.percentToNextLevel += Time.deltaTime;
+                itemHere = null;
             }
         }
 
