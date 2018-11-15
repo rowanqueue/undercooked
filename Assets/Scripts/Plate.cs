@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Plate : Item {
 
-    public Order plated;
+    public Order plated; //Items on plate, to be compared at ServingCounter
 
 	// Use this for initialization
 	void Start () {
