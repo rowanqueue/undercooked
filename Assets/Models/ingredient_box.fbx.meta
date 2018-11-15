@@ -1,104 +1,71 @@
 fileFormatVersion: 2
-guid: d875607592c81664198b905aaef6465d
+guid: 2955d23e46e88f643b7d3abbbf8f9125
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: pCube2
-    100002: pCube3
-    100004: pCube4
-    100006: pCylinder10
-    100008: pCylinder11
-    100010: pCylinder12
-    100012: pCylinder6
-    100014: pCylinder7
-    100016: pCylinder8
-    100018: pCylinder9
-    100020: polySurface68
+    100000: //RootNode
+    100002: pCube1
+    100004: pCube3
+    100006: pCube4
+    100008: pCube5
+    100010: pCube6
+    100012: pCube7
+    100014: pCube8
+    100016: pCylinder6
+    100018: polySurface68
+    100020: polySurface68 1
     100022: polySurface69
-    100024: polySurface69 1
-    100026: polySurface70
-    100028: pTorus1
-    100030: pTorus2
-    100032: //RootNode
-    100034: transform1
-    100036: transform2
-    100038: transform3
-    100040: transform4
-    100042: pCube5
-    100044: pCube6
-    100046: pSphere1
-    100048: pSphere2
-    400000: pCube2
-    400002: pCube3
-    400004: pCube4
-    400006: pCylinder10
-    400008: pCylinder11
-    400010: pCylinder12
-    400012: pCylinder6
-    400014: pCylinder7
-    400016: pCylinder8
-    400018: pCylinder9
-    400020: polySurface68
+    100024: polySurface70
+    100026: polySurface71
+    100028: polySurface72
+    100030: polySurface74
+    100032: transform1
+    100034: transform10
+    100036: transform11
+    100038: transform12
+    100040: transform2
+    100042: transform3
+    100044: transform4
+    100046: transform5
+    100048: transform6
+    100050: transform7
+    100052: transform8
+    100054: transform9
+    400000: //RootNode
+    400002: pCube1
+    400004: pCube3
+    400006: pCube4
+    400008: pCube5
+    400010: pCube6
+    400012: pCube7
+    400014: pCube8
+    400016: pCylinder6
+    400018: polySurface68
+    400020: polySurface68 1
     400022: polySurface69
-    400024: polySurface69 1
-    400026: polySurface70
-    400028: pTorus1
-    400030: pTorus2
-    400032: //RootNode
-    400034: transform1
-    400036: transform2
-    400038: transform3
-    400040: transform4
-    400042: pCube5
-    400044: pCube6
-    400046: pSphere1
-    400048: pSphere2
+    400024: polySurface70
+    400026: polySurface71
+    400028: polySurface72
+    400030: polySurface74
+    400032: transform1
+    400034: transform10
+    400036: transform11
+    400038: transform12
+    400040: transform2
+    400042: transform3
+    400044: transform4
+    400046: transform5
+    400048: transform6
+    400050: transform7
+    400052: transform8
+    400054: transform9
     2100000: lambert1
-    2300000: pCube3
-    2300002: pCylinder10
-    2300004: pCylinder11
-    2300006: pCylinder12
-    2300008: pCylinder7
-    2300010: pCylinder8
-    2300012: pCylinder9
-    2300014: polySurface68
-    2300016: polySurface70
-    2300018: pTorus1
-    2300020: pTorus2
-    2300022: pCube5
-    2300024: pCube6
-    2300026: pSphere1
-    2300028: pSphere2
-    3300000: pCube3
-    3300002: pCylinder10
-    3300004: pCylinder11
-    3300006: pCylinder12
-    3300008: pCylinder7
-    3300010: pCylinder8
-    3300012: pCylinder9
-    3300014: polySurface68
-    3300016: polySurface70
-    3300018: pTorus1
-    3300020: pTorus2
-    3300022: pCube5
-    3300024: pCube6
-    3300026: pSphere1
-    3300028: pSphere2
-    4300000: polySurface68
-    4300002: pCube3
-    4300004: pCylinder7
-    4300006: pCylinder8
-    4300008: polySurface70
-    4300010: pCylinder9
-    4300012: pCylinder10
-    4300014: pCylinder11
-    4300016: pCylinder12
-    4300018: pTorus1
-    4300020: pTorus2
-    4300022: pCube5
-    4300024: pCube6
-    4300026: pSphere1
-    4300028: pSphere2
+    2300000: pCube8
+    2300002: polySurface74
+    3300000: pCube8
+    3300002: polySurface74
+    4300000: polySurface74
+    4300002: pCube8
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -130,7 +97,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 9.3
+    globalScale: 9
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
