@@ -20,7 +20,7 @@ public class ServingCounter : MonoBehaviour {
         timer += Time.deltaTime;
 	}
 
-    public int Serve(Plate served)
+    public int Serve(Plate served) //find order in requested and deliver it
     {
         if (served.plated.Equals(requested[0]))
         {
