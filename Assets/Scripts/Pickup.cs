@@ -82,7 +82,7 @@ public class Pickup : MonoBehaviour {
                     if(potentialItem is Plate)
                     {
                         Plate plate = (Plate)potentialItem;
-                        placed = plate.plated.Add(itemHeld);
+                        placed = plate.plated.Add(itemHeld.stats);
                         Destroy(itemHeld.gameObject);
                         itemHeld = null;
                         Debug.Log(placed);
@@ -124,6 +124,16 @@ public class Pickup : MonoBehaviour {
                     itemHeld = potentialItem;
                     itemHeld.rb.isKinematic = true;
                     itemHeld.transform.position = transform.position + transform.forward;
+                }
+                else
+                {
+                    if (potentialCounter != null)//you are looking at a counter
+                    {
+                        if (potentialCounter.tag == "Box")
+                        {
+                            Instantiate(Resources.Load("Item"), potentialCounter);
+                        }
+                    }
                 }
             }
         }

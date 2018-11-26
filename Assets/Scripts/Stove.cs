@@ -26,7 +26,7 @@ public class Stove : MonoBehaviour {
         {
             if (itemHere != null) //Item is here and cooking
             {
-                itemHere.percentToNextLevel += Time.deltaTime;
+                itemHere.stats.percentToNextLevel += Time.deltaTime;
             }
             else //hey item isn't here anymore
             {
