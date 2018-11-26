@@ -125,6 +125,16 @@ public class Pickup : MonoBehaviour {
                     itemHeld.rb.isKinematic = true;
                     itemHeld.transform.position = transform.position + transform.forward;
                 }
+                else
+                {
+                    if(potentialCounter != null)//you are looking at a counter
+                    {
+                        if(potentialCounter.tag == "Box")
+                        {
+                            Instantiate(Resources.Load("Item"), potentialCounter);
+                        }
+                    }
+                }
             }
         }
 
