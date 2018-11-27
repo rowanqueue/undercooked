@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -36,12 +37,14 @@ public class Movement : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		coolDown = CoolingDown();
 		speed = walkingSpeed;
+		
+		
 	}
 
 	void Update()
 	{	
 		playerPos = transform.position;
-		
+		playerPos.y = 0.65f;
 		//Get input values 
 		float Horizontal = Input.GetAxis("Horizontal"+ myPlayerName);
 		float Vertical = Input.GetAxis("Vertical" + myPlayerName);
@@ -50,14 +53,14 @@ public class Movement : MonoBehaviour
 		//Set input vector in relation to axis values 
 		inputVector = (Vector3.forward * Vertical);
 		inputVector += (Vector3.right * Horizontal);
-		
+		LockPosition();//This will prevent the players from pushing players when they're not boosting 
 		//have player face where they're moving 
 		IsBoosting();
 		if (inputVector != Vector3.zero)
 		{
 			transform.forward = inputVector;
 		}
-
+	
 	}
 
 
@@ -117,14 +120,47 @@ public class Movement : MonoBehaviour
 			boostCooldown = false;
 		}
 	}
+
+	void LockPosition()
+	{
+		Ray LookRay = new Ray(transform.position,transform.forward);
+
+		float maxrayDist = .65f;
+		RaycastHit otherPlayer; //RayCast hit, this script only checks if it is hitting the other player
+		
+		Debug.DrawRay(LookRay.origin,LookRay.direction* maxrayDist ,Color.yellow);
+
+		if (Physics.Raycast(LookRay, maxrayDist)&& !bounce)
+		{
+			if (CompareTag("Player"))
+			{
+				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ; //If player is colliding with the other player freeze position 
+			}	
+			
+		}
+		else
+		{  //Turn all constraints off then rotation constraints back on
+			rb.constraints = RigidbodyConstraints.None;
+			rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY |
+			                 RigidbodyConstraints.FreezeRotationZ;
+		}
+		
+	}
 	
 	void OnCollisionEnter(Collision other)
 	{
-		if (other.gameObject.CompareTag("Player") && boosting )
+		if (other.gameObject.CompareTag("Player"))
 		{
-			bounce = true; //if players collide set bounce to true
-						//this will only be used if the player is boosting 
+			if (boosting)
+			{
+				bounce = true; //if players collide set bounce to true
+				//this will only be used if the player is boosting 
+			}
 
+			if (!boosting)
+			{
+				
+			}
 		}	
 	}
 }
