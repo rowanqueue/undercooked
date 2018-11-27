@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ServingCounter : MonoBehaviour {
+public class ServingCounter : Counter {
 
     public float timer;
     public List<Order> requested;
@@ -17,7 +17,11 @@ public class ServingCounter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timer += Time.deltaTime;
-	}
+        if (itemHere != null && itemHere.gameObject.transform.position != counterPos)
+        {
+            itemHere.gameObject.transform.position = counterPos;
+        }
+    }
 
     public int Serve(Plate served) //find order in requested and deliver it
     {
