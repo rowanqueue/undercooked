@@ -143,10 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   name: lettuce
-  typeList:
-  - raw
-  - chopped
-  - combined
   turnsInto: {fileID: 0}
 --- !u!135 &135565317770046238
 SphereCollider:
