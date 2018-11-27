@@ -13,7 +13,10 @@
           <e p="Movement.cs" t="Include" />
           <e p="Order.cs" t="Include" />
           <e p="Pickup.cs" t="Include" />
+          <e p="Plate.cs" t="Include" />
           <e p="ServingCounter.cs" t="Include" />
+          <e p="Stove.cs" t="Include" />
+          <e p="Timer.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
