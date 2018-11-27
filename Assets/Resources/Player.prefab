@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328707907986432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9269943, y: 1.3554417, z: -14.509798}
+  m_LocalPosition: {x: -1.3368355, y: 0.03514892, z: -1.9216877}
   m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_Children:
   - {fileID: 4645788545936604}
@@ -173,7 +173,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &114301817039568366
 MonoBehaviour:
@@ -186,10 +186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38b43086400ac7458f727d4aacc4729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 5
-  boostMultiplier: 2.5
   boostTime: 0.3
   boostCooldownTime: 1
+  walkingSpeed: 5
+  boostMultiplier: 2.5
   myPlayerName: Player1
 --- !u!114 &114539622883267164
 MonoBehaviour:

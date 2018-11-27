@@ -25,7 +25,7 @@ public class Pickup : MonoBehaviour {
         DisplayRay(ray, 1.5f, 1.5f);
         RaycastHit[] hits = Physics.SphereCastAll(ray, 1.5f, 1.5f);
         Item potentialItem = null;//where we locally store an item we could pick up
-        Transform potentialCounter = null;//storing a potentialCountertop
+        Counter potentialCounter = null;//storing a potentialCountertop
         foreach (RaycastHit hit in hits)
         {
             if (hit.collider == null) { continue; }
@@ -59,15 +59,15 @@ public class Pickup : MonoBehaviour {
                 {
                     Transform newPotential = hit.collider.transform;
                     float newDistance = Vector3.Distance(transform.position, newPotential.position);
-                    float oldDistance = Vector3.Distance(transform.position, potentialCounter.position);
+                    float oldDistance = Vector3.Distance(transform.position, potentialCounter.transform.position);
                     if(oldDistance > newDistance)//new counter is closer, you're looking at it instead
                     {
-                        potentialCounter = newPotential;
+                        potentialCounter = newPotential.GetComponent<Counter>();
                     }
                 }
                 else//you're not already looking at a counter
                 {
-                    potentialCounter = hit.collider.transform;
+                    potentialCounter = hit.collider.transform.GetComponent<Counter>();
                 }
             }
         }
@@ -83,21 +83,18 @@ public class Pickup : MonoBehaviour {
                     {
                         Plate plate = (Plate)potentialItem;
                         placed = plate.plated.Add(itemHeld.stats);
-                        Destroy(itemHeld.gameObject);
-                        itemHeld = null;
-                        Debug.Log(placed);
+                        if (placed)
+                        {
+                            Destroy(itemHeld.gameObject);
+                            itemHeld = null;
+                            Debug.Log(placed);
+                        }
                     }
                 }
                 if (placed == false && potentialCounter != null)//place item on counter
                 {
-                    itemHeld.transform.position = potentialCounter.position + Vector3.up * 0.75f;
+                    potentialCounter.itemHere = itemHeld;
 
-                    //see if you're putting it on a stove
-                    Stove stove = potentialCounter.GetComponent<Stove>();
-                    if(stove != null)
-                    {
-                        stove.itemHere = itemHeld;
-                    }
                     //see if you're putting it on the serving counter
                     ServingCounter servingCounter = potentialCounter.GetComponent<ServingCounter>();
                     if(servingCounter != null)
@@ -124,6 +121,7 @@ public class Pickup : MonoBehaviour {
                     itemHeld = potentialItem;
                     itemHeld.rb.isKinematic = true;
                     itemHeld.transform.position = transform.position + transform.forward;
+                    itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else
                 {
@@ -131,7 +129,7 @@ public class Pickup : MonoBehaviour {
                     {
                         if (potentialCounter.tag == "Box")
                         {
-                            Instantiate(Resources.Load("Item"), potentialCounter);
+                            Instantiate(Resources.Load("Item"), potentialCounter.transform);
                         }
                     }
                 }
