@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Order {
 
-    ItemStats[] contents;
+    public ItemStats[] contents;
 
     public Order() //creates order where all items are empty
     {
