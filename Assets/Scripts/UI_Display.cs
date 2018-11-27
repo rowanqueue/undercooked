@@ -35,6 +35,10 @@ public class UI_Display : MonoBehaviour
 	}
 	
 	// Update is called once per frame
+	//Only 5 possible orders at any given time
+	//If there are 5 orders. Queue additional orders, when orders are turned in pull order from queue orders. If none are in Queue then wait till timer
+	//Orders spawn every 15 seconds 
+	//Use rect transform 
 	void Update ()
 	{
 
@@ -44,10 +48,11 @@ public class UI_Display : MonoBehaviour
 		{
 			for (int i = 0; i < displayedImages.Length; i++)
 			{
-				ordersspace+= displayedImages[i].GetComponent<Renderer>().bounds.size.x;
+				ordersspace+= displayedImages[i].transform.GetComponent<Renderer>().bounds.size.x;
 				orderHeight = 31f;  //orders[i].GetComponent<Renderer>().bounds.size.y / (orders.Length * 2);
 				SpawnPoint=new Vector3(Screen.height-31f,(Screen.width+ordersspace)-Screen.width,0);
 				Debug.Log((ordersspace));
+				
 			}
 		}
 		
@@ -55,7 +60,7 @@ public class UI_Display : MonoBehaviour
 
 	public void SetUi()
 	{
-		if (Time.deltaTime - orderTime >= 10f)
+		if (Time.deltaTime - orderTime >= 15f)
 			{
 
 					GameObject newBurger = Instantiate(orders[ordertoDisplay], SpawnPoint, Quaternion.Euler(0,0,0));
