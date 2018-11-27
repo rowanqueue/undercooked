@@ -11,11 +11,11 @@ public class CuttingStation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(itemHere != null && itemHere.type == 1)//can be cut
+		if(itemHere != null && itemHere.stats.state.Equals("raw"))//can be cut
         {
             if (Input.GetKey(KeyCode.Q))
             {
-                itemHere.percentToNextLevel += Time.deltaTime * 0.5f;
+                itemHere.stats.percentToNextLevel += Time.deltaTime * 0.5f;
             }
         }
         if (transform.childCount > 2 && itemHere == null)
