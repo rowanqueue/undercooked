@@ -20,6 +20,7 @@ public class Order {
     {
         Order order = new Order();
         order.Add(new Item(5, "bun"));
+        UI_Display.ordertoDisplay = orderNum;
         if (orderNum > 0)
         {
             order.Add(new Item(4, "lettuce"));
@@ -29,6 +30,7 @@ public class Order {
             order.Add(new Item(4, "tomato"));
         }
         order.Add(new Item(4, "burger"));
+        Debug.Log(order.contents);
         return order;
     }
 
