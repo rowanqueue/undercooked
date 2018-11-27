@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingStation : MonoBehaviour {
+public class CuttingStation : Counter {
     public Item itemHere;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(itemHere != null && itemHere.stats.state.Equals("raw"))//can be cut
+    // Update is called once per frame
+    public override void Update()
+    {
+        base.Update();
+        if (itemHere != null && itemHere.stats.state.Equals("raw"))//can be cut
         {
             if (Input.GetKey(KeyCode.Q))
             {
@@ -21,10 +18,10 @@ public class CuttingStation : MonoBehaviour {
         if (transform.childCount > 2 && itemHere == null)
         {
             Item item = GetComponentInChildren<Item>();
-            if(item != null)
+            if (item != null)
             {
                 itemHere = item;
             }
         }
-	}
+    }
 }
