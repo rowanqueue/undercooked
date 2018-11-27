@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Plate : Item {
 
-    public Order plated; //Items on plate, to be compared at ServingCounter
-
-	// Use this for initialization
-	void Start () {
-        type = 0;
-        name = "plate";
+    public Order plated;
+    
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
-        plated = new Order();
-	}
+        stats = new ItemStats(name, "base");
+        plated = new Order(); //Items on plate, to be compared at ServingCounter
+    }
 }
