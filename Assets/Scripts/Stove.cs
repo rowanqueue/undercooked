@@ -23,7 +23,7 @@ public class Stove : Counter {
         }
         else//we're cooking now!!
         {
-            if (itemHere != null) //Item is here and cooking (need to add check for it being cookable later) (also where add pan check)
+            if (itemHere != null && itemHere.stats.Equals("chopped")) //Item is here and cooking  (also where add pan check)
             {
                 itemHere.stats.percentToNextLevel += Time.deltaTime;
             }
