@@ -19,6 +19,8 @@ public class Order {
     public static Order GenerateBurger(int orderNum) //orderNum integer 0-2, 0:basic burger, 1:lettuce burger, 2:lettuce tomato burger
     {
         Order order = new Order();
+        orderNum = UIOrders.numOrder;
+        Debug.Log(orderNum);
         order.Add(new ItemStats("bun", "base"));
         if (orderNum > 0)
         {
