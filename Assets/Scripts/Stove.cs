@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 //use: turn meat into COOKED MEAT
 //loc: on stove object
-public class Stove : MonoBehaviour {
-    public Item itemHere;
+public class Stove : Counter {
     public float doneTime;//when item is done cooking
     public float burnTime;//when item is gonna BURN
 
     float startTime;
     bool cooking;
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
+        base.Update();
         if (cooking == false)//not cooking
         {
             if (itemHere != null)//woah we should start cooking

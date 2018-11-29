@@ -17,6 +17,7 @@
           <e p="ServingCounter.cs" t="Include" />
           <e p="Stove.cs" t="Include" />
           <e p="Timer.cs" t="Include" />
+          <e p="UI_Display.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
