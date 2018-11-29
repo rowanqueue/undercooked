@@ -82,7 +82,7 @@ public class Pickup : MonoBehaviour {
                         if (itemHeld is Plate)
                         {
                             potentialCounter.itemHere = itemHeld;
-                            Destroy(itemHeld.gameObject);
+                            itemHeld = null;
                         }
                         else
                         {
@@ -93,6 +93,21 @@ public class Pickup : MonoBehaviour {
                     {
                         potentialCounter.itemHere = itemHeld;
                         itemHeld = null;
+                    }
+                    else if (potentialCounter.itemHere is Plate)
+                    {
+                        Plate plate = (Plate)potentialItem;
+                        if (plate.plated.Add(itemHeld.stats))
+                        {
+                            itemHeld.stats.state = "combined";
+                            Destroy(itemHeld.gameObject);
+                        }
+                    }
+                    else if (potentialCounter.itemHere is Pan)
+                    {
+                        Pan pan = (Pan)potentialItem;
+                        pan.cooking = itemHeld.stats;
+                        Destroy(itemHeld.gameObject);
                     }
                 }
                 else if (potentialItem != null)//combine items

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plate : Item {
+public class Pan : Item {
 
-    public Order plated;
-    
+    public ItemStats cooking;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         stats = new ItemStats(name, "base");
-        plated = new Order(); //Items on plate, to be compared at ServingCounter
+        cooking = null;
     }
 }
