@@ -23,7 +23,7 @@ public class Pickup : MonoBehaviour {
         //this code just looks at what you're seeing
         Ray ray = new Ray(transform.position, transform.forward);
         DisplayRay(ray, 1.5f, 1.5f);
-        RaycastHit[] hits = Physics.SphereCastAll(ray, 1.5f, 1.5f);
+        RaycastHit[] hits = Physics.SphereCastAll(ray, .75f, .75f);
         Item potentialItem = null;//where we locally store an item we could pick up
         Counter potentialCounter = null;//storing a potentialCountertop
         foreach (RaycastHit hit in hits)
@@ -75,39 +75,56 @@ public class Pickup : MonoBehaviour {
         {
             if(itemHeld != null)//you're holding an item, now gonna drop it
             {
-                bool placed = false;
-                if(potentialItem != null)//combine items
+                if (potentialCounter != null)//place item on counter
+                {
+                    if (potentialCounter is ServingCounter)
+                    {
+                        if (itemHeld is Plate)
+                        {
+                            potentialCounter.itemHere = itemHeld;
+                            itemHeld = null;
+                        }
+                        else
+                        {
+                            NeedsPlate();
+                        }
+                    }
+                    else if (potentialCounter.itemHere == null)
+                    {
+                        potentialCounter.itemHere = itemHeld;
+                        itemHeld = null;
+                    }
+                    else if (potentialCounter.itemHere is Plate)
+                    {
+                        Plate plate = (Plate)potentialItem;
+                        if (plate.plated.Add(itemHeld.stats))
+                        {
+                            itemHeld.stats.state = "combined";
+                            Destroy(itemHeld.gameObject);
+                        }
+                    }
+                    else if (potentialCounter.itemHere is Pan)
+                    {
+                        Pan pan = (Pan)potentialItem;
+                        pan.cooking = itemHeld.stats;
+                        Destroy(itemHeld.gameObject);
+                    }
+                }
+                else if (potentialItem != null)//combine items
                 {
                     //weird shit with combining
                     if(potentialItem is Plate)
                     {
                         Plate plate = (Plate)potentialItem;
-                        placed = plate.plated.Add(itemHeld.stats);
-                        if (placed)
+                        if (plate.plated.Add(itemHeld.stats))
                         {
+                            itemHeld.stats.state = "combined";
                             Destroy(itemHeld.gameObject);
                             itemHeld = null;
-                            Debug.Log(placed);
                         }
                     }
                 }
-                if (placed == false && potentialCounter != null)//place item on counter
-                {
-                    potentialCounter.itemHere = itemHeld;
-
-                    //see if you're putting it on the serving counter
-                    ServingCounter servingCounter = potentialCounter.GetComponent<ServingCounter>();
-                    if(servingCounter != null)
-                    {
-                        if(potentialItem is Plate)
-                        {
-                            servingCounter.Serve((Plate)potentialItem);
-                        }
-                    }
-                    itemHeld = null;
-                    placed = true;
-                }
-                if(placed == false)
+                else
                 {
                     itemHeld.rb.isKinematic = false;
                     itemHeld = null;
@@ -117,7 +134,6 @@ public class Pickup : MonoBehaviour {
             {
                 if (potentialItem != null)//you're looking at an item
                 {
-                    Debug.Log("picked up");
                     itemHeld = potentialItem;
                     itemHeld.rb.isKinematic = true;
                     itemHeld.transform.position = transform.position + transform.forward;
@@ -141,10 +157,16 @@ public class Pickup : MonoBehaviour {
         }
 
     }
+
     void DisplayRay(Ray ray,float radius,float distance)
     {
         //Debug.DrawRay(ray.origin, ray.direction, Color.red);
         Debug.DrawLine(ray.origin, ray.origin+ray.direction*distance,Color.red);
     }
 
+    void NeedsPlate()
+    {
+        Debug.Log("needs plate!");
+        //TODO spawn red-outlined text saying needs plate that floats up and disappears
+    }
 }
