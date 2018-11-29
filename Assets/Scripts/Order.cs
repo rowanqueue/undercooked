@@ -19,7 +19,7 @@ public class Order {
     public static Order GenerateBurger(int orderNum) //orderNum integer 0-2, 0:basic burger, 1:lettuce burger, 2:lettuce tomato burger
     {
         Order order = new Order();
-        order.Add(new ItemStats("bun", "base"));
+        order.Add(new ItemStats("bun", "combined"));
         if (orderNum > 0)
         {
             order.Add(new ItemStats("lettuce", "combined"));
