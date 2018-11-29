@@ -143,9 +143,13 @@ public class Pickup : MonoBehaviour {
                 {
                     if (potentialCounter != null)//you are looking at a counter
                     {
-                        if (potentialCounter.tag == "Box")
+                        if (potentialCounter is Crate)//you're looking at a crate
                         {
-                            Instantiate(Resources.Load("Item"), potentialCounter.transform);
+                            if(potentialCounter.itemHere == null)
+                            {
+                                Crate crate = (Crate)potentialCounter;
+                                crate.SpawnItem();
+                            }
                         }
                     }
                 }

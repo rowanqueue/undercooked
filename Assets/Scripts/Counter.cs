@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Counter : MonoBehaviour {
 
-    public Item itemHere;
-    public Transform counterPos;
+    public Item itemHere;//item sitting on this counter
+    public Vector3 counterPos;//where item sits on the counter
 	
-	void Update () {
-        if (itemHere != null && itemHere.gameObject.transform.position != counterPos.position)
+	public virtual void Update () {
+        if (itemHere != null && itemHere.gameObject.transform.position != transform.position + counterPos)
         {
-            itemHere.gameObject.transform.position = counterPos.position;
+            itemHere.gameObject.transform.position = transform.position + counterPos;
         }
 	}
 }
