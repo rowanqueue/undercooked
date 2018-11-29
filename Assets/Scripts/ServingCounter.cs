@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ServingCounter : MonoBehaviour {
+public class ServingCounter : Counter {
 
     public float timer;
     public List<Order> requested;
-    public bool firstOrder;
 
 	// Use this for initialization
 	void Start () {
         timer = 0;
         requested = new List<Order>();
-        requested.Add(Order.GenerateBurger(1));
+        requested.Add(Order.GenerateBurger(0));
 	}
 	
 	// Update is called once per frame
 	void Update () {
         timer += Time.deltaTime;
-	}
+        if (itemHere != null && itemHere.gameObject.transform.position != counterPos)
+        {
+            itemHere.gameObject.transform.position = counterPos;
+        }
+    }
 
     public int Serve(Plate served) //find order in requested and deliver it
     {
