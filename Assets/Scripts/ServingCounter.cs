@@ -27,7 +27,6 @@ public class ServingCounter : Counter {
             Destroy(itemHere.gameObject);
             itemHere = null;
         }
-        print(requested[0].ToString());
     }
 
     public int Serve(Plate served) //find order in requested and deliver it
