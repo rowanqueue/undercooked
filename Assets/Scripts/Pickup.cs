@@ -99,7 +99,6 @@ public class Pickup : MonoBehaviour {
                         Plate plate = (Plate)potentialItem;
                         if (plate.plated.Add(itemHeld.stats))
                         {
-                            itemHeld.stats.state = "combined";
                             Destroy(itemHeld.gameObject);
                         }
                     }
@@ -118,9 +117,7 @@ public class Pickup : MonoBehaviour {
                         Plate plate = (Plate)potentialItem;
                         if (plate.plated.Add(itemHeld.stats))
                         {
-                            itemHeld.stats.state = "combined";
                             Destroy(itemHeld.gameObject);
-                            itemHeld = null;
                         }
                     }
                 }
@@ -143,13 +140,9 @@ public class Pickup : MonoBehaviour {
                 {
                     if (potentialCounter != null)//you are looking at a counter
                     {
-                        if (potentialCounter is Crate)//you're looking at a crate
+                        if (potentialCounter.tag == "Box")
                         {
-                            if(potentialCounter.itemHere == null)
-                            {
-                                Crate crate = (Crate)potentialCounter;
-                                crate.SpawnItem();
-                            }
+                            Instantiate(Resources.Load("Item"), potentialCounter.transform);
                         }
                     }
                 }

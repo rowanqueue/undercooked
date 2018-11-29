@@ -15,12 +15,19 @@ public class ServingCounter : Counter {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
         timer += Time.deltaTime;
         if (itemHere != null && itemHere.gameObject.transform.position != counterPos)
         {
             itemHere.gameObject.transform.position = counterPos;
         }
+        if (itemHere != null && itemHere is Plate)
+        {
+            Serve((Plate)itemHere);
+            Destroy(itemHere.gameObject);
+            itemHere = null;
+        }
+        print(requested[0].ToString());
     }
 
     public int Serve(Plate served) //find order in requested and deliver it

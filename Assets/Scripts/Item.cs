@@ -16,6 +16,13 @@ public class Item : MonoBehaviour
     void Start () {
         rb = GetComponent<Rigidbody>();
         mr = GetComponentInChildren<MeshRenderer>();
-        stats = new ItemStats(name, "cooked");
+        if (name.Equals("bun"))
+        {
+            stats = new ItemStats(name, "base");
+        }
+        else
+        {
+            stats = new ItemStats(name, "chopped");
+        }
 	}
 }
