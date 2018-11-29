@@ -5,12 +5,12 @@ using UnityEngine;
 public class Counter : MonoBehaviour {
 
     public Item itemHere;
-    public Vector3 counterPos;
+    public Transform counterPos;
 	
 	void Update () {
-        if (itemHere != null && itemHere.gameObject.transform.position != counterPos)
+        if (itemHere != null && itemHere.gameObject.transform.position != counterPos.position)
         {
-            itemHere.gameObject.transform.position = counterPos;
+            itemHere.gameObject.transform.position = counterPos.position;
         }
 	}
 }

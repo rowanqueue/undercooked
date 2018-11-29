@@ -16,6 +16,6 @@ public class Item : MonoBehaviour
     void Start () {
         rb = GetComponent<Rigidbody>();
         mr = GetComponentInChildren<MeshRenderer>();
-        stats = new ItemStats(name, "raw");
+        stats = new ItemStats(name, "cooked");
 	}
 }
