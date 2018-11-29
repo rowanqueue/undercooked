@@ -683,10 +683,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   name: tomato
-  typeList:
-  - raw
-  - chopped
-  - combined
   turnsInto: {fileID: 0}
 --- !u!135 &135712292247474096
 SphereCollider:

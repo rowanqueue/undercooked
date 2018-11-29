@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 //use: turn meat into COOKED MEAT
 //loc: on stove object
-public class Stove : MonoBehaviour {
-    public Item itemHere;
+public class Stove : Counter {
     public float doneTime;//when item is done cooking
     public float burnTime;//when item is gonna BURN
 
     float startTime;
     bool cooking;
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
+        base.Update();
         if (cooking == false)//not cooking
         {
             if (itemHere != null)//woah we should start cooking
             {
                 startTime = Time.time;
-                doneTime = Time.time + 2;
                 burnTime = Time.time + 3;
                 cooking = true;
             }
         }
-        else
+        else//we're cooking now!!
         {
-            if (itemHere != null) //Item is here and cooking
+            if (itemHere != null && itemHere.stats.Equals("chopped")) //Item is here and cooking  (also where add pan check)
             {
                 itemHere.stats.percentToNextLevel += Time.deltaTime;
             }
@@ -32,9 +31,9 @@ public class Stove : MonoBehaviour {
             {
                 cooking = false;
             }
-            if (Time.time > doneTime)
+            if (Time.time > burnTime)
             {
-                itemHere = null;
+                //fire would happen here
             }
         }
 	}

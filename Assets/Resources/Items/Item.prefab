@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1253317934171080}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1253317934171080
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4475583562288310}
   - component: {fileID: 33955678063550182}
@@ -34,7 +34,7 @@ GameObject:
 --- !u!4 &4475583562288310
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253317934171080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -47,7 +47,7 @@ Transform:
 --- !u!23 &23076065188231636
 MeshRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253317934171080}
   m_Enabled: 1
@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: e6ecd049dea499146b17a6054b9fb29e, type: 2}
   m_StaticBatchInfo:
@@ -81,14 +82,14 @@ MeshRenderer:
 --- !u!33 &33955678063550182
 MeshFilter:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253317934171080}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54455918990193528
 Rigidbody:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253317934171080}
   serializedVersion: 2
@@ -103,7 +104,7 @@ Rigidbody:
 --- !u!114 &114206401278882008
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253317934171080}
   m_Enabled: 1
@@ -111,12 +112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34156f2957c7b64f99fc34c11102698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   rb: {fileID: 0}
+  name: 
+  turnsInto: {fileID: 0}
 --- !u!135 &135352505833743816
 SphereCollider:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253317934171080}
   m_Material: {fileID: 0}
