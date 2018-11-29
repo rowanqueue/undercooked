@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ServingCounter : MonoBehaviour {
+public class ServingCounter : Counter {
 
     public float timer;
     public List<Order> requested;
@@ -18,12 +18,20 @@ public class ServingCounter : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
         timer += Time.deltaTime;
 		OtherDisplayed = UIBorders.GetComponent<UIOrders>().DisplayedOrders;
-		
-		
-	}
+        if (itemHere != null && itemHere.gameObject.transform.position != transform.position + counterPos)
+        {
+            itemHere.gameObject.transform.position = transform.position + counterPos;
+        }
+        if (itemHere != null && itemHere is Plate)
+        {
+            Serve((Plate)itemHere);
+            Destroy(itemHere.gameObject);
+            itemHere = null;
+        }
+    }
 
     public int Serve(Plate served) //find order in requested and deliver it
     {
@@ -50,7 +58,6 @@ public class ServingCounter : MonoBehaviour {
 
 		        }
 	        }
-
 	        Debug.Log("Accepted");
             return 20;
         }
