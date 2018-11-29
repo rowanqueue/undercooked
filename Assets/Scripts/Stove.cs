@@ -17,14 +17,13 @@ public class Stove : Counter {
             if (itemHere != null)//woah we should start cooking
             {
                 startTime = Time.time;
-                doneTime = Time.time + 2;
                 burnTime = Time.time + 3;
                 cooking = true;
             }
         }
-        else
+        else//we're cooking now!!
         {
-            if (itemHere != null) //Item is here and cooking
+            if (itemHere != null) //Item is here and cooking (need to add check for it being cookable later) (also where add pan check)
             {
                 itemHere.stats.percentToNextLevel += Time.deltaTime;
             }
@@ -32,9 +31,9 @@ public class Stove : Counter {
             {
                 cooking = false;
             }
-            if (Time.time > doneTime)
+            if (Time.time > burnTime)
             {
-                itemHere = null;
+                //fire would happen here
             }
         }
 	}
