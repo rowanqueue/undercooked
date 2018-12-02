@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-	public float timer = 60f;
+	public float timer = 241f;
 	//hnghhhhhhh
+	private int minutes;
+	private int seconds;
+	
 
 	public Text timeRemaining; 
 	
@@ -18,11 +21,14 @@ public class Timer : MonoBehaviour
 		if (timer > 0)
 		{
 			timer -= Time.deltaTime;
-			timeRemaining.text = "" + (int)timer;
+			seconds = (int)timer % 60;
+			minutes = (int) timer / 60; 
+			timeRemaining.text = minutes + ":" + seconds;
 		}
 		else
 		{
 			Time.timeScale = 0;
+			
 		}
 	}
 }

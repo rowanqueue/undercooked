@@ -4125,12 +4125,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856046244}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 019814625c7a14340a16cd85fb43f728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 60
+  timer: 241
   timeRemaining: {fileID: 1161744012}
 --- !u!4 &856046246
 Transform:
@@ -5767,7 +5767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1161744010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5783,8 +5783,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 550, y: -283}
-  m_SizeDelta: {x: 104.8, y: 82.8}
+  m_AnchoredPosition: {x: 400, y: -199}
+  m_SizeDelta: {x: 314.7, y: 127.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1161744012
 MonoBehaviour:
@@ -8796,7 +8796,7 @@ Canvas:
   m_GameObject: {fileID: 1659005895}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1489990945}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
