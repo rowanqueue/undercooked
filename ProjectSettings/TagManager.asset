@@ -6,7 +6,9 @@ TagManager:
   tags:
   - Counter
   - Item
-  - Order
+  - SmallOrder
+  - MediumOrder
+  - LargeOrder
   layers:
   - Default
   - TransparentFX

@@ -44,7 +44,6 @@ public class Movement : MonoBehaviour
 	void Update()
 	{	
 		playerPos = transform.position;
-		playerPos.y = 0.65f;
 		//Get input values 
 		float Horizontal = Input.GetAxis("Horizontal"+ myPlayerName);
 		float Vertical = Input.GetAxis("Vertical" + myPlayerName);
@@ -134,7 +133,9 @@ public class Movement : MonoBehaviour
 		{
 			if (CompareTag("Player"))
 			{
-				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ; //If player is colliding with the other player freeze position 
+				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | 
+                                 RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY |
+                                 RigidbodyConstraints.FreezeRotationZ; //If player is colliding with the other player freeze position 
 			}	
 			
 		}
@@ -142,7 +143,7 @@ public class Movement : MonoBehaviour
 		{  //Turn all constraints off then rotation constraints back on
 			rb.constraints = RigidbodyConstraints.None;
 			rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY |
-			                 RigidbodyConstraints.FreezeRotationZ;
+			                 RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
 		}
 		
 	}
