@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4584640907940902}
   - component: {fileID: 65239375789221082}
-  - component: {fileID: 114160557950676336}
+  - component: {fileID: 114620591424029664}
   m_Layer: 0
   m_Name: count_Edge
   m_TagString: Counter
@@ -165,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1335285469661954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.454, y: 0, z: 0.027}
+  m_LocalPosition: {x: 2.406, y: 0, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4584640907940902}
@@ -246,9 +246,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1909746511497486}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5669, y: 0.61299986, z: 0.57699966}
-  m_LocalScale: {x: 0.9746505, y: 1, z: 1.0000005}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.796, y: 0.59199995, z: -0.78182}
+  m_LocalScale: {x: 0.98747045, y: 1, z: 1.0000005}
   m_Children:
   - {fileID: 4905749509956928}
   - {fileID: 4225656997817232}
@@ -505,7 +505,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9832761, y: 0.5497298, z: 1.0033894}
   m_Center: {x: 2.405986, y: -0.3104331, z: -0.00070953334}
---- !u!114 &114160557950676336
+--- !u!114 &114620591424029664
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -517,4 +517,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemHere: {fileID: 0}
-  counterPos: {x: 0, y: 0.5, z: 0}
+  counterPos: {fileID: 4225656997817232}

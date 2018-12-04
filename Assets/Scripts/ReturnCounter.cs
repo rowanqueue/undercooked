@@ -9,18 +9,13 @@ public class ReturnCounter : Counter {
 	void Awake () {
         me = this;
 	}
-	
-	// Update is called once per frame
-    public override void Update () {
-        base.Update();
-	}
     public void ReturnPlate()//this should be called by servingcounter to place a new plate here
     {
         numPlates++;
         if(numPlates == 1)//first plate here
         {
             GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), transform) as GameObject;
-            obj.transform.position = transform.position + counterPos;
+            obj.transform.position = counterPos.position;
             itemHere = obj.GetComponent<Item>();
         }
     }

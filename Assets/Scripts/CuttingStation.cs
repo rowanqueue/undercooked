@@ -8,7 +8,7 @@ public class CuttingStation : Counter {
     public override void Update()
     {
         base.Update();
-        if (itemHere != null && itemHere.stats.state.Equals("raw"))//can be cut
+        if (itemHere != null && itemHere.state.Equals("raw"))//can be cut
         {
             canBeUsed = true;
         }
@@ -19,9 +19,12 @@ public class CuttingStation : Counter {
         }
         if (isCutting)
         {
-            itemHere.stats.percentToNextLevel += Time.deltaTime;
-            if(itemHere.stats.percentToNextLevel >= 1)
+            itemHere.percentToNextLevel += Time.deltaTime;
+            if(itemHere.percentToNextLevel >= 1)
             {
+                GameObject chopped = Instantiate(itemHere.turnsInto, itemHere.transform.position, itemHere.transform.rotation);
+                Destroy(itemHere.gameObject);
+                itemHere = chopped.GetComponent<Item>();
                 isCutting = false;
             }
         }

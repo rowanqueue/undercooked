@@ -12738,6 +12738,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   name: bun
+  state: base
+  percentToNextLevel: 0
   turnsInto: {fileID: 0}
 --- !u!135 &135148149818011060
 SphereCollider:

@@ -104,7 +104,7 @@ public class Pickup : MonoBehaviour {
                     else if (potentialCounter.itemHere is Plate)
                     {
                         Plate plate = (Plate)potentialItem;
-                        if (plate.plated.Add(itemHeld.stats))
+                        if (plate.plated.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
                             Destroy(itemHeld.gameObject);
                         }
@@ -112,7 +112,7 @@ public class Pickup : MonoBehaviour {
                     else if (potentialCounter.itemHere is Pan)
                     {
                         Pan pan = (Pan)potentialItem;
-                        pan.cooking = itemHeld.stats;
+                        pan.cooking = itemHeld;
                         Destroy(itemHeld.gameObject);
                     }
                 }
@@ -122,7 +122,7 @@ public class Pickup : MonoBehaviour {
                     if(potentialItem is Plate)
                     {
                         Plate plate = (Plate)potentialItem;
-                        if (plate.plated.Add(itemHeld.stats))
+                        if (plate.plated.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
                             Destroy(itemHeld.gameObject);
                         }
