@@ -163,11 +163,8 @@ public class UIOrders : MonoBehaviour
 						t.position -= new Vector3(57, 0, 0);
 
 					}
-
 				}
-
 			}
-
 			Completed = false;
 		}
 	}

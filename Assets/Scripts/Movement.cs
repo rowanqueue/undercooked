@@ -59,6 +59,7 @@ public class Movement : MonoBehaviour
 		if (inputVector != Vector3.zero)
 		{
 			transform.forward = inputVector;
+			inputVector.y = 0;
 		}
 	
 	}
@@ -72,6 +73,7 @@ public class Movement : MonoBehaviour
 			
 			rb.MovePosition(playerPos + inputVector * speed * Time.deltaTime);
 			
+
 		}
 		// if players collide and are boosting speed will change 
 		if (bounce)
@@ -132,11 +134,11 @@ public class Movement : MonoBehaviour
 
 		if (Physics.Raycast(LookRay, maxrayDist)&& !bounce)
 		{
-			if (CompareTag("Player"))
+			if (CompareTag("Player") || CompareTag("Counter"))
 			{
 				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ; //If player is colliding with the other player freeze position 
-			}	
-			
+			}
+
 		}
 		else
 		{  //Turn all constraints off then rotation constraints back on
