@@ -102,6 +102,7 @@ ModelImporter:
     400094: polySurface9
     400096: transform17
     2100000: lambert1
+    2100002: lambert2
     2300000: polySurface7
     2300002: pSphere1
     2300004: pSphere2
@@ -216,7 +217,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

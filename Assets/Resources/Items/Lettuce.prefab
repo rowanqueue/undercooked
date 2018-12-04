@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1909472259419672}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.029, z: 0}
+  m_LocalPosition: {x: 0, y: 0.082, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4906198024375376}
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986411321026986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.673}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4180325360670926}
@@ -143,7 +143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   name: lettuce
-  turnsInto: {fileID: 0}
+  state: raw
+  percentToNextLevel: 0
+  turnsInto: {fileID: 1329096369823010, guid: 347c33f7fea121a448e8ec9a7818b5a2, type: 2}
 --- !u!135 &135565317770046238
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -154,5 +156,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.26
-  m_Center: {x: 0, y: 0.02, z: 0}
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0.09, z: 0}

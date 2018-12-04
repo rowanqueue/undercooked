@@ -5,17 +5,24 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public Rigidbody rb;
-    public string name;
-    public ItemStats stats;
+    public new string name;
+    public string state;
+    public float percentToNextLevel;
     public GameObject turnsInto;
 
-    private Dictionary<string, IEnumerable> types;
-
-    MeshRenderer mr;
-
-    void Start () {
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
-        mr = GetComponentInChildren<MeshRenderer>();
-        stats = new ItemStats(name, "cooked");
-	}
+        percentToNextLevel = 0;
+    }
+
+    public bool Equals(Item i)
+    {
+        return i.name.Equals(name) && i.state.Equals(state);
+    }
+
+    public bool Equals(ItemStats i)
+    {
+        return i.name.Equals(name) && i.state.Equals(state);
+    }
 }

@@ -44,7 +44,6 @@ public class Movement : MonoBehaviour
 	void Update()
 	{	
 		playerPos = transform.position;
-		playerPos.y = 0.65f;
 		//Get input values 
 		float Horizontal = Input.GetAxis("Horizontal"+ myPlayerName);
 		float Vertical = Input.GetAxis("Vertical" + myPlayerName);
@@ -59,7 +58,6 @@ public class Movement : MonoBehaviour
 		if (inputVector != Vector3.zero)
 		{
 			transform.forward = inputVector;
-			inputVector.y = 0;
 		}
 	
 	}
@@ -73,7 +71,6 @@ public class Movement : MonoBehaviour
 			
 			rb.MovePosition(playerPos + inputVector * speed * Time.deltaTime);
 			
-
 		}
 		// if players collide and are boosting speed will change 
 		if (bounce)
@@ -134,17 +131,19 @@ public class Movement : MonoBehaviour
 
 		if (Physics.Raycast(LookRay, maxrayDist)&& !bounce)
 		{
-			if (CompareTag("Player") || CompareTag("Counter"))
+			if (CompareTag("Player"))
 			{
-				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ; //If player is colliding with the other player freeze position 
-			}
-
+				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | 
+                                 RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY |
+                                 RigidbodyConstraints.FreezeRotationZ; //If player is colliding with the other player freeze position 
+			}	
+			
 		}
 		else
 		{  //Turn all constraints off then rotation constraints back on
 			rb.constraints = RigidbodyConstraints.None;
 			rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY |
-			                 RigidbodyConstraints.FreezeRotationZ;
+			                 RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
 		}
 		
 	}

@@ -9,7 +9,11 @@ public class Plate : Item {
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        stats = new ItemStats(name, "base");
         plated = new Order(); //Items on plate, to be compared at ServingCounter
+    }
+
+    private void Update()
+    {
+        print(plated.ToString());
     }
 }
