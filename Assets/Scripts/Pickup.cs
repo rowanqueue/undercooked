@@ -4,7 +4,8 @@ using UnityEngine;
 //use: pick stuff up! put it down!
 //loc: on pick up cube child of player
 public class Pickup : MonoBehaviour {
-    public string pickUpAxis;
+    public string pickUpAxis;//button to pick stuff up
+    public string interactAxis;//button to interact with stuff
     public string myPlayerName;
 
     public Item itemHeld;//what item you're holding
@@ -77,7 +78,7 @@ public class Pickup : MonoBehaviour {
             {
                 if (potentialCounter != null)//place item on counter
                 {
-                    if (potentialCounter is ServingCounter)
+                    if (potentialCounter is ServingCounter)//SERVING!!
                     {
                         if (itemHeld is Plate)
                         {
@@ -88,6 +89,12 @@ public class Pickup : MonoBehaviour {
                         {
                             NeedsPlate();
                         }
+                    }
+                    else if(potentialCounter is TrashCan)//you're throwing it away!!
+                    {
+                        TrashCan trashCan = (TrashCan)potentialCounter;
+                        trashCan.DeleteItem(itemHeld);
+                        itemHeld = null;
                     }
                     else if (potentialCounter.itemHere == null)
                     {
@@ -144,11 +151,36 @@ public class Pickup : MonoBehaviour {
                         {
                             Instantiate(Resources.Load("Item"), potentialCounter.transform);
                         }
+                        if(potentialCounter is ReturnCounter)//getting a plate from return
+                        {
+                            ReturnCounter rc = (ReturnCounter)potentialCounter;
+                            if (rc.GetPlate())//you can grab a plate
+                            {
+                                GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), transform) as GameObject;
+                                itemHeld = obj.GetComponent<Item>();
+                            }
+                        }
                     }
                 }
             }
         }
-
+        if(Input.GetButton(interactAxis + myPlayerName))
+        {
+            if(itemHeld == null)//not holding an item
+            {
+                if(potentialCounter != null)//looking at a counter
+                {
+                    if(potentialCounter is CuttingStation)
+                    {
+                        CuttingStation cuttingStation = (CuttingStation)potentialCounter;
+                        if (cuttingStation.canBeUsed)
+                        {
+                            cuttingStation.isCutting = true;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     void DisplayRay(Ray ray,float radius,float distance)
