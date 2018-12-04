@@ -58,6 +58,7 @@ public class Movement : MonoBehaviour
 		if (inputVector != Vector3.zero)
 		{
 			transform.forward = inputVector;
+			inputVector.y = 0;
 		}
 	
 	}
@@ -131,7 +132,7 @@ public class Movement : MonoBehaviour
 
 		if (Physics.Raycast(LookRay, maxrayDist)&& !bounce)
 		{
-			if (CompareTag("Player"))
+			if (CompareTag("Player") || CompareTag("Counter"))
 			{
 				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | 
                                  RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY |

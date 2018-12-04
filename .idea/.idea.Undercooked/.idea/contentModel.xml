@@ -18,10 +18,12 @@
           <e p="Pan.cs" t="Include" />
           <e p="Pickup.cs" t="Include" />
           <e p="Plate.cs" t="Include" />
+          <e p="ReturnCounter.cs" t="Include" />
           <e p="ServingCounter.cs" t="Include" />
           <e p="SoundController.cs" t="Include" />
           <e p="Stove.cs" t="Include" />
           <e p="Timer.cs" t="Include" />
+          <e p="TrashCan.cs" t="Include" />
           <e p="UIOrders.cs" t="Include" />
         </e>
       </e>
