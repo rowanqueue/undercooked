@@ -21,9 +21,9 @@ public class ServingCounter : Counter {
 	public override void Update () {
         timer += Time.deltaTime;
 		OtherDisplayed = UIBorders.GetComponent<UIOrders>().DisplayedOrders;
-        if (itemHere != null && itemHere.gameObject.transform.position != transform.position + counterPos)
+        if (itemHere != null && itemHere.gameObject.transform.position != counterPos.position)
         {
-            itemHere.gameObject.transform.position = transform.position + counterPos;
+            itemHere.gameObject.transform.position = counterPos.position;
         }
         if (itemHere != null && itemHere is Plate)
         {

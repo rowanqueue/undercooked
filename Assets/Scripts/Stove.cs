@@ -4,7 +4,6 @@ using UnityEngine;
 //use: turn meat into COOKED MEAT
 //loc: on stove object
 public class Stove : Counter {
-    public float doneTime;//when item is done cooking
     public float burnTime;//when item is gonna BURN
     
     bool cooking;
@@ -33,6 +32,12 @@ public class Stove : Counter {
             {
                 //fire would happen here
             }
+        }
+        if (itemHere.percentToNextLevel > 1)
+        {
+            GameObject cooked = Instantiate(itemHere.turnsInto, itemHere.transform.position, itemHere.transform.rotation);
+            Destroy(itemHere.gameObject);
+            itemHere = cooked.GetComponent<Item>();
         }
 	}
 }
