@@ -683,6 +683,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   name: tomato
+  state: raw
+  percentToNextLevel: 0
   turnsInto: {fileID: 0}
 --- !u!135 &135712292247474096
 SphereCollider:

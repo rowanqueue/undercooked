@@ -155,4 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   name: burger
+  state: raw
+  percentToNextLevel: 0
   turnsInto: {fileID: 0}

@@ -199,4 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   name: plate
+  state: base
+  percentToNextLevel: 0
   turnsInto: {fileID: 0}

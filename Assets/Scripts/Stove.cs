@@ -6,8 +6,7 @@ using UnityEngine;
 public class Stove : Counter {
     public float doneTime;//when item is done cooking
     public float burnTime;//when item is gonna BURN
-
-    float startTime;
+    
     bool cooking;
 	// Update is called once per frame
 	public override void Update () {
@@ -16,16 +15,15 @@ public class Stove : Counter {
         {
             if (itemHere != null)//woah we should start cooking
             {
-                startTime = Time.time;
                 burnTime = Time.time + 3;
                 cooking = true;
             }
         }
         else//we're cooking now!!
         {
-            if (itemHere != null && itemHere.stats.Equals("chopped")) //Item is here and cooking  (also where add pan check)
+            if (itemHere != null && itemHere.state.Equals("chopped")) //Item is here and cooking  (also where add pan check)
             {
-                itemHere.stats.percentToNextLevel += Time.deltaTime;
+                itemHere.percentToNextLevel += Time.deltaTime;
             }
             else //hey item isn't here anymore
             {

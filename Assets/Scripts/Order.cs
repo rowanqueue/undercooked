@@ -77,7 +77,7 @@ public class Order {
         return true;
     }
 
-    public string ToString()
+    public override string ToString()
     {
         string s = "";
         for (int i = 0; i < 4; i++)

@@ -7,11 +7,11 @@ public class CuttingStation : Counter {
     public override void Update()
     {
         base.Update();
-        if (itemHere != null && itemHere.stats.state.Equals("raw"))//can be cut
+        if (itemHere != null && itemHere.state.Equals("raw"))//can be cut
         {
             if (Input.GetKey(KeyCode.Q))
             {
-                itemHere.stats.percentToNextLevel += Time.deltaTime * 0.5f;
+                itemHere.percentToNextLevel += Time.deltaTime * 0.5f;
             }
         }
         if (transform.childCount > 2 && itemHere == null)
