@@ -4,7 +4,8 @@ using UnityEngine;
 //use: pick stuff up! put it down!
 //loc: on pick up cube child of player
 public class Pickup : MonoBehaviour {
-    public string pickUpAxis;
+    public string pickUpAxis;//button to pick stuff up
+    public string interactAxis;//button to interact with stuff
     public string myPlayerName;
 
     public Item itemHeld;//what item you're holding
@@ -77,7 +78,7 @@ public class Pickup : MonoBehaviour {
             {
                 if (potentialCounter != null)//place item on counter
                 {
-                    if (potentialCounter is ServingCounter)
+                    if (potentialCounter is ServingCounter)//SERVING!!
                     {
                         if (itemHeld is Plate)
                         {
@@ -89,6 +90,12 @@ public class Pickup : MonoBehaviour {
                             NeedsPlate();
                         }
                     }
+                    else if(potentialCounter is TrashCan)//you're throwing it away!!
+                    {
+                        TrashCan trashCan = (TrashCan)potentialCounter;
+                        trashCan.DeleteItem(itemHeld);
+                        itemHeld = null;
+                    }
                     else if (potentialCounter.itemHere == null)
                     {
                         potentialCounter.itemHere = itemHeld;
@@ -97,15 +104,15 @@ public class Pickup : MonoBehaviour {
                     else if (potentialCounter.itemHere is Plate)
                     {
                         Plate plate = (Plate)potentialItem;
-                        if (plate.plated.Add(itemHeld.stats))
+                        if (plate.plated.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
                             Destroy(itemHeld.gameObject);
                         }
                     }
                     else if (potentialCounter.itemHere is Pan)
                     {
-                        Pan pan = (Pan)potentialItem;
-                        pan.cooking = itemHeld.stats;
+                        Pan pan = (Pan)potentialCounter.itemHere;
+                        pan.cooking = itemHeld;
                         Destroy(itemHeld.gameObject);
                     }
                 }
@@ -115,7 +122,7 @@ public class Pickup : MonoBehaviour {
                     if(potentialItem is Plate)
                     {
                         Plate plate = (Plate)potentialItem;
-                        if (plate.plated.Add(itemHeld.stats))
+                        if (plate.plated.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
                             Destroy(itemHeld.gameObject);
                         }
@@ -129,26 +136,59 @@ public class Pickup : MonoBehaviour {
             }
             else//you're holding nothing
             {
-                if (potentialItem != null)//you're looking at an item
+                if (potentialCounter != null)//you're looking at a counter
                 {
-                    itemHeld = potentialItem;
-                    itemHeld.rb.isKinematic = true;
-                    itemHeld.transform.position = transform.position + transform.forward;
-                    itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    if (potentialCounter.tag == "Box")
+                    {
+                        Instantiate(Resources.Load("Item"), potentialCounter.transform);
+                    }
+                    if (potentialCounter is ReturnCounter)//getting a plate from return
+                    {
+                        ReturnCounter rc = (ReturnCounter)potentialCounter;
+                        if (rc.GetPlate())//you can grab a plate
+                        {
+                            GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), transform) as GameObject;
+                            itemHeld = obj.GetComponent<Item>();
+                        }
+                    }
+                    else if (potentialCounter.itemHere != null)
+                    {
+                        itemHeld = potentialCounter.itemHere;
+                        potentialCounter.itemHere = null;
+                        itemHeld.rb.isKinematic = true;
+                        itemHeld.transform.position = transform.position + transform.forward;
+                        itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    }
                 }
                 else
                 {
-                    if (potentialCounter != null)//you are looking at a counter
+                    if (potentialItem != null)//you are looking at an item
                     {
-                        if (potentialCounter.tag == "Box")
+                        itemHeld = potentialItem;
+                        itemHeld.rb.isKinematic = true;
+                        itemHeld.transform.position = transform.position + transform.forward;
+                        itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    }
+                }
+            }
+        }
+        if(Input.GetButton(interactAxis + myPlayerName))
+        {
+            if(itemHeld == null)//not holding an item
+            {
+                if(potentialCounter != null)//looking at a counter
+                {
+                    if(potentialCounter is CuttingStation)
+                    {
+                        CuttingStation cuttingStation = (CuttingStation)potentialCounter;
+                        if (cuttingStation.canBeUsed)
                         {
-                            Instantiate(Resources.Load("Item"), potentialCounter.transform);
+                            cuttingStation.isCutting = true;
                         }
                     }
                 }
             }
         }
-
     }
 
     void DisplayRay(Ray ray,float radius,float distance)

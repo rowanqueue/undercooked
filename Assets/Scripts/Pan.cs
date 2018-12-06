@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Pan : Item {
 
-    public ItemStats cooking;
+    public Item cooking;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        stats = new ItemStats(name, "base");
         cooking = null;
     }
 }

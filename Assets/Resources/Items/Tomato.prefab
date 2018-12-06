@@ -310,7 +310,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1876995737497276}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.043340567, y: 0.29208544, z: 0.19764929}
+  m_LocalPosition: {x: 0, y: 0.29208544, z: 0}
   m_LocalScale: {x: 0.8994058, y: 0.8994058, z: 0.8994058}
   m_Children: []
   m_Father: {fileID: 4401082339946782}
@@ -337,7 +337,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779270914926480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.25796694, z: -0.183}
+  m_LocalPosition: {x: 0, y: -0.25796694, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4871361606932452}
@@ -359,7 +359,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1573273394728740}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05611948, y: 0.53752065, z: 0.18679821}
+  m_LocalPosition: {x: 0, y: 0.53752065, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4401082339946782}
@@ -412,7 +412,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221252211628116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.606, y: 0.72505, z: -11.520433}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.93, y: 0.93, z: 0.93}
   m_Children:
   - {fileID: 4401082339946782}
@@ -454,7 +454,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1900861236689016}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.036457766, y: 0.4735703, z: 0.2005719}
+  m_LocalPosition: {x: 0, y: 0.463, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.2308179}
   m_Children: []
   m_Father: {fileID: 4401082339946782}
@@ -666,7 +666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   name: tomato
-  turnsInto: {fileID: 0}
+  state: raw
+  percentToNextLevel: 0
+  turnsInto: {fileID: 1538789310038040, guid: c674e76fd6429d849a9feb6592508c5f, type: 2}
 --- !u!135 &135688462126755266
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -678,4 +680,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
-  m_Center: {x: 0, y: 0.025, z: 0}
+  m_Center: {x: 0, y: 0.06, z: 0}
