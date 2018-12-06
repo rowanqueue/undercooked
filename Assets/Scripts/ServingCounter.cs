@@ -14,7 +14,7 @@ public class ServingCounter : Counter {
 	void Start () {
         timer = 0;
         requested = new List<Order>();
-        requested.Add(Order.GenerateBurger(1));
+        requested.Add(Order.GenerateBurger(Random.Range(0, 3)));
 	}
 	
 	// Update is called once per frame
@@ -31,12 +31,20 @@ public class ServingCounter : Counter {
             Destroy(itemHere.gameObject);
             itemHere = null;
         }
+        if (timer > 15)
+        {
+            requested.Add(Order.GenerateBurger(Random.Range(0, 3)));
+            timer = 0;
+        }
+        Debug.ClearDeveloperConsole();
+        print("Requested:" + requested[0]);
     }
 
     public int Serve(Plate served) //find order in requested and deliver it
     {
         if (served.plated.Equals(requested[0]))
         {
+            /*
 	        Debug.Log("MoveOver");
 	        for (int i = 0; i < OtherDisplayed.Count; i++)
 	        {
@@ -58,6 +66,8 @@ public class ServingCounter : Counter {
 
 		        }
 	        }
+            */
+            requested.RemoveAt(0);
 	        Debug.Log("Accepted");
             return 20;
         }

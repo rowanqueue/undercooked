@@ -2504,7 +2504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUpAxis: Fire1
   interactAxis: Interact
-  myPlayerName: Player1
+  myPlayerName: Player2
   itemHeld: {fileID: 0}
   holdingPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114263455512024042
