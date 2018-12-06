@@ -78,17 +78,17 @@ public class UIOrders : MonoBehaviour
 				{
 					if (g.CompareTag("SmallOrder"))
 					{
-						orderXdisplacement += 57;
+						orderXdisplacement += 92+5;//old 57, whatever x scale is + 3
 					}
 
 					if (g.CompareTag("MediumOrder"))
 					{
-						orderXdisplacement += 72;
+						orderXdisplacement += 119+5;//old 72
 					}
 
 					if (g.CompareTag("LargeOrder"))
 					{
-						orderXdisplacement += 89;
+						orderXdisplacement += 148+5;//old 89
 					}
 				}
 				
