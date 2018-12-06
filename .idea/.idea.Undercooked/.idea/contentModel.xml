@@ -3,8 +3,8 @@
   <component name="ContentModelStore">
     <e p="C:\Users\jpmon\.Rider2018.2\config\extensions" t="IncludeRecursive" />
     <e p="C:\Users\jpmon\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\jpmon\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_Undercooked.1684994221.00" t="ExcludeRecursive" />
-    <e p="C:\Users\jpmon\Desktop\Undercooked" t="IncludeRecursive">
+    <e p="C:\Users\jpmon\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_Undercooked.182711489.00" t="ExcludeRecursive" />
+    <e p="C:\Users\jpmon\Desktop\Int Game Dev\Undercooked" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
@@ -20,6 +20,7 @@
           <e p="Plate.cs" t="Include" />
           <e p="ReturnCounter.cs" t="Include" />
           <e p="ServingCounter.cs" t="Include" />
+          <e p="SoundController.cs" t="Include" />
           <e p="Stove.cs" t="Include" />
           <e p="Timer.cs" t="Include" />
           <e p="TrashCan.cs" t="Include" />
