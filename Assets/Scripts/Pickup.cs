@@ -58,12 +58,12 @@ public class Pickup : MonoBehaviour {
             {
                 if(potentialCounter != null)//you're already looking at a counter
                 {
-                    Transform newPotential = hit.collider.transform;
-                    float newDistance = Vector3.Distance(transform.position, newPotential.position);
-                    float oldDistance = Vector3.Distance(transform.position, potentialCounter.transform.position);
+                    Counter newPotential = hit.collider.GetComponent<Counter>();
+                    float newDistance = Vector3.Distance(transform.position, newPotential.counterPos.position);
+                    float oldDistance = Vector3.Distance(transform.position, potentialCounter.counterPos.transform.position);
                     if(oldDistance > newDistance)//new counter is closer, you're looking at it instead
                     {
-                        potentialCounter = newPotential.GetComponent<Counter>();
+                        potentialCounter = newPotential;
                     }
                 }
                 else//you're not already looking at a counter
@@ -104,15 +104,15 @@ public class Pickup : MonoBehaviour {
                     else if (potentialCounter.itemHere is Plate)
                     {
                         Plate plate = (Plate)potentialItem;
-                        if (plate.plated.Add(itemHeld.stats))
+                        if (plate.plated.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
                             Destroy(itemHeld.gameObject);
                         }
                     }
                     else if (potentialCounter.itemHere is Pan)
                     {
-                        Pan pan = (Pan)potentialItem;
-                        pan.cooking = itemHeld.stats;
+                        Pan pan = (Pan)potentialCounter.itemHere;
+                        pan.cooking = itemHeld;
                         Destroy(itemHeld.gameObject);
                     }
                 }
@@ -122,7 +122,7 @@ public class Pickup : MonoBehaviour {
                     if(potentialItem is Plate)
                     {
                         Plate plate = (Plate)potentialItem;
-                        if (plate.plated.Add(itemHeld.stats))
+                        if (plate.plated.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
                             Destroy(itemHeld.gameObject);
                         }
@@ -136,30 +136,38 @@ public class Pickup : MonoBehaviour {
             }
             else//you're holding nothing
             {
-                if (potentialItem != null)//you're looking at an item
+                if (potentialCounter != null)//you're looking at a counter
                 {
-                    itemHeld = potentialItem;
-                    itemHeld.rb.isKinematic = true;
-                    itemHeld.transform.position = transform.position + transform.forward;
-                    itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    if (potentialCounter.tag == "Box")
+                    {
+                        Instantiate(Resources.Load("Item"), potentialCounter.transform);
+                    }
+                    if (potentialCounter is ReturnCounter)//getting a plate from return
+                    {
+                        ReturnCounter rc = (ReturnCounter)potentialCounter;
+                        if (rc.GetPlate())//you can grab a plate
+                        {
+                            GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), transform) as GameObject;
+                            itemHeld = obj.GetComponent<Item>();
+                        }
+                    }
+                    else if (potentialCounter.itemHere != null)
+                    {
+                        itemHeld = potentialCounter.itemHere;
+                        potentialCounter.itemHere = null;
+                        itemHeld.rb.isKinematic = true;
+                        itemHeld.transform.position = transform.position + transform.forward;
+                        itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    }
                 }
                 else
                 {
-                    if (potentialCounter != null)//you are looking at a counter
+                    if (potentialItem != null)//you are looking at an item
                     {
-                        if (potentialCounter.tag == "Box")
-                        {
-                            Instantiate(Resources.Load("Item"), potentialCounter.transform);
-                        }
-                        if(potentialCounter is ReturnCounter)//getting a plate from return
-                        {
-                            ReturnCounter rc = (ReturnCounter)potentialCounter;
-                            if (rc.GetPlate())//you can grab a plate
-                            {
-                                GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), transform) as GameObject;
-                                itemHeld = obj.GetComponent<Item>();
-                            }
-                        }
+                        itemHeld = potentialItem;
+                        itemHeld.rb.isKinematic = true;
+                        itemHeld.transform.position = transform.position + transform.forward;
+                        itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
                     }
                 }
             }

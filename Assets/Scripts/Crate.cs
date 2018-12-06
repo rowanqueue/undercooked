@@ -10,7 +10,7 @@ public class Crate : Counter {
         if(itemHere == null)
         {
             GameObject obj = (GameObject)Instantiate(Resources.Load("Items/" + itemSpawn), transform) as GameObject;
-            obj.transform.position = transform.position + counterPos;
+            obj.transform.position = counterPos.position;
             itemHere = obj.GetComponent<Item>();
         }
     }
