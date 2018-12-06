@@ -6,7 +6,7 @@ using UnityEngine;
 public class Stove : Counter {
     public float burnTime;//when item is gonna BURN
     
-    bool cooking;
+    public bool cooking;
 	// Update is called once per frame
 	public override void Update () {
         base.Update();
@@ -33,7 +33,7 @@ public class Stove : Counter {
                 //fire would happen here
             }
         }
-        if (itemHere.percentToNextLevel > 1)
+        if (itemHere != null && itemHere.percentToNextLevel > 1)
         {
             GameObject cooked = Instantiate(itemHere.turnsInto, itemHere.transform.position, itemHere.transform.rotation);
             Destroy(itemHere.gameObject);
