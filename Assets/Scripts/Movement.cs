@@ -132,11 +132,12 @@ public class Movement : MonoBehaviour
 
 		if (Physics.Raycast(LookRay, maxrayDist)&& !bounce)
 		{
-			if (CompareTag("Player") || CompareTag("Counter"))
+			if (CompareTag("Player") ||  CompareTag("Counter"))
 			{
 				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | 
                                  RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY |
                                  RigidbodyConstraints.FreezeRotationZ; //If player is colliding with the other player freeze position 
+				boosting = false;
 			}	
 			
 		}
