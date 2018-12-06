@@ -309,6 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4491521943419600}
   - component: {fileID: 65397367880282232}
+  - component: {fileID: 114411973977026572}
   m_Layer: 0
   m_Name: count_Left
   m_TagString: Counter
@@ -3158,7 +3159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1080652420167914}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 1.1531742, y: 0.20499998, z: -0.042608067}
+  m_LocalPosition: {x: 1.1531742, y: 0.211, z: -0.042608067}
   m_LocalScale: {x: 0.9459369, y: 0.21231927, z: 0.5600074}
   m_Children: []
   m_Father: {fileID: 4896900984120866}
@@ -3333,15 +3334,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153550199127314}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.388, y: 0.357, z: 6.772}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.7228, y: 0.372, z: 6.7719994}
+  m_LocalScale: {x: 1.1205, y: 1, z: 1}
   m_Children:
   - {fileID: 4626356999415852}
   - {fileID: 4852450666999682}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4512778116470220
 Transform:
   m_ObjectHideFlags: 1
@@ -3836,7 +3837,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206839384839952}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.6776153, y: 0.205, z: -0.5183347}
+  m_LocalPosition: {x: 0.6776153, y: 0.211, z: -0.5183347}
   m_LocalScale: {x: 0.9214405, y: 0.21231927, z: 0.5600074}
   m_Children: []
   m_Father: {fileID: 4896900984120866}
@@ -4666,3 +4667,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.53901374, z: 1}
   m_Center: {x: 0, y: -0.23049313, z: 0}
+--- !u!114 &114411973977026572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153550199127314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5d8487eb5579549a432c137bad187d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemHere: {fileID: 0}
+  counterPos: {fileID: 4852450666999682}
