@@ -432,8 +432,11 @@ ModelImporter:
     400424: transform98
     400426: transform99
     2100000: lambert1
+    2100002: lambert2
     2300000: pCylinder1
+    2300002: //RootNode
     3300000: pCylinder1
+    3300002: //RootNode
     4300000: pCylinder1
     7400000: Take 001
     9500000: //RootNode
@@ -488,7 +491,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
+    previousCalculatedGlobalScale: 0.22
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
@@ -509,7 +512,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
