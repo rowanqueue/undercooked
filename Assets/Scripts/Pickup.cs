@@ -24,7 +24,7 @@ public class Pickup : MonoBehaviour {
         //this code just looks at what you're seeing
         Ray ray = new Ray(transform.position, transform.forward);
         DisplayRay(ray, 1.5f, 1.5f);
-        RaycastHit[] hits = Physics.SphereCastAll(ray, .75f, .75f);
+        RaycastHit[] hits = Physics.SphereCastAll(ray, .30f, .75f);
         Item potentialItem = null;//where we locally store an item we could pick up
         Counter potentialCounter = null;//storing a potentialCountertop
         foreach (RaycastHit hit in hits)
@@ -138,11 +138,12 @@ public class Pickup : MonoBehaviour {
             {
                 if (potentialCounter != null)//you're looking at a counter
                 {
-                    if (potentialCounter.tag == "Box")
+                    if (potentialCounter.itemHere == null && potentialCounter is Crate)
                     {
-                        Instantiate(Resources.Load("Item"), potentialCounter.transform);
+                        Crate crate = (Crate)potentialCounter;
+                        crate.SpawnItem();
                     }
-                    if (potentialCounter is ReturnCounter)//getting a plate from return
+                    else if (potentialCounter is ReturnCounter)//getting a plate from return
                     {
                         ReturnCounter rc = (ReturnCounter)potentialCounter;
                         if (rc.GetPlate())//you can grab a plate

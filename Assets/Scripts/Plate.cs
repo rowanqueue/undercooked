@@ -14,6 +14,6 @@ public class Plate : Item {
 
     private void Update()
     {
-        print(plated.ToString());
+        print("Plated:" + plated.ToString());
     }
 }
