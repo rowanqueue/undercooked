@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  name: meat
+  name: burger
   state: cooked
   percentToNextLevel: 0
   turnsInto: {fileID: 0}

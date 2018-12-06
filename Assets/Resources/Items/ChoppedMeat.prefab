@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  name: meat
-  state: cooked
+  name: burger
+  state: chopped
   percentToNextLevel: 0
   turnsInto: {fileID: 1991977347426858, guid: fcdc009bb2973594e93b68337f7b9a8f, type: 2}
