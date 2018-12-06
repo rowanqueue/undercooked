@@ -58,12 +58,12 @@ public class Pickup : MonoBehaviour {
             {
                 if(potentialCounter != null)//you're already looking at a counter
                 {
-                    Transform newPotential = hit.collider.transform;
-                    float newDistance = Vector3.Distance(transform.position, newPotential.position);
-                    float oldDistance = Vector3.Distance(transform.position, potentialCounter.transform.position);
+                    Counter newPotential = hit.collider.GetComponent<Counter>();
+                    float newDistance = Vector3.Distance(transform.position, newPotential.counterPos.position);
+                    float oldDistance = Vector3.Distance(transform.position, potentialCounter.counterPos.transform.position);
                     if(oldDistance > newDistance)//new counter is closer, you're looking at it instead
                     {
-                        potentialCounter = newPotential.GetComponent<Counter>();
+                        potentialCounter = newPotential;
                     }
                 }
                 else//you're not already looking at a counter
