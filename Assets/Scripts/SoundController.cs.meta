@@ -3,7 +3,22 @@ guid: 66d46e2695d17c941a6507e84b235dd0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - audSource: {instanceID: 0}
+  - singleCountdownBeep: {fileID: 8300000, guid: 0f8ab21a78c337d4cae14241150add0b,
+      type: 3}
+  - tenSecondBeepCountdown: {fileID: 8300000, guid: d0dcdc58e370fc6408995cdee03bd0fd,
+      type: 3}
+  - chopping: {fileID: 8300000, guid: 4f6cbed943fed72408692579fa73f506, type: 3}
+  - completeOrder: {fileID: 8300000, guid: 913f4c1346d65a8479f79b5a635fa685, type: 3}
+  - washingPlates: {fileID: 8300000, guid: 0fbb2dadf7d90aa4c8690b1234a85265, type: 3}
+  - endOfRoundBells: {fileID: 8300000, guid: 4ff5011acec96dc419961d846bbe7da1, type: 3}
+  - grilling: {fileID: 8300000, guid: d743c9fd63181ff46bc422a23f751f72, type: 3}
+  - introSound: {fileID: 8300000, guid: ef8330b260169984c8c614202d13d9eb, type: 3}
+  - burningMeatBeep: {fileID: 8300000, guid: 4f932ee31e3cee54a92ac88f846f3314, type: 3}
+  - pickUpItem: {fileID: 8300000, guid: 42c03e77c7028a94a9ca1a52168b6d1f, type: 3}
+  - dropitem: {fileID: 8300000, guid: 7ed4ae156f0f6e147a5fd84582f6dbb0, type: 3}
+  - dropchoppeditem: {fileID: 8300000, guid: c62ea98e28c1709449326bde0c39fdff, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

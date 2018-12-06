@@ -7,6 +7,19 @@ public class SoundController : MonoBehaviour {
 	public static SoundController me;
 	public GameObject audSource;
 	public AudioSource[] audSources;
+	[Header("AudioClips")] 
+	public AudioClip singleCountdownBeep;
+	public AudioClip tenSecondBeepCountdown;
+	public AudioClip chopping;
+	public AudioClip completeOrder;
+	public AudioClip washingPlates;
+	public AudioClip endOfRoundBells;
+	public AudioClip grilling;
+	public AudioClip introSound;
+	public AudioClip burningMeatBeep;
+	public AudioClip pickUpItem;
+	public AudioClip dropitem;
+	public AudioClip dropchoppeditem;
 
 	void Update() {
 
