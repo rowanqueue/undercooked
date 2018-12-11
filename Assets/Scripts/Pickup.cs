@@ -105,16 +105,29 @@ public class Pickup : MonoBehaviour {
                     else if (potentialCounter.itemHere is Plate)
                     {
                         Plate plate = (Plate)potentialCounter.itemHere;
-                        if (plate.Add(new ItemStats(itemHeld.name, itemHeld.state)))
+                        if (!(itemHeld is Pan))
                         {
-                            Destroy(itemHeld.gameObject);
+                            if (plate.Add(new ItemStats(itemHeld.name, itemHeld.state)))
+                            {
+                                Destroy(itemHeld.gameObject);
+                            }
+                        }
+                        else
+                        {
+                            Pan pan = (Pan)itemHeld;
+                            if (plate.Add(new ItemStats(pan.cooking.name, pan.cooking.state)))
+                            {
+                                Destroy(pan.cooking.gameObject);
+                                pan.cooking = null;
+                            }
                         }
                     }
-                    else if (potentialCounter.itemHere is Pan)
+                    else if (potentialCounter.itemHere is Pan && itemHeld.name.Equals("burger") && itemHeld.state.Equals("chopped"))
                     {
                         Pan pan = (Pan)potentialCounter.itemHere;
                         pan.cooking = itemHeld;
-                        Destroy(itemHeld.gameObject);
+                        pan.cooking.collider.enabled = false;
+                        itemHeld = null;
                     }
                 }
                 else if (potentialItem != null)//combine items

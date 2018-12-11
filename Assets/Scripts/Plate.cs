@@ -39,7 +39,7 @@ public class Plate : Item {
         float currentOffset = 0;
         if (added.Equals("bun"))
         {
-            bun = ((GameObject)Instantiate(Resources.Load("Items/PlatedBun"), transform)).GetComponent<PlatedBun>();
+            bun = Instantiate((GameObject)Resources.Load("Items/PlatedBun"), transform).GetComponent<PlatedBun>();
             if (burger != null)
             {
                 bun.topOffset += burger.offset;
@@ -74,7 +74,7 @@ public class Plate : Item {
         }
         else if (added.Equals("burger"))
         {
-            burger = ((GameObject)Instantiate(Resources.Load("Items/PlatedBurger"), transform)).GetComponent<PlatedItem>();
+            burger = Instantiate((GameObject)Resources.Load("Items/PlatedBurger"), transform).GetComponent<PlatedItem>();
             if (bun != null)
             {
                 bun.topOffset += burger.offset;
@@ -107,7 +107,7 @@ public class Plate : Item {
         {
             if (bun != null || burger != null)
             {
-                lettuce = ((GameObject)Instantiate(Resources.Load("Items/BurgerLettuce"), transform)).GetComponent<PlatedItem>();
+                lettuce = Instantiate((GameObject)Resources.Load("Items/BurgerLettuce"), transform).GetComponent<PlatedItem>();
                 if (bun != null)
                 {
                     currentOffset += bun.offset;
@@ -124,7 +124,7 @@ public class Plate : Item {
             }
             else
             {
-                lettuce = ((GameObject)Instantiate(Resources.Load("Items/LettucePlated"), transform)).GetComponent<PlatedItem>();
+                lettuce = Instantiate((GameObject)Resources.Load("Items/LettucePlated"), transform).GetComponent<PlatedItem>();
             }
             lettuce.transform.localPosition = platedPos.localPosition + (Vector3.up * (lettuce.offset + currentOffset));
         }
@@ -132,7 +132,7 @@ public class Plate : Item {
         {
             if (bun != null || burger != null)
             {
-                tomato = ((GameObject)Instantiate(Resources.Load("Items/BurgerTomato"), transform)).GetComponent<PlatedItem>();
+                tomato = Instantiate((GameObject)Resources.Load("Items/BurgerTomato"), transform).GetComponent<PlatedItem>();
                 if (bun != null)
                 {
                     currentOffset += bun.offset;
@@ -149,7 +149,7 @@ public class Plate : Item {
             }
             else
             {
-                tomato = ((GameObject)Instantiate(Resources.Load("Items/TomatoPlated"), transform)).GetComponent<PlatedItem>();
+                tomato = Instantiate((GameObject)Resources.Load("Items/TomatoPlated"), transform).GetComponent<PlatedItem>();
             }
             tomato.transform.localPosition = platedPos.localPosition + (Vector3.up * (tomato.offset + currentOffset));
         }
