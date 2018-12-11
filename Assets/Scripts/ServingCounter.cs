@@ -37,7 +37,6 @@ public class ServingCounter : Counter {
             requested.Add(newOrder);
             timer = 0;
         }
-        Debug.ClearDeveloperConsole();
         print("Requested:" + requested[0]);
     }
 
