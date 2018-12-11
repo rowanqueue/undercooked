@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ServingCounter : Counter {
-
     public float timer;
     public List<Order> requested;
     public bool firstOrder;
@@ -14,7 +13,7 @@ public class ServingCounter : Counter {
 	void Start () {
         timer = 0;
         requested = new List<Order>();
-        requested.Add(Order.GenerateBurger(1));
+        requested.Add(Order.GenerateBurger(Random.Range(0, 3)));
 	}
 	
 	// Update is called once per frame
@@ -27,16 +26,25 @@ public class ServingCounter : Counter {
         }
         if (itemHere != null && itemHere is Plate)
         {
-            Serve((Plate)itemHere);
+            Score.me.score += Serve((Plate)itemHere);
             Destroy(itemHere.gameObject);
             itemHere = null;
         }
+        if (timer > 15)
+        {
+            Order newOrder = Order.GenerateBurger(Random.Range(0, 3));
+            UIOrders.me.InstantiateOrder(newOrder);
+            requested.Add(newOrder);
+            timer = 0;
+        }
+        print("Requested:" + requested[0]);
     }
 
     public int Serve(Plate served) //find order in requested and deliver it
     {
         if (served.plated.Equals(requested[0]))
         {
+            /*
 	        Debug.Log("MoveOver");
 	        for (int i = 0; i < OtherDisplayed.Count; i++)
 	        {
@@ -58,6 +66,9 @@ public class ServingCounter : Counter {
 
 		        }
 	        }
+            */
+            UIOrders.me.CompletedOrder(requested[0]);//whatever the order is;
+            requested.RemoveAt(0);
 	        Debug.Log("Accepted");
             return 20;
         }

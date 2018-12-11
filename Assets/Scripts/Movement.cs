@@ -53,7 +53,7 @@ public class Movement : MonoBehaviour
 		inputVector += (Vector3.right * Horizontal);
 		LockPosition(); //This will prevent the players from pushing players when they're not boosting 
 		//have player face where they're moving 
-		IsBoosting();
+		//IsBoosting();
 		if (inputVector != Vector3.zero)
 		{
 			transform.forward = inputVector;
