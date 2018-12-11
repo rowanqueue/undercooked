@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     public float percentToNextLevel;
     public GameObject turnsInto;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
