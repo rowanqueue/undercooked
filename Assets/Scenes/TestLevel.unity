@@ -752,6 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  collider: {fileID: 0}
   name: pan
   state: base
   percentToNextLevel: 0
@@ -984,6 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  collider: {fileID: 0}
   name: pan
   state: base
   percentToNextLevel: 0
@@ -1039,10 +1041,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  collider: {fileID: 0}
   name: plate
   state: 
   percentToNextLevel: 0
   turnsInto: {fileID: 0}
+  platedPos: {fileID: 0}
   bun: {fileID: 0}
   tomato: {fileID: 0}
   lettuce: {fileID: 0}
@@ -7323,6 +7327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  collider: {fileID: 0}
   name: pan
   state: base
   percentToNextLevel: 0
@@ -8060,6 +8065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  collider: {fileID: 0}
   name: pan
   state: base
   percentToNextLevel: 0

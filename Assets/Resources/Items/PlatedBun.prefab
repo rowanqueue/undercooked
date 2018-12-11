@@ -368,4 +368,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 0.0675
   topBun: {fileID: 1097154437227784}
-  topOffset: 0
+  topOffset: -0.05
