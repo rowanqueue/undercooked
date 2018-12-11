@@ -172,48 +172,6 @@ Prefab:
     - {fileID: 114620152777745490, guid: f3b5f362ab8e30447b83579d03b65236, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: f3b5f362ab8e30447b83579d03b65236, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &25122706
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.9269943
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.6668
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -14.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!4 &43217719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4486409050932962, guid: 9e7fbc67b1387dd4b8946685f73557a0,
@@ -9958,4 +9916,46 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81c346091ac7f1b4b862fab0282295c9, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &2144098231
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.9269943
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.6668
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -14.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434919675504952, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a22e56ccb6f7b9a44a7f26ee3d38d507, type: 2}
   m_IsPrefabAsset: 0

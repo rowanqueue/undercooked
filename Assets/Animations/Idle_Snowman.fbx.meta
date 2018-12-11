@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 472a9d7157bac944b9018a8074b60e44
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Body
+    100002: Body_L
+    100004: Body_R
+    100006: Hand_L
+    100008: Hand_R
+    100010: //RootNode
+    100012: joint1
+    100014: joint2
+    100016: pCylinder19
+    100018: polySurface1
+    100020: polySurface10
+    100022: polySurface11
+    100024: polySurface12
+    100026: polySurface13
+    100028: polySurface14
+    100030: polySurface15
+    100032: polySurface16
+    100034: polySurface17
+    100036: polySurface18
+    100038: polySurface19
+    100040: polySurface2
+    100042: polySurface20
+    100044: polySurface21
+    100046: polySurface22
+    100048: polySurface23
+    100050: polySurface23 1
+    100052: polySurface24
+    100054: polySurface25
+    100056: polySurface26
+    100058: polySurface27
+    100060: polySurface3
+    100062: polySurface4
+    100064: polySurface5
+    100066: polySurface6
+    100068: polySurface7
+    100070: polySurface8
+    100072: polySurface9
+    100074: transform1
+    100076: transform10
+    100078: transform11
+    100080: transform12
+    100082: transform13
+    100084: transform14
+    100086: transform15
+    100088: transform16
+    100090: transform17
+    100092: transform18
+    100094: transform19
+    100096: transform2
+    100098: transform20
+    100100: transform21
+    100102: transform22
+    100104: transform23
+    100106: transform24
+    100108: transform3
+    100110: transform4
+    100112: transform5
+    100114: transform6
+    100116: transform7
+    100118: transform8
+    100120: transform9
+    400000: Body
+    400002: Body_L
+    400004: Body_R
+    400006: Hand_L
+    400008: Hand_R
+    400010: //RootNode
+    400012: joint1
+    400014: joint2
+    400016: pCylinder19
+    400018: polySurface1
+    400020: polySurface10
+    400022: polySurface11
+    400024: polySurface12
+    400026: polySurface13
+    400028: polySurface14
+    400030: polySurface15
+    400032: polySurface16
+    400034: polySurface17
+    400036: polySurface18
+    400038: polySurface19
+    400040: polySurface2
+    400042: polySurface20
+    400044: polySurface21
+    400046: polySurface22
+    400048: polySurface23
+    400050: polySurface23 1
+    400052: polySurface24
+    400054: polySurface25
+    400056: polySurface26
+    400058: polySurface27
+    400060: polySurface3
+    400062: polySurface4
+    400064: polySurface5
+    400066: polySurface6
+    400068: polySurface7
+    400070: polySurface8
+    400072: polySurface9
+    400074: transform1
+    400076: transform10
+    400078: transform11
+    400080: transform12
+    400082: transform13
+    400084: transform14
+    400086: transform15
+    400088: transform16
+    400090: transform17
+    400092: transform18
+    400094: transform19
+    400096: transform2
+    400098: transform20
+    400100: transform21
+    400102: transform22
+    400104: transform23
+    400106: transform24
+    400108: transform3
+    400110: transform4
+    400112: transform5
+    400114: transform6
+    400116: transform7
+    400118: transform8
+    400120: transform9
+    2100000: lambert1
+    2300000: polySurface19
+    2300002: polySurface2
+    2300004: polySurface3
+    2300006: polySurface4
+    3300000: polySurface19
+    3300002: polySurface2
+    3300004: polySurface3
+    3300006: polySurface4
+    4300000: polySurface2
+    4300002: polySurface3
+    4300004: polySurface4
+    4300006: polySurface19
+    4300008: polySurface23
+    7400000: Idle_Snowman
+    9500000: //RootNode
+    13700000: polySurface23
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle_Snowman
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 15
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
