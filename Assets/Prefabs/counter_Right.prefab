@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4172406391302104}
   - component: {fileID: 65935029464737972}
+  - component: {fileID: 114846675225174662}
   m_Layer: 0
   m_Name: counter_Right
   m_TagString: Counter
@@ -2614,9 +2615,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008903736882572}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.834, y: 0.486, z: 7.62}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 3.776, y: 0.491, z: 0.507}
+  m_LocalScale: {x: 1, y: 1, z: 0.97458}
   m_Children:
   - {fileID: 4081384171755022}
   - {fileID: 4951714126353204}
@@ -4664,5 +4665,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5894794, y: 0.55662584, z: 5.4773808}
-  m_Center: {x: 0.25744152, y: -0.22168708, z: 2.2386904}
+  m_Size: {x: 1.0372982, y: 0.55662584, z: 1}
+  m_Center: {x: -0.018649101, y: -0.22168708, z: 0}
+--- !u!114 &114846675225174662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008903736882572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5d8487eb5579549a432c137bad187d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemHere: {fileID: 0}
+  counterPos: {fileID: 4951714126353204}

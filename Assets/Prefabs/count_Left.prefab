@@ -309,6 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4491521943419600}
   - component: {fileID: 65397367880282232}
+  - component: {fileID: 114411973977026572}
   m_Layer: 0
   m_Name: count_Left
   m_TagString: Counter
@@ -2850,7 +2851,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1135093930254062}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.562, y: 0.114, z: 1.836}
+  m_LocalPosition: {x: 0.121190354, y: 0.23457657, z: 1.0086453}
   m_LocalScale: {x: 0.93136793, y: 1, z: 0.95473}
   m_Children: []
   m_Father: {fileID: 4626356999415852}
@@ -2929,7 +2930,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1323992368687460}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1174859, y: 0.07360956, z: 0.7689609}
+  m_LocalPosition: {x: 0.677101, y: 0.19460955, z: -0.058373503}
   m_LocalScale: {x: 0.9017086, y: 1.4837759, z: 0.942585}
   m_Children: []
   m_Father: {fileID: 4896900984120866}
@@ -3158,7 +3159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1080652420167914}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 1.593559, y: 0.08399999, z: 0.7847263}
+  m_LocalPosition: {x: 1.1531742, y: 0.211, z: -0.042608067}
   m_LocalScale: {x: 0.9459369, y: 0.21231927, z: 0.5600074}
   m_Children: []
   m_Father: {fileID: 4896900984120866}
@@ -3333,15 +3334,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153550199127314}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.833, y: 0.481, z: 7.595}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.7228, y: 0.372, z: 6.7719994}
+  m_LocalScale: {x: 1.1205, y: 1, z: 1}
   m_Children:
   - {fileID: 4626356999415852}
   - {fileID: 4852450666999682}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4512778116470220
 Transform:
   m_ObjectHideFlags: 1
@@ -3525,7 +3526,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376774900082082}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1178703, y: 0.30022538, z: 0.7838988}
+  m_LocalPosition: {x: 0.6774855, y: 0.42122537, z: -0.043435622}
   m_LocalScale: {x: 0.9239311, y: 0.2315398, z: 0.9710127}
   m_Children: []
   m_Father: {fileID: 4896900984120866}
@@ -3836,7 +3837,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206839384839952}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.118, y: 0.084, z: 0.309}
+  m_LocalPosition: {x: 0.6776153, y: 0.211, z: -0.5183347}
   m_LocalScale: {x: 0.9214405, y: 0.21231927, z: 0.5600074}
   m_Children: []
   m_Father: {fileID: 4896900984120866}
@@ -3997,7 +3998,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416202322386896}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.113585, y: 0.04099427, z: 0.78127277}
+  m_LocalPosition: {x: 0.6732002, y: 0.16199426, z: -0.04606164}
   m_LocalScale: {x: 0.84696025, y: 1.239731, z: 0.942585}
   m_Children: []
   m_Father: {fileID: 4896900984120866}
@@ -4664,5 +4665,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0317688, y: 0.56171286, z: 3.742641}
-  m_Center: {x: -0.0158844, y: -0.21914357, z: 1.3713205}
+  m_Size: {x: 1, y: 0.53901374, z: 1}
+  m_Center: {x: 0, y: -0.23049313, z: 0}
+--- !u!114 &114411973977026572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153550199127314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5d8487eb5579549a432c137bad187d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemHere: {fileID: 0}
+  counterPos: {fileID: 4852450666999682}
