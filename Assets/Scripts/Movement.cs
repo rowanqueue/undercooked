@@ -28,31 +28,30 @@ public class Movement : MonoBehaviour
 	private bool bounce=false;
 	[Header("Input Player name below")]
 	[FormerlySerializedAs("MyplayerName")] public string myPlayerName;
-	private IEnumerable coolDown; //Using IEnumerable instead of IEnumerator so the method can be called multiple times
+	
 
 
 	void Start()
 	{
 		//myPlayerName = name;
 		rb = GetComponent<Rigidbody>();
-		coolDown = CoolingDown();
 		speed = walkingSpeed;
 		
 		
 	}
 
 	void Update()
-	{	
+	{
 		playerPos = transform.position;
 		//Get input values 
-		float Horizontal = Input.GetAxis("Horizontal"+ myPlayerName);
+		float Horizontal = Input.GetAxis("Horizontal" + myPlayerName);
 		float Vertical = Input.GetAxis("Vertical" + myPlayerName);
-        float Boost = Input.GetAxis("Boost" + myPlayerName);
-		
+		float Boost = Input.GetAxis("Boost" + myPlayerName);
+
 		//Set input vector in relation to axis values 
 		inputVector = (Vector3.forward * Vertical);
 		inputVector += (Vector3.right * Horizontal);
-		LockPosition();//This will prevent the players from pushing players when they're not boosting 
+		LockPosition(); //This will prevent the players from pushing players when they're not boosting 
 		//have player face where they're moving 
 		IsBoosting();
 		if (inputVector != Vector3.zero)
@@ -61,7 +60,13 @@ public class Movement : MonoBehaviour
 			inputVector.y = 0;
 		}
 	
-	}
+		if (!boosting)
+		{
+			boostMultiplier = 0;
+		}
+
+		
+}
 
 
 	void FixedUpdate()
@@ -86,58 +91,42 @@ public class Movement : MonoBehaviour
 	void IsBoosting()
 	{
 		//if player boosts and boost is not in cooldown do the following 
-		if ( (myPlayerName=="Player1" && Input.GetKeyDown(KeyCode.E)) || (myPlayerName=="Player2" && Input.GetKeyDown(KeyCode.RightShift)) && !boostCooldown)
+		if ( (myPlayerName=="Player1" && Input.GetKeyDown(KeyCode.E)) || (myPlayerName=="Player2" && Input.GetKeyDown(KeyCode.RightShift)) && boosting)
 		{
-			boosting = true;
-			StartCoroutine(coolDown.GetEnumerator());
-			Debug.Log("Boost Time");
 			
+			
+				boostCooldown = false;
+			 StartCoroutine(CoolingDown());
+				Debug.Log("Boost Time");
+			
+
 		}
 		
 	}
 	
-	IEnumerable CoolingDown()
-	{
-		//code will run if the player is boosting and is allowed to boost 
-		if (boosting && !boostCooldown)
-		{
-			Debug.Log("Boosting");
-			speed = speed * boostMultiplier; //change the players speed to boost speed
-			bounceSpeed = -speed * boostMultiplier/3f; //if players collide while boosting speed will be set to this value 
-			yield return new WaitForSeconds(boostTime); //duration of boost 
-			boostCooldown = true;
-			
-		}
-
-		if (boostCooldown)
-		{
-			bounce = false;
-			boosting = false;
-			bounceSpeed = walkingSpeed;
-			speed = walkingSpeed;	//set speed back to basespeed after boosting 		
-			Debug.Log("Done Boosting");	
-			yield return new WaitForSeconds(boostCooldownTime); //duration of boost cooldown 
-			boostCooldown = false;
-		}
-	}
+	
 
 	void LockPosition()
 	{
-		Ray LookRay = new Ray(transform.position,transform.forward);
+		Ray LookRay = new Ray(transform.position-(Vector3.up*.25f),transform.forward);
 
 		float maxrayDist = .65f;
 		RaycastHit otherPlayer; //RayCast hit, this script only checks if it is hitting the other player
 		
 		Debug.DrawRay(LookRay.origin,LookRay.direction* maxrayDist ,Color.yellow);
 
-		if (Physics.Raycast(LookRay, maxrayDist)&& !bounce)
+		if (Physics.Raycast(LookRay, maxrayDist))
 		{
 			if (CompareTag("Player") ||  CompareTag("Counter"))
+				
 			{
+				boosting = false;
+				boostCooldown = true;
 				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | 
                                  RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY |
                                  RigidbodyConstraints.FreezeRotationZ; //If player is colliding with the other player freeze position 
-				boosting = false;
+				
+
 			}	
 			
 		}
@@ -159,11 +148,32 @@ public class Movement : MonoBehaviour
 				bounce = true; //if players collide set bounce to true
 				//this will only be used if the player is boosting 
 			}
-
-			if (!boosting)
-			{
-				
-			}
 		}	
+	}
+	
+	IEnumerator CoolingDown()
+	{
+		//code will run if the player is boosting and is allowed to boost 
+		if (!boostCooldown)
+		{
+			boostMultiplier = 2.5f;
+			Debug.Log("Boosting");
+			speed = speed * boostMultiplier; //change the players speed to boost speed
+			bounceSpeed = -speed * boostMultiplier/3f; //if players collide while boosting speed will be set to this value 
+			boosting = false;
+			yield return new WaitForSeconds(boostTime); //duration of boost 
+			boostCooldown = true;
+			
+		}
+
+		if (boostCooldown)
+		{
+			bounce = false;
+			bounceSpeed = walkingSpeed;
+			speed = walkingSpeed;	//set speed back to basespeed after boosting 		
+			Debug.Log("Done Boosting");	
+			yield return new WaitForSeconds(boostCooldownTime); //duration of boost cooldown 
+			boostCooldown = false;
+		}
 	}
 }

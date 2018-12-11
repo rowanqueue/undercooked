@@ -141,6 +141,7 @@ public class Pickup : MonoBehaviour {
                     if (potentialCounter.tag == "Box")
                     {
                         Instantiate(Resources.Load("Item"), potentialCounter.transform);
+                        
                     }
                     if (potentialCounter is ReturnCounter)//getting a plate from return
                     {
@@ -183,6 +184,7 @@ public class Pickup : MonoBehaviour {
                         CuttingStation cuttingStation = (CuttingStation)potentialCounter;
                         if (cuttingStation.canBeUsed)
                         {
+                            SoundController.me.PlaySound(GetComponent<SoundController>().chopping,1f);
                             cuttingStation.isCutting = true;
                         }
                     }
