@@ -22,8 +22,13 @@ public class Timer : MonoBehaviour
 		{
 			timer -= Time.deltaTime;
 			seconds = (int)timer % 60;
-			minutes = (int) timer / 60; 
-			timeRemaining.text = minutes + ":" + seconds;
+			minutes = (int) timer / 60;
+            timeRemaining.text = minutes + ":";
+            if(seconds < 10f)
+            {
+                timeRemaining.text += "0";
+            }
+            timeRemaining.text += seconds;
 		}
 		else
 		{
