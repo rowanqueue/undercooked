@@ -1,32 +1,38 @@
 fileFormatVersion: 2
-guid: 4b3804c1c4205f140b33580bac15fe57
+guid: b86107542da993744964a4ef2e4ff67a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Body
-    100002: Body_L
-    100004: Body_R
-    100006: //RootNode
-    100008: Hand_L
-    100010: Hand_R
-    100012: Head
-    100014: Neck
-    100016: pSphere17
-    400000: Body
-    400002: Body_L
-    400004: Body_R
-    400006: //RootNode
-    400008: Hand_L
-    400010: Hand_R
-    400012: Head
-    400014: Neck
-    400016: pSphere17
+    100000: group
+    100002: pasted__pCylinder6
+    100004: pasted__polySurface65
+    100006: pCylinder6
+    100008: polySurface64
+    100010: polySurface65
+    100012: polySurface65 1
+    100014: polySurface66
+    100016: transform1
+    100018: transform2
+    100020: transform3
+    100022: transform4
+    100024: //RootNode
+    400000: group
+    400002: pasted__pCylinder6
+    400004: pasted__polySurface65
+    400006: pCylinder6
+    400008: polySurface64
+    400010: polySurface65
+    400012: polySurface65 1
+    400014: polySurface66
+    400016: transform1
+    400018: transform2
+    400020: transform3
+    400022: transform4
+    400024: //RootNode
     2100000: lambert1
-    4300000: pSphere17
-    7400000: Take 001
-    9500000: //RootNode
-    13700000: pSphere17
-    2186277476908879412: ImportLogs
+    2300000: polySurface66
+    3300000: polySurface66
+    4300000: polySurface66
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -78,8 +84,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -104,7 +110,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
