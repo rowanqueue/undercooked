@@ -36,7 +36,6 @@ public class ServingCounter : Counter {
             requested.Add(Order.GenerateBurger(Random.Range(0, 3)));
             timer = 0;
         }
-        Debug.ClearDeveloperConsole();
         print("Requested:" + requested[0]);
     }
 

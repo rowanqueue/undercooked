@@ -9,74 +9,74 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1991977347426858}
+  m_RootGameObject: {fileID: 1498081981845060}
   m_IsPrefabAsset: 1
---- !u!1 &1906149485422180
+--- !u!1 &1052708430724726
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4725739840260226}
-  - component: {fileID: 33371651631619674}
-  - component: {fileID: 23465956907631488}
+  - component: {fileID: 4315454885827904}
+  - component: {fileID: 33931234726931802}
+  - component: {fileID: 23702354790200392}
   m_Layer: 0
-  m_Name: meat_chopped
+  m_Name: lettuce_onBurger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1991977347426858
+--- !u!1 &1498081981845060
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4600644686634824}
-  - component: {fileID: 114898407084641036}
+  - component: {fileID: 4687849980563172}
+  - component: {fileID: 114384427179597898}
   m_Layer: 0
-  m_Name: CookedMeat
+  m_Name: BurgerLettuce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4600644686634824
+--- !u!4 &4315454885827904
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1991977347426858}
+  m_GameObject: {fileID: 1052708430724726}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.7, y: 0.12355193, z: 1.7}
+  m_Children: []
+  m_Father: {fileID: 4687849980563172}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4687849980563172
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1498081981845060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.493, y: 0.564, z: 0.5}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4725739840260226}
+  - {fileID: 4315454885827904}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4725739840260226
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906149485422180}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1, z: 1.1}
-  m_Children: []
-  m_Father: {fileID: 4600644686634824}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23465956907631488
+--- !u!23 &23702354790200392
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906149485422180}
+  m_GameObject: {fileID: 1052708430724726}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,7 +86,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 8ba739dbcce28a948bbc62f34cf26206, type: 2}
+  - {fileID: 2100000, guid: 80dd0bc45edd4874f8c8807721af286f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,27 +106,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33371651631619674
+--- !u!33 &33931234726931802
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906149485422180}
-  m_Mesh: {fileID: 4300000, guid: d168abe6b8822ac4399017c682fa5d42, type: 3}
---- !u!114 &114898407084641036
+  m_GameObject: {fileID: 1052708430724726}
+  m_Mesh: {fileID: 4300000, guid: 1fcf9bc5465ec3e4891c686ab5e4f593, type: 3}
+--- !u!114 &114384427179597898
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1991977347426858}
+  m_GameObject: {fileID: 1498081981845060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34156f2957c7b64f99fc34c11102698, type: 3}
+  m_Script: {fileID: 11500000, guid: 864217382bbeaa64ea6fc67e302f0d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  collider: {fileID: 0}
-  name: burger
-  state: cooked
-  percentToNextLevel: 0
-  turnsInto: {fileID: 0}
+  offset: 0.023

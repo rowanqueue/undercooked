@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public Rigidbody rb;
+    public Collider collider;
     public new string name;
     public string state;
     public float percentToNextLevel;
@@ -13,6 +14,7 @@ public class Item : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        collider = GetComponent<Collider>();
         percentToNextLevel = 0;
     }
 
