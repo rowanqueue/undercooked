@@ -19,7 +19,7 @@ public class Pickup : MonoBehaviour {
     void Update() {
         if (itemHeld != null)//holding an item
         {
-            itemHeld.transform.position = transform.position + transform.forward;
+            itemHeld.transform.position = transform.position + (transform.forward * .75f);
         }
         //this code just looks at what you're seeing
         Ray ray = new Ray(transform.position, transform.forward);
@@ -99,12 +99,13 @@ public class Pickup : MonoBehaviour {
                     else if (potentialCounter.itemHere == null)
                     {
                         potentialCounter.itemHere = itemHeld;
+                        itemHeld.collider.enabled = false;
                         itemHeld = null;
                     }
                     else if (potentialCounter.itemHere is Plate)
                     {
-                        Plate plate = (Plate)potentialItem;
-                        if (plate.plated.Add(new ItemStats(itemHeld.name, itemHeld.state)))
+                        Plate plate = (Plate)potentialCounter.itemHere;
+                        if (plate.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
                             Destroy(itemHeld.gameObject);
                         }
@@ -122,7 +123,7 @@ public class Pickup : MonoBehaviour {
                     if(potentialItem is Plate)
                     {
                         Plate plate = (Plate)potentialItem;
-                        if (plate.plated.Add(new ItemStats(itemHeld.name, itemHeld.state)))
+                        if (plate.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
                             Destroy(itemHeld.gameObject);
                         }
@@ -131,6 +132,7 @@ public class Pickup : MonoBehaviour {
                 else
                 {
                     itemHeld.rb.isKinematic = false;
+                    itemHeld.collider.enabled = true;
                     itemHeld = null;
                 }
             }
@@ -148,7 +150,8 @@ public class Pickup : MonoBehaviour {
                         ReturnCounter rc = (ReturnCounter)potentialCounter;
                         if (rc.GetPlate())//you can grab a plate
                         {
-                            GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), transform) as GameObject;
+                            GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), transform);
+                            itemHeld.collider.enabled = false;
                             itemHeld = obj.GetComponent<Item>();
                         }
                     }
@@ -157,6 +160,7 @@ public class Pickup : MonoBehaviour {
                         itemHeld = potentialCounter.itemHere;
                         potentialCounter.itemHere = null;
                         itemHeld.rb.isKinematic = true;
+                        itemHeld.collider.enabled = false;
                         itemHeld.transform.position = transform.position + transform.forward;
                         itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
                     }
@@ -167,6 +171,7 @@ public class Pickup : MonoBehaviour {
                     {
                         itemHeld = potentialItem;
                         itemHeld.rb.isKinematic = true;
+                        itemHeld.collider.enabled = false;
                         itemHeld.transform.position = transform.position + transform.forward;
                         itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
                     }

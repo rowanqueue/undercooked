@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 114969098475626956}
   m_Layer: 0
   m_Name: ChoppedTomato
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1020,7 +1020,7 @@ Transform:
   m_GameObject: {fileID: 1018997770857418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.29499996, y: -0.118999995, z: 0.4735167}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_Children:
   - {fileID: 4419695822568082}
   - {fileID: 4645558385024876}
@@ -1219,7 +1219,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1538789310038040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.807, y: -0.086, z: 0.84648335}
+  m_LocalPosition: {x: -1.87, y: 0.63, z: -1.2014016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4486569640125622}
