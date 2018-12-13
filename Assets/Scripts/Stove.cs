@@ -32,6 +32,7 @@ public class Stove : Counter
             if (pan.cooking == null)
             {
                 grillSoundSource.Stop();
+                pan.cooking.percentToNextLevel += Time.deltaTime/10f;
             }
         }
 	}

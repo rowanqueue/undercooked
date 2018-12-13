@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Usage: Put this on a canvas, Canvas: Screen Space Camera, Scale With Screen Size
 //Intent: Display Orders at the top of the screen and Only 5 possible orders at any given time
@@ -28,9 +28,7 @@ public class UIOrders : MonoBehaviour
 	public GameObject Canvas;
 	[Header("Public Variables")]
 	public float timeToNextOrder;
-	public float smallOrderTime;
-	public float mediumOrderTime;
-	public float largeOrderTime;
+    public float orderTime;
 	public int testComplete;
 	
 	public static int numOrder;
@@ -43,33 +41,38 @@ public class UIOrders : MonoBehaviour
 	private bool shrink;
 	public static bool Completed=false;
 	private float orderXdisplacement;
-	
+    public List<float> orderTimes;//when order was created
 	 void Start()
 	 {
          me = this;
 		 missedOrder = 0;
 		 first = true;
 		 testComplete = 0;
-		RectTransform newBurger=Instantiate(OrderRects[0],new Vector3(28.91f,-18.9f,0f), Quaternion.Euler(0, 0, 0));
+		RectTransform newBurger=Instantiate(OrderRects[0],new Vector3(43.91f,-31.4f,0f), Quaternion.Euler(0, 0, 0));
 		 newBurger.transform.SetParent(Canvas.transform,false);
 		 DisplayedOrders.Add(newBurger);
+         orderTimes.Add(Time.time);
 		 
 	 }
 
-	/*void Update()
+	void Update()
 	{
-		InstantiateOrder();
-		CompletedOrder();
-		//ShrinkUI();
+		for(int i = 0; i < orderTimes.Count; i++)
+        {
+            Image image = DisplayedOrders[i].GetChild(2).GetComponent<Image>();
+            float lerpAmount = 1-(Time.time - orderTimes[i])/orderTime;
+            image.fillAmount = lerpAmount;
+            image.color = Color.Lerp(Color.red,Color.green, lerpAmount);
+        }
 		
-	}*/
+	}
 
 	public void InstantiateOrder(Order order) //This will spawn a UI element and eventually lerp it to the position. Also set its tag to "Order"
 	{
         for (int i = 0; i <= DisplayedOrders.Count; i++)
         {
             orderXdisplacement = 0; //Reset x offset each time 
-            foreach (Transform g in DisplayedOrders) //This adds the width of all displayed Ui elements so the new one is in the correct x pos 
+            foreach (Transform g in DisplayedOrders) //This adds the width of all displayed UI elements so the new one is in the correct x pos 
             {
                 if (g.CompareTag("SmallOrder"))
                 {
@@ -89,11 +92,11 @@ public class UIOrders : MonoBehaviour
 
             //				Debug.Log("X displaced" + orderXdisplacement);
         }
-
         if (DisplayedOrders.Count <= 4)
         {
+            orderTimes.Add(Time.time);
             RectTransform newBurger = Instantiate(OrderRects[numOrder],
-                new Vector3(30 + orderXdisplacement, -18.9f, 0f), Quaternion.Euler(0, 0, 0));
+                new Vector3(30 + orderXdisplacement, -18.9f, -31.4f), Quaternion.Euler(0, 0, 0));
             newBurger.transform.SetParent(Canvas.transform, false);
             DisplayedOrders.Add(newBurger);//Adds new order to Displayed Ui for completed order comparison 
         }

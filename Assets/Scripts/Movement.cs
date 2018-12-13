@@ -20,8 +20,10 @@ public class Movement : MonoBehaviour
 	private float speed; //current speed of player 
 	private float bounceSpeed;  //reverses player direction on impact while boosting 
 	private Vector3 playerPos;
+    private float yPos;
 	private Vector3 inputVector;
 	private Rigidbody rb;
+	public Animator animator;
 	private bool BoostUp;
 	private bool boosting=false;
 	private bool boostCooldown=false;
@@ -35,7 +37,10 @@ public class Movement : MonoBehaviour
 	{
 		//myPlayerName = name;
 		rb = GetComponent<Rigidbody>();
+		animator = GetComponent<Animator>();
+		coolDown = CoolingDown();
 		speed = walkingSpeed;
+        yPos = transform.position.y;
 		
 		
 	}
@@ -43,6 +48,8 @@ public class Movement : MonoBehaviour
 	void Update()
 	{
 		playerPos = transform.position;
+        playerPos.y = yPos;
+        transform.position = playerPos;
 		//Get input values 
 		float Horizontal = Input.GetAxis("Horizontal" + myPlayerName);
 		float Vertical = Input.GetAxis("Vertical" + myPlayerName);
@@ -56,6 +63,7 @@ public class Movement : MonoBehaviour
 		//IsBoosting();
 		if (inputVector != Vector3.zero)
 		{
+			animator.SetBool("Walking", true);
 			transform.forward = inputVector;
 			inputVector.y = 0;
 		}
@@ -65,9 +73,8 @@ public class Movement : MonoBehaviour
 			boostMultiplier = 0;
 		}
 
-		
+		else{animator.SetBool("Walking", false);}
 }
-
 
 	void FixedUpdate()
 	{
