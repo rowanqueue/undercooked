@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
     private float yPos;
 	private Vector3 inputVector;
 	private Rigidbody rb;
+	public Animator animator;
 	private bool BoostUp;
 	private bool boosting=false;
 	private bool boostCooldown=false;
@@ -36,9 +37,11 @@ public class Movement : MonoBehaviour
 	{
 		//myPlayerName = name;
 		rb = GetComponent<Rigidbody>();
+		animator = GetComponent<Animator>();
 		coolDown = CoolingDown();
 		speed = walkingSpeed;
         yPos = transform.position.y;
+		
 		
 	}
 
@@ -60,10 +63,11 @@ public class Movement : MonoBehaviour
 		//IsBoosting();
 		if (inputVector != Vector3.zero)
 		{
+			animator.SetBool("Walking", true);
 			transform.forward = inputVector;
 			inputVector.y = 0;
 		}
-        
+		else{animator.SetBool("Walking", false);}
 	}
 
 
