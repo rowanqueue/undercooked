@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour
 		//myPlayerName = name;
 		rb = GetComponent<Rigidbody>();
 		animator = GetComponent<Animator>();
-		coolDown = CoolingDown();
+		//coolDown = CoolingDown();
 		speed = walkingSpeed;
         yPos = transform.position.y;
 		
