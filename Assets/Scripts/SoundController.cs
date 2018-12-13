@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class SoundController : MonoBehaviour {
@@ -8,34 +9,38 @@ public class SoundController : MonoBehaviour {
 	public GameObject audSource;
 	public AudioSource[] audSources;
  	[Header("AudioClips")] 
-	public AudioClip singleCountdownBeep;
-	public AudioClip tenSecondBeepCountdown;
-	public AudioClip chopping;
-	public AudioClip completeOrder;
-	public AudioClip washingPlates;
-	public AudioClip endOfRoundBells;
-	public AudioClip grilling;
 	public AudioClip introSound;
-	public AudioClip burningMeatBeep;
-	public AudioClip pickUpItem;
-	public AudioClip dropitem;
-	public AudioClip dropchoppeditem;
+	
+	public AudioClip pickUpItem;//1
+	public AudioClip dropitem;//2
+	public AudioClip dropchoppeditem;//3
+	public AudioClip grilling;//4
+	public AudioClip burningMeatBeep;//5
+	public AudioClip completeOrder;//6
+	public AudioClip washingPlates;//7
+	public AudioClip tenSecondBeepCountdown;//8
+	public AudioClip endOfRoundBells;//9
+	public AudioClip chopping;//10
+	public AudioClip singleCountdownBeep;//11
+	
 
 	void Update() {
 
 		//FixSoundSpeeds ();
 
+
 	}
 
 	void Awake(){
 		me = this;
+		
 	}
 		
 
 
 	void Start () {
 		audSources = new AudioSource[32];
-
+		
 		for (int i = 0; i < audSources.Length; i++) {
 
 			AudioSource aSource = (Instantiate (audSource, Vector3.zero, Quaternion.identity) as GameObject).GetComponent<AudioSource>();
@@ -44,6 +49,8 @@ public class SoundController : MonoBehaviour {
 
 
 		}
+		PlaySound(introSound,1);
+		
 
 	}
 
@@ -63,8 +70,8 @@ public class SoundController : MonoBehaviour {
 		int sNum = GetSourceNum ();
 		audSources [sNum].clip = snd;
 		audSources [sNum].volume = vol;
-		audSources [sNum].pitch = Time.timeScale;
-		audSources [sNum].Play ();
+		//audSources [sNum].pitch =// Time.timeScale;
+		audSources [sNum].PlayOneShot(snd, vol);
 	}
 
 	public void PlaySound(AudioClip snd, float vol, float pitch)
@@ -74,8 +81,8 @@ public class SoundController : MonoBehaviour {
 		int sNum = GetSourceNum ();
 		audSources [sNum].clip = snd;
 		audSources [sNum].volume = vol;
-		audSources [sNum].pitch = pitch * Time.timeScale;
-		audSources [sNum].Play ();
+		audSources[sNum].pitch = pitch; //* Time.timeScale;
+		audSources [sNum].PlayOneShot(snd,vol);
 	}
 
 
@@ -96,16 +103,17 @@ public class SoundController : MonoBehaviour {
 
 			if (audSources [i].isPlaying) {
 
-				audSources [i].pitch = Time.timeScale;
+				//audSources [i].pitch = Time.timeScale;
 			}
 
 
 		}
 
-
-
-
 	}
+
+
+	
+	
 
 
 

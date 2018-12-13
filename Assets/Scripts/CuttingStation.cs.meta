@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 990436f3b49591c4ca30da276be35149
-timeCreated: 1541512041
-licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - itemHere: {instanceID: 0}
+  - counterPos: {instanceID: 0}
+  - chop: {fileID: 8300000, guid: 4f6cbed943fed72408692579fa73f506, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
