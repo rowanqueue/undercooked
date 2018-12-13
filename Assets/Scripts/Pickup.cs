@@ -94,12 +94,14 @@ public class Pickup : MonoBehaviour {
                     {
                         TrashCan trashCan = (TrashCan)potentialCounter;
                         trashCan.DeleteItem(itemHeld);
+                        Sounds.Me.cliptoPlay = 2;
                         itemHeld = null;
                     }
                     else if (potentialCounter.itemHere == null)
                     {
                         potentialCounter.itemHere = itemHeld;
                         itemHeld.collider.enabled = false;
+                        Sounds.Me.cliptoPlay = 2;
                         itemHeld = null;
                     }
                     else if (potentialCounter.itemHere is Plate)
@@ -109,6 +111,7 @@ public class Pickup : MonoBehaviour {
                         {
                             if (plate.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                             {
+                                Sounds.Me.cliptoPlay = 3;
                                 Destroy(itemHeld.gameObject);
                             }
                         }
@@ -117,6 +120,7 @@ public class Pickup : MonoBehaviour {
                             Pan pan = (Pan)itemHeld;
                             if (plate.Add(new ItemStats(pan.cooking.name, pan.cooking.state)))
                             {
+                                Sounds.Me.cliptoPlay = 3;
                                 Destroy(pan.cooking.gameObject);
                                 pan.cooking = null;
                             }
@@ -126,6 +130,7 @@ public class Pickup : MonoBehaviour {
                     {
                         Pan pan = (Pan)potentialCounter.itemHere;
                         pan.cooking = itemHeld;
+                        Sounds.Me.cliptoPlay = 2;
                         pan.SpawnProgBar();
                         pan.cooking.collider.enabled = false;
                         itemHeld = null;
@@ -139,6 +144,7 @@ public class Pickup : MonoBehaviour {
                         Plate plate = (Plate)potentialItem;
                         if (plate.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
+                            Sounds.Me.cliptoPlay = 2;
                             Destroy(itemHeld.gameObject);
                         }
                     }
@@ -148,6 +154,7 @@ public class Pickup : MonoBehaviour {
                     itemHeld.rb.isKinematic = false;
                     itemHeld.collider.enabled = true;
                     itemHeld = null;
+                    Sounds.Me.cliptoPlay = 2;
                 }
             }
             else//you're holding nothing
@@ -159,6 +166,7 @@ public class Pickup : MonoBehaviour {
                         Crate crate = (Crate)potentialCounter;
                         crate.SpawnItem();
                         itemHeld = crate.itemHere;
+                        Sounds.Me.cliptoPlay = 1;
                         crate.itemHere = null;
                         itemHeld.rb.isKinematic = true;
                         itemHeld.collider.enabled = false;
@@ -175,23 +183,27 @@ public class Pickup : MonoBehaviour {
                     }
                     else if (potentialCounter.itemHere != null)
                     {
+                        Sounds.Me.cliptoPlay = 1;
                         itemHeld = potentialCounter.itemHere;
                         potentialCounter.itemHere = null;
                         itemHeld.rb.isKinematic = true;
                         itemHeld.collider.enabled = false;
                         itemHeld.transform.position = transform.position + transform.forward;
                         itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+                        
                     }
                 }
                 else
                 {
                     if (potentialItem != null)//you are looking at an item
                     {
+                        Sounds.Me.cliptoPlay = 1;
                         itemHeld = potentialItem;
                         itemHeld.rb.isKinematic = true;
                         itemHeld.collider.enabled = false;
                         itemHeld.transform.position = transform.position + transform.forward;
                         itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+                        
                     }
                 }
             }
@@ -207,7 +219,10 @@ public class Pickup : MonoBehaviour {
                         CuttingStation cuttingStation = (CuttingStation)potentialCounter;
                         if (cuttingStation.canBeUsed)
                         {
+                            
                             cuttingStation.isCutting = true;
+                           
+
                         }
                     }
                 }
