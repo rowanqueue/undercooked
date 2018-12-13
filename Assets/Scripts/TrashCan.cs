@@ -14,6 +14,7 @@ public class TrashCan : Counter {
         else if (item is Pan)
         {
             Pan pan = (Pan)item;
+            Destroy(pan.cooking.gameObject);
             pan.cooking = null;
         }
         else

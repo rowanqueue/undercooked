@@ -126,6 +126,7 @@ public class Pickup : MonoBehaviour {
                     {
                         Pan pan = (Pan)potentialCounter.itemHere;
                         pan.cooking = itemHeld;
+                        pan.SpawnProgBar();
                         pan.cooking.collider.enabled = false;
                         itemHeld = null;
                     }

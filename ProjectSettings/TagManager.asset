@@ -9,6 +9,7 @@ TagManager:
   - SmallOrder
   - MediumOrder
   - LargeOrder
+  - Canvas
   layers:
   - Default
   - TransparentFX
