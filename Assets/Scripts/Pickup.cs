@@ -157,6 +157,10 @@ public class Pickup : MonoBehaviour {
                     {
                         Crate crate = (Crate)potentialCounter;
                         crate.SpawnItem();
+                        itemHeld = crate.itemHere;
+                        crate.itemHere = null;
+                        itemHeld.rb.isKinematic = true;
+                        itemHeld.collider.enabled = false;
                     }
                     else if (potentialCounter is ReturnCounter)//getting a plate from return
                     {
