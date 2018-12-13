@@ -12,7 +12,7 @@ public class Stove : Counter {
             Pan pan = (Pan)itemHere;
             if (pan.cooking != null)
             {
-                pan.cooking.percentToNextLevel += Time.deltaTime;
+                pan.cooking.percentToNextLevel += Time.deltaTime/10f;
             }
         }
 	}

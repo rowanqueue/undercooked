@@ -14,12 +14,15 @@ public class Item : MonoBehaviour
     public float percentToNextLevel;
     public GameObject turnsInto;
 
+    protected GameObject canvas;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
         if (name.Equals("lettuce") || name.Equals("bun") || name.Equals("tomato") || name.Equals("burger")) {
-            itemSprite = Instantiate((GameObject)Resources.Load("Icons/" + name + "Icon"), GameObject.FindGameObjectWithTag("Canvas").transform).GetComponent<Image>();
+            itemSprite = Instantiate((GameObject)Resources.Load("Icons/" + name + "Icon"), canvas.transform).GetComponent<Image>();
             uiDisplayPosition = transform.position + (Vector3.up * .75f);
             itemSprite.transform.position = Camera.main.WorldToScreenPoint(uiDisplayPosition);
         }
@@ -36,7 +39,10 @@ public class Item : MonoBehaviour
 
     public void OnDestroy()
     {
-        Destroy(itemSprite.gameObject);
+        if (itemSprite != null)
+        {
+            Destroy(itemSprite.gameObject);
+        }
     }
 
     public bool Equals(Item i)
