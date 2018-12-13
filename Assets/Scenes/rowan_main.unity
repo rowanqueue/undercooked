@@ -8337,10 +8337,9 @@ MonoBehaviour:
   CompletedOrders: []
   Canvas: {fileID: 1659005895}
   timeToNextOrder: 15
-  smallOrderTime: 0
-  mediumOrderTime: 0
-  largeOrderTime: 0
+  orderTime: 240
   testComplete: 0
+  orderTimes: []
 --- !u!1 &1668281974
 GameObject:
   m_ObjectHideFlags: 0
