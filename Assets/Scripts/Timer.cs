@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-	public float timer = 241f;
+	public float timer = 20f; //241f;
 	//hnghhhhhhh
 	private int minutes;
 	private int seconds;
-	
 
+	public AudioSource countdown;
+	public AudioClip endofRound;
+	private bool boolend = false;
 	public Text timeRemaining; 
 	
-	void Start () {
-		
+	void Start ()
+	{
+		countdown = GetComponent<AudioSource>();
 	}
 	
 	void Update () {
@@ -27,13 +30,36 @@ public class Timer : MonoBehaviour
             if(seconds < 10f)
             {
                 timeRemaining.text += "0";
+	         
             }
             timeRemaining.text += seconds;
+			
 		}
+
 		else
 		{
 			Time.timeScale = 0;
 			
 		}
+
+		if (timer<=11.5f && timer> 1f)
+		{
+			if (countdown.isPlaying==false)
+			{
+				countdown.Play();
+				countdown.volume = .65f;
+			}
+		}
+
+		if (timer<.5f && boolend==false)
+		{
+			countdown.Stop();
+			countdown.clip = endofRound;
+			countdown.PlayOneShot(endofRound);
+			boolend = true;
+		}
+
+		
+		
 	}
 }

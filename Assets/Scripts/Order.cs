@@ -20,7 +20,6 @@ public class Order {
     {
         Order order = new Order();
         order.Add(new ItemStats("bun", "base"));
-        //UIOrder.numOrder = orderNum;
         if (orderNum > 0)
         {
             order.Add(new ItemStats("lettuce", "chopped"));

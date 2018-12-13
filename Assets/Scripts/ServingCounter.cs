@@ -67,6 +67,7 @@ public class ServingCounter : Counter {
 		        }
 	        }
             */
+	        Sounds.Me.cliptoPlay = 6;
             UIOrders.me.CompletedOrder(requested[0]);//whatever the order is;
             requested.RemoveAt(0);
 	        Debug.Log("Accepted");
