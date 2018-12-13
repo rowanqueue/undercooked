@@ -97,7 +97,7 @@ public class UIOrders : MonoBehaviour
         {
             orderTimes.Add(Time.time);
             RectTransform newBurger = Instantiate(OrderRects[numOrder],
-                new Vector3(30 + orderXdisplacement, -18.9f, -31.4f), Quaternion.Euler(0, 0, 0));
+                new Vector3(30 + orderXdisplacement, -31.4f, 0f), Quaternion.Euler(0, 0, 0));
             newBurger.transform.SetParent(Canvas.transform, false);
             DisplayedOrders.Add(newBurger);//Adds new order to Displayed Ui for completed order comparison 
         }

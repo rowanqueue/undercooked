@@ -30,12 +30,13 @@ public class ServingCounter : Counter {
             Destroy(itemHere.gameObject);
             itemHere = null;
         }
-        if (timer > 15)
+        if (timer > 15f)
         {
             Order newOrder = Order.GenerateBurger(Random.Range(0, 3));
             UIOrders.me.InstantiateOrder(newOrder);
             requested.Add(newOrder);
             timer = 0;
+            Debug.Log("why do you happen twice");
         }
         print("Requested:" + requested[0]);
     }
