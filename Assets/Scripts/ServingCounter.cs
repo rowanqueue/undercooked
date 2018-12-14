@@ -43,6 +43,7 @@ public class ServingCounter : Counter {
 
     public int Serve(Plate served) //find order in requested and deliver it
     {
+	  
         if (served.plated.Equals(requested[0]))
         {
             /*
@@ -68,7 +69,6 @@ public class ServingCounter : Counter {
 		        }
 	        }
             */
-	        Sounds.Me.cliptoPlay = 6;
             UIOrders.me.CompletedOrder(requested[0]);//whatever the order is;
             requested.RemoveAt(0);
 	        Debug.Log("Accepted");
