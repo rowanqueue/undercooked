@@ -5,12 +5,10 @@ using UnityEngine;
 public class CuttingStation : Counter {
     public bool canBeUsed;
     public bool isCutting;
-    private AudioSource chopsound;
-    public AudioClip chop;
 
     private void Start()
     {
-        chopsound = GetComponent<AudioSource>();
+      
     }
     public override void Update()
     {
@@ -28,12 +26,7 @@ public class CuttingStation : Counter {
         {
             
             itemHere.percentToNextLevel += Time.deltaTime;
-            if (chopsound.isPlaying==false)
-            {
-                chopsound.Play();
-                chopsound.volume = .35f;
-            }
-            
+          
             if(itemHere.percentToNextLevel >= 1)
             {
                 GameObject chopped = Instantiate(itemHere.turnsInto, itemHere.transform.position, itemHere.transform.rotation);
