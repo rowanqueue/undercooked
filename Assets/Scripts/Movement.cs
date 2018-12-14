@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour
 		//myPlayerName = name;
 		rb = GetComponent<Rigidbody>();
 		animator = GetComponent<Animator>();
-		coolDown = CoolingDown();
+		//coolDown = CoolingDown();
 		speed = walkingSpeed;
         yPos = transform.position.y;
 		
@@ -115,9 +115,9 @@ public class Movement : MonoBehaviour
 
 	void LockPosition()
 	{
-		Ray LookRay = new Ray(transform.position-(Vector3.up*.25f),transform.forward);
+		Ray LookRay = new Ray(transform.position-(Vector3.up*.15f),transform.forward);
 
-		float maxrayDist = .65f;
+		float maxrayDist = .75f;
 		RaycastHit otherPlayer; //RayCast hit, this script only checks if it is hitting the other player
 		
 		Debug.DrawRay(LookRay.origin,LookRay.direction* maxrayDist ,Color.yellow);

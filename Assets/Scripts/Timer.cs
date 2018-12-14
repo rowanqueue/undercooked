@@ -42,6 +42,11 @@ public class Timer : MonoBehaviour
 			
 		}
 
+		if (timer >= 11.51)
+		{
+			
+		}
+
 		if (timer<=11.5f && timer> 1f)
 		{
 			if (countdown.isPlaying==false)
