@@ -22,6 +22,7 @@ public class SoundController : MonoBehaviour {
 	public AudioClip endOfRoundBells;//9
 	public AudioClip chopping;//10
 	public AudioClip singleCountdownBeep;//11
+	public AudioClip song;
 	
 
 	void Update() {
@@ -50,6 +51,7 @@ public class SoundController : MonoBehaviour {
 
 		}
 		PlaySound(introSound,1);
+		PlaySound(song,1);
 		
 
 	}

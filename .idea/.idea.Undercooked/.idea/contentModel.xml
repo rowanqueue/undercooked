@@ -24,7 +24,6 @@
           <e p="Score.cs" t="Include" />
           <e p="ServingCounter.cs" t="Include" />
           <e p="SoundController.cs" t="Include" />
-          <e p="Sounds.cs" t="Include" />
           <e p="Stove.cs" t="Include" />
           <e p="Timer.cs" t="Include" />
           <e p="TrashCan.cs" t="Include" />
