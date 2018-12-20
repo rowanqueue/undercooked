@@ -24,6 +24,7 @@ public class UIOrders : MonoBehaviour
 	public RectTransform[] OrderRects; //Assign UI Displays
 	public List<Transform> DisplayedOrders =new List<Transform>(); //All orders currently onscreen 
 	public List<GameObject> CompletedOrders = new List<GameObject>(); //Orders that have been fulfilled 
+    public List<Order> orders = new List<Order>();
 	[Header("GameObjects to Assign")]
 	public GameObject Canvas;
 	[Header("Public Variables")]
@@ -44,6 +45,7 @@ public class UIOrders : MonoBehaviour
     public List<float> orderTimes;//when order was created
 	 void Awake()
 	 {
+        orderTime = 240;
          me = this;
 		 missedOrder = 0;
 		 first = true;
@@ -56,14 +58,14 @@ public class UIOrders : MonoBehaviour
 		for(int i = 0; i < orderTimes.Count; i++)
         {
             Image image = DisplayedOrders[i].GetChild(1).GetComponent<Image>();
-            float lerpAmount = 1-(Time.time - orderTimes[i])/orderTime;
+            float lerpAmount = 1-((Time.time - orderTimes[i])/orderTime);
             image.fillAmount = lerpAmount;
             image.color = Color.Lerp(Color.red,Color.green, lerpAmount);
         }
 		
 	}
 
-	public void InstantiateOrder(int orderNum) //This will spawn a UI element and eventually lerp it to the position. Also set its tag to "Order"
+	public void InstantiateOrder(int orderNum, Order order) //This will spawn a UI element and eventually lerp it to the position. Also set its tag to "Order"
 	{
         for (int i = 0; i <= DisplayedOrders.Count; i++)
         {
@@ -90,6 +92,7 @@ public class UIOrders : MonoBehaviour
         }
         if (DisplayedOrders.Count <= 4)
         {
+            orders.Add(order);
             orderTimes.Add(Time.time);
             RectTransform newBurger = Instantiate(OrderRects[orderNum],
                 new Vector3(40 + orderXdisplacement, -31.4f, 0f), Quaternion.Euler(0, 0, 0));
@@ -142,18 +145,27 @@ public class UIOrders : MonoBehaviour
 	
 	public void CompletedOrder(Order order)
 	{
-        //CompletedOrderNum = DisplayedOrders.IndexOf(order);
-        CompletedOrderNum = 0;
-        for (int i = PositionInList; i <= DisplayedOrders.Count; i++)
+        CompletedOrderNum = orders.IndexOf(order);
+        for (int i = CompletedOrderNum+1; i <= DisplayedOrders.Count; i++)
         {
-            foreach (Transform t in DisplayedOrders)
+            Transform g = DisplayedOrders[i - 1];
+            float xMove = 0;
+            if (g.CompareTag("SmallOrder"))
             {
-                if (CompletedOrderNum == 0)
-                {
-                    t.position -= new Vector3(57, 0, 0);
-
-                }
+                xMove += 92 + 5;//old 57, whatever x scale is + 3
             }
+
+            if (g.CompareTag("MediumOrder"))
+            {
+                xMove += 119 + 5;//old 72
+            }
+
+            if (g.CompareTag("LargeOrder"))
+            {
+                xMove += 148 + 5;//old 89
+            }
+            DisplayedOrders[i].position -= new Vector3(xMove, 0, 0);
         }
+        orderTimes.RemoveAt(CompletedOrderNum);
     }
 }
