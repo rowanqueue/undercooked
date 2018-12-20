@@ -18,7 +18,10 @@
           <e p="Pan.cs" t="Include" />
           <e p="Pickup.cs" t="Include" />
           <e p="Plate.cs" t="Include" />
+          <e p="PlatedBun.cs" t="Include" />
+          <e p="PlatedItem.cs" t="Include" />
           <e p="ReturnCounter.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
           <e p="ServingCounter.cs" t="Include" />
           <e p="SoundController.cs" t="Include" />
           <e p="Stove.cs" t="Include" />

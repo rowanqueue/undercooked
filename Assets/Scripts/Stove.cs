@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 //use: turn meat into COOKED MEAT
 //loc: on stove object
-public class Stove : Counter {
+public class Stove : Counter
+{
 
-	public override void Update () {
+    public override void Update () {
         base.Update();
         if (itemHere is Pan)
         {
-            Pan pan = (Pan)itemHere;
+            Pan pan = (Pan) itemHere;
             if (pan.cooking != null)
             {
-                pan.cooking.percentToNextLevel += Time.deltaTime/10f;
+                pan.cooking.percentToNextLevel += Time.deltaTime;
+
             }
         }
-	}
+    }
 }

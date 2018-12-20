@@ -84,6 +84,7 @@ public class Pickup : MonoBehaviour {
                         {
                             potentialCounter.itemHere = itemHeld;
                             itemHeld = null;
+                            //add completed order sound
                         }
                         else
                         {
@@ -92,12 +93,30 @@ public class Pickup : MonoBehaviour {
                     }
                     else if(potentialCounter is TrashCan)//you're throwing it away!!
                     {
+                        if (itemHeld.state.Equals("chopped"))
+                        {
+                            SoundController.me.PlaySound(SoundController.me.dropchoppeditem,.6f);
+                        }
+
+                        if (!itemHeld.state.Equals("chopped"))
+                        {
+                            SoundController.me.PlaySound(SoundController.me.dropitem,.6f);
+                        }
                         TrashCan trashCan = (TrashCan)potentialCounter;
                         trashCan.DeleteItem(itemHeld);
                         itemHeld = null;
                     }
                     else if (potentialCounter.itemHere == null)
                     {
+                        if (itemHeld.state.Equals("chopped"))
+                        {
+                            SoundController.me.PlaySound(SoundController.me.dropchoppeditem,.6f);
+                        }
+
+                        if (!itemHeld.state.Equals("chopped"))
+                        {
+                            SoundController.me.PlaySound(SoundController.me.dropitem,.6f);
+                        }
                         potentialCounter.itemHere = itemHeld;
                         itemHeld.collider.enabled = false;
                         itemHeld = null;
@@ -109,6 +128,7 @@ public class Pickup : MonoBehaviour {
                         {
                             if (plate.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                             {
+                                SoundController.me.PlaySound(SoundController.me.dropchoppeditem,.6f);
                                 Destroy(itemHeld.gameObject);
                             }
                         }
@@ -117,6 +137,7 @@ public class Pickup : MonoBehaviour {
                             Pan pan = (Pan)itemHeld;
                             if (plate.Add(new ItemStats(pan.cooking.name, pan.cooking.state)))
                             {
+                                SoundController.me.PlaySound(SoundController.me.dropchoppeditem,.6f);
                                 Destroy(pan.cooking.gameObject);
                                 pan.cooking = null;
                             }
@@ -126,9 +147,14 @@ public class Pickup : MonoBehaviour {
                     {
                         Pan pan = (Pan)potentialCounter.itemHere;
                         pan.cooking = itemHeld;
+                        SoundController.me.PlaySound(SoundController.me.dropchoppeditem,.6f);
                         pan.SpawnProgBar();
                         pan.cooking.collider.enabled = false;
                         itemHeld = null;
+                        if (pan.cooking!=null)
+                        {
+                           SoundController.me.PlaySound(SoundController.me.grilling,.6f);
+                        }
                     }
                 }
                 else if (potentialItem != null)//combine items
@@ -139,15 +165,26 @@ public class Pickup : MonoBehaviour {
                         Plate plate = (Plate)potentialItem;
                         if (plate.Add(new ItemStats(itemHeld.name, itemHeld.state)))
                         {
+                           SoundController.me.PlaySound(SoundController.me.dropchoppeditem,.6f);
                             Destroy(itemHeld.gameObject);
                         }
                     }
                 }
                 else
                 {
+                    if (itemHeld.state.Equals("chopped"))
+                    {
+                      SoundController.me.PlaySound(SoundController.me.dropchoppeditem,.6f);
+                    }
+
+                    if (!itemHeld.state.Equals("chopped"))
+                    {
+                        SoundController.me.PlaySound(SoundController.me.dropitem,.6f);
+                    }
                     itemHeld.rb.isKinematic = false;
                     itemHeld.collider.enabled = true;
                     itemHeld = null;
+                   
                 }
             }
             else//you're holding nothing
@@ -156,6 +193,7 @@ public class Pickup : MonoBehaviour {
                 {
                     if (potentialCounter.itemHere == null && potentialCounter is Crate)
                     {
+                        SoundController.me.PlaySound(SoundController.me.pickUpItem,.6f);
                         Crate crate = (Crate)potentialCounter;
                         crate.SpawnItem();
                         itemHeld = crate.itemHere;
@@ -168,6 +206,7 @@ public class Pickup : MonoBehaviour {
                         ReturnCounter rc = (ReturnCounter)potentialCounter;
                         if (rc.GetPlate())//you can grab a plate
                         {
+                            SoundController.me.PlaySound(SoundController.me.pickUpItem,.6f);
                             GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), transform);
                             itemHeld.collider.enabled = false;
                             itemHeld = obj.GetComponent<Item>();
@@ -175,23 +214,27 @@ public class Pickup : MonoBehaviour {
                     }
                     else if (potentialCounter.itemHere != null)
                     {
+                        SoundController.me.PlaySound(SoundController.me.pickUpItem,.6f);
                         itemHeld = potentialCounter.itemHere;
                         potentialCounter.itemHere = null;
                         itemHeld.rb.isKinematic = true;
                         itemHeld.collider.enabled = false;
                         itemHeld.transform.position = transform.position + transform.forward;
                         itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+                        
                     }
                 }
                 else
                 {
                     if (potentialItem != null)//you are looking at an item
                     {
+                        SoundController.me.PlaySound(SoundController.me.pickUpItem,.6f);
                         itemHeld = potentialItem;
                         itemHeld.rb.isKinematic = true;
                         itemHeld.collider.enabled = false;
                         itemHeld.transform.position = transform.position + transform.forward;
                         itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+                        
                     }
                 }
             }
@@ -207,7 +250,13 @@ public class Pickup : MonoBehaviour {
                         CuttingStation cuttingStation = (CuttingStation)potentialCounter;
                         if (cuttingStation.canBeUsed)
                         {
+                            if (cuttingStation.isCutting == false)
+                            {
+                                SoundController.me.PlaySound(SoundController.me.chopping,.65f);
+                            }
                             cuttingStation.isCutting = true;
+                           
+
                         }
                     }
                 }

@@ -5,6 +5,11 @@ using UnityEngine;
 public class CuttingStation : Counter {
     public bool canBeUsed;
     public bool isCutting;
+
+    private void Start()
+    {
+      
+    }
     public override void Update()
     {
         base.Update();
@@ -19,7 +24,9 @@ public class CuttingStation : Counter {
         }
         if (isCutting)
         {
+            
             itemHere.percentToNextLevel += Time.deltaTime;
+          
             if(itemHere.percentToNextLevel >= 1)
             {
                 GameObject chopped = Instantiate(itemHere.turnsInto, itemHere.transform.position, itemHere.transform.rotation);

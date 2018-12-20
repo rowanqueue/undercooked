@@ -42,6 +42,7 @@ public class ServingCounter : Counter {
 
     public int Serve(Plate served) //find order in requested and deliver it
     {
+	  
         if (served.plated.Equals(requested[0]))
         {
             /*
