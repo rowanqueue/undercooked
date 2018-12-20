@@ -45,6 +45,7 @@ public class UIOrders : MonoBehaviour
     public List<float> orderTimes;//when order was created
 	 void Awake()
 	 {
+        orderTime = 240;
          me = this;
 		 missedOrder = 0;
 		 first = true;
