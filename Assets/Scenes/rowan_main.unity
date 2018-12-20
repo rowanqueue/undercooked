@@ -753,12 +753,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   collider: {fileID: 0}
+  uiDisplayPosition: {x: 0, y: 0, z: 0}
+  itemSprite: {fileID: 0}
   name: pan
   state: base
   percentToNextLevel: 0
   turnsInto: {fileID: 0}
   cooking: {fileID: 0}
   cookingOffset: 0
+  progBarBack: {fileID: 0}
+  progBarContents: {fileID: 0}
 --- !u!1001 &203250930
 Prefab:
   m_ObjectHideFlags: 0
@@ -987,12 +991,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   collider: {fileID: 0}
+  uiDisplayPosition: {x: 0, y: 0, z: 0}
+  itemSprite: {fileID: 0}
   name: pan
   state: base
   percentToNextLevel: 0
   turnsInto: {fileID: 0}
   cooking: {fileID: 0}
   cookingOffset: 0
+  progBarBack: {fileID: 0}
+  progBarContents: {fileID: 0}
 --- !u!4 &276982180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4584640907940902, guid: 666ac288b6f38f141a9f2c3328447e86,
@@ -1044,6 +1052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   collider: {fileID: 0}
+  uiDisplayPosition: {x: 0, y: 0, z: 0}
+  itemSprite: {fileID: 0}
   name: plate
   state: 
   percentToNextLevel: 0
@@ -3888,6 +3898,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 241
+  countdown: {fileID: 0}
+  endofRound: {fileID: 0}
   timeRemaining: {fileID: 1161744012}
 --- !u!4 &856046246
 Transform:
@@ -5737,6 +5749,7 @@ MonoBehaviour:
   firstOrder: 0
   OtherDisplayed: []
   UIBorders: {fileID: 1659005895}
+  returnPlateWaitTime: 0
 --- !u!4 &1209734658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 21e144448799cb3489f3355d6b84e191,
@@ -7312,12 +7325,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   collider: {fileID: 0}
+  uiDisplayPosition: {x: 0, y: 0, z: 0}
+  itemSprite: {fileID: 0}
   name: pan
   state: base
   percentToNextLevel: 0
   turnsInto: {fileID: 0}
   cooking: {fileID: 0}
   cookingOffset: 0
+  progBarBack: {fileID: 0}
+  progBarContents: {fileID: 0}
 --- !u!4 &1455295847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4974672524470346, guid: f3b5f362ab8e30447b83579d03b65236,
@@ -8051,12 +8068,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   collider: {fileID: 0}
+  uiDisplayPosition: {x: 0, y: 0, z: 0}
+  itemSprite: {fileID: 0}
   name: pan
   state: base
   percentToNextLevel: 0
   turnsInto: {fileID: 0}
   cooking: {fileID: 0}
   cookingOffset: 0
+  progBarBack: {fileID: 0}
+  progBarContents: {fileID: 0}
 --- !u!1001 &1619300328
 Prefab:
   m_ObjectHideFlags: 0
