@@ -1244,6 +1244,8 @@ MonoBehaviour:
   tomato: {fileID: 0}
   lettuce: {fileID: 0}
   burger: {fileID: 0}
+  itemSprites: []
+  itemUIPositions: []
 --- !u!1001 &281723523
 Prefab:
   m_ObjectHideFlags: 0
@@ -1815,7 +1817,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4584640907940902, guid: 666ac288b6f38f141a9f2c3328447e86, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.254
+      value: -3.281
       objectReference: {fileID: 0}
     - target: {fileID: 4584640907940902, guid: 666ac288b6f38f141a9f2c3328447e86, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4340,7 +4342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019814625c7a14340a16cd85fb43f728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 241
+  timer: 240
   countdown: {fileID: 0}
   endofRound: {fileID: 8300000, guid: 4ff5011acec96dc419961d846bbe7da1, type: 3}
   timeRemaining: {fileID: 1161744012}
@@ -7001,7 +7003,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1326262062}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.539, y: 0.26641694, z: 16.5}
+  m_LocalPosition: {x: -2.539, y: 0.26641694, z: 16.526}
   m_LocalScale: {x: 1, y: 0.51149, z: 0.96230024}
   m_Children: []
   m_Father: {fileID: 1262099061}
@@ -7504,6 +7506,7 @@ MonoBehaviour:
   itemHere: {fileID: 0}
   counterPos: {fileID: 314998549}
   timer: 0
+  score: 0
   firstOrder: 0
   OtherDisplayed: []
   UIBorders: {fileID: 1659005895}
@@ -9203,7 +9206,7 @@ MonoBehaviour:
   CompletedOrders: []
   Canvas: {fileID: 1659005895}
   timeToNextOrder: 15
-  orderTime: 0
+  orderTime: 240
   testComplete: 0
   orderTimes: []
 --- !u!1 &1668281974
