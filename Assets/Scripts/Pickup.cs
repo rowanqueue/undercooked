@@ -195,9 +195,7 @@ public class Pickup : MonoBehaviour {
                     {
                         SoundController.me.PlaySound(SoundController.me.pickUpItem,.6f);
                         Crate crate = (Crate)potentialCounter;
-                        crate.SpawnItem();
-                        itemHeld = crate.itemHere;
-                        crate.itemHere = null;
+                        itemHeld = crate.SpawnItem();
                         itemHeld.rb.isKinematic = true;
                         itemHeld.collider.enabled = false;
                     }
