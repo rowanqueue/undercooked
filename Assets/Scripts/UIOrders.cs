@@ -42,16 +42,12 @@ public class UIOrders : MonoBehaviour
 	public static bool Completed=false;
 	private float orderXdisplacement;
     public List<float> orderTimes;//when order was created
-	 void Start()
+	 void Awake()
 	 {
          me = this;
 		 missedOrder = 0;
 		 first = true;
 		 testComplete = 0;
-		RectTransform newBurger=Instantiate(OrderRects[0],new Vector3(43.91f,-31.4f,0f), Quaternion.Euler(0, 0, 0));
-		 newBurger.transform.SetParent(Canvas.transform,false);
-		 DisplayedOrders.Add(newBurger);
-         orderTimes.Add(Time.time);
 		 
 	 }
 
@@ -59,7 +55,7 @@ public class UIOrders : MonoBehaviour
 	{
 		for(int i = 0; i < orderTimes.Count; i++)
         {
-            Image image = DisplayedOrders[i].GetChild(2).GetComponent<Image>();
+            Image image = DisplayedOrders[i].GetChild(1).GetComponent<Image>();
             float lerpAmount = 1-(Time.time - orderTimes[i])/orderTime;
             image.fillAmount = lerpAmount;
             image.color = Color.Lerp(Color.red,Color.green, lerpAmount);
@@ -67,7 +63,7 @@ public class UIOrders : MonoBehaviour
 		
 	}
 
-	public void InstantiateOrder(Order order) //This will spawn a UI element and eventually lerp it to the position. Also set its tag to "Order"
+	public void InstantiateOrder(int orderNum) //This will spawn a UI element and eventually lerp it to the position. Also set its tag to "Order"
 	{
         for (int i = 0; i <= DisplayedOrders.Count; i++)
         {
@@ -95,8 +91,8 @@ public class UIOrders : MonoBehaviour
         if (DisplayedOrders.Count <= 4)
         {
             orderTimes.Add(Time.time);
-            RectTransform newBurger = Instantiate(OrderRects[numOrder],
-                new Vector3(30 + orderXdisplacement, -18.9f, -31.4f), Quaternion.Euler(0, 0, 0));
+            RectTransform newBurger = Instantiate(OrderRects[orderNum],
+                new Vector3(40 + orderXdisplacement, -31.4f, 0f), Quaternion.Euler(0, 0, 0));
             newBurger.transform.SetParent(Canvas.transform, false);
             DisplayedOrders.Add(newBurger);//Adds new order to Displayed Ui for completed order comparison 
         }

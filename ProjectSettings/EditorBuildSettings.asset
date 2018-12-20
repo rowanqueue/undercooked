@@ -4,4 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/rowan_main.unity
+    guid: ebec2d21e50be0b48ac94cbd93c7f16c
+  m_configObjects: {}
