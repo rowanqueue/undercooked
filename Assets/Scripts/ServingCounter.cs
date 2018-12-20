@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ServingCounter : Counter {
     public float timer;
+    public int score;
     public List<Order> requested;
     public bool firstOrder;
 	public List<Transform> OtherDisplayed= new List<Transform>();
@@ -28,7 +29,7 @@ public class ServingCounter : Counter {
         }
         if (itemHere != null && itemHere is Plate)
         {
-            Score.me.score += Serve((Plate)itemHere);
+            score += Serve((Plate)itemHere);
             Destroy(itemHere.gameObject);
             itemHere = null;
         }
@@ -36,7 +37,6 @@ public class ServingCounter : Counter {
         {
             CreateOrder();
         }
-        print("Requested:" + requested[0]);
         if(waitForReturnPlate > 0)
         {
             waitForReturnPlate -= Time.deltaTime;
