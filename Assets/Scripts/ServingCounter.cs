@@ -8,12 +8,14 @@ public class ServingCounter : Counter {
     public bool firstOrder;
 	public List<Transform> OtherDisplayed= new List<Transform>();
 	public GameObject UIBorders;
+    public float returnPlateWaitTime;
+    float waitForReturnPlate;
 
 	// Use this for initialization
 	void Start () {
         timer = 0;
         requested = new List<Order>();
-        requested.Add(Order.GenerateBurger(Random.Range(0, 3)));
+        CreateOrder();
 	}
 	
 	// Update is called once per frame
@@ -30,18 +32,36 @@ public class ServingCounter : Counter {
             Destroy(itemHere.gameObject);
             itemHere = null;
         }
-        if (timer > 15)
+        if (timer > 15f)
         {
-            Order newOrder = Order.GenerateBurger(Random.Range(0, 3));
-            UIOrders.me.InstantiateOrder(newOrder);
-            requested.Add(newOrder);
-            timer = 0;
+            CreateOrder();
         }
         print("Requested:" + requested[0]);
+        if(waitForReturnPlate > 0)
+        {
+            waitForReturnPlate -= Time.deltaTime;
+            if(waitForReturnPlate <= 0)
+            {
+                ReturnCounter.me.ReturnPlate();
+            }
+        }
+        
     }
-
+    public void CreateOrder()
+    {
+        int orderNum = Random.Range(0, 3);
+        Order newOrder = Order.GenerateBurger(orderNum);
+        UIOrders.me.InstantiateOrder(orderNum,newOrder);
+        requested.Add(newOrder);
+        timer = 0;
+    }
     public int Serve(Plate served) //find order in requested and deliver it
     {
+        if(waitForReturnPlate > 0)
+        {
+            ReturnCounter.me.ReturnPlate();
+        }
+        waitForReturnPlate = returnPlateWaitTime+Time.time;
         if (served.plated.Equals(requested[0]))
         {
             /*

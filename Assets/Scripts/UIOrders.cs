@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +24,7 @@ public class UIOrders : MonoBehaviour
 	public RectTransform[] OrderRects; //Assign UI Displays
 	public List<Transform> DisplayedOrders =new List<Transform>(); //All orders currently onscreen 
 	public List<GameObject> CompletedOrders = new List<GameObject>(); //Orders that have been fulfilled 
+    public List<Order> orders = new List<Order>();
 	[Header("GameObjects to Assign")]
 	public GameObject Canvas;
 	[Header("Public Variables")]
@@ -43,16 +43,13 @@ public class UIOrders : MonoBehaviour
 	public static bool Completed=false;
 	private float orderXdisplacement;
     public List<float> orderTimes;//when order was created
-	 void Start()
+	 void Awake()
 	 {
+        orderTime = 240;
          me = this;
 		 missedOrder = 0;
 		 first = true;
 		 testComplete = 0;
-		RectTransform newBurger=Instantiate(OrderRects[0],new Vector3(43.91f,-31.4f,0f), Quaternion.Euler(0, 0, 0));
-		 newBurger.transform.SetParent(Canvas.transform,false);
-		 DisplayedOrders.Add(newBurger);
-         orderTimes.Add(Time.time);
 		 
 	 }
 
@@ -60,15 +57,15 @@ public class UIOrders : MonoBehaviour
 	{
 		for(int i = 0; i < orderTimes.Count; i++)
         {
-            Image image = DisplayedOrders[i].GetChild(2).GetComponent<Image>();
-            float lerpAmount = 1-(Time.time - orderTimes[i])/orderTime;
+            Image image = DisplayedOrders[i].GetChild(1).GetComponent<Image>();
+            float lerpAmount = 1-((Time.time - orderTimes[i])/orderTime);
             image.fillAmount = lerpAmount;
             image.color = Color.Lerp(Color.red,Color.green, lerpAmount);
         }
 		
 	}
 
-	public void InstantiateOrder(Order order) //This will spawn a UI element and eventually lerp it to the position. Also set its tag to "Order"
+	public void InstantiateOrder(int orderNum, Order order) //This will spawn a UI element and eventually lerp it to the position. Also set its tag to "Order"
 	{
         for (int i = 0; i <= DisplayedOrders.Count; i++)
         {
@@ -95,9 +92,10 @@ public class UIOrders : MonoBehaviour
         }
         if (DisplayedOrders.Count <= 4)
         {
+            orders.Add(order);
             orderTimes.Add(Time.time);
-            RectTransform newBurger = Instantiate(OrderRects[numOrder],
-                new Vector3(30 + orderXdisplacement, -18.9f, -31.4f), Quaternion.Euler(0, 0, 0));
+            RectTransform newBurger = Instantiate(OrderRects[orderNum],
+                new Vector3(40 + orderXdisplacement, -31.4f, 0f), Quaternion.Euler(0, 0, 0));
             newBurger.transform.SetParent(Canvas.transform, false);
             DisplayedOrders.Add(newBurger);//Adds new order to Displayed Ui for completed order comparison 
         }
@@ -147,8 +145,7 @@ public class UIOrders : MonoBehaviour
 	
 	public void CompletedOrder(Order order)
 	{
-        //CompletedOrderNum = DisplayedOrders.IndexOf(order);
-        CompletedOrderNum = 0;
+        CompletedOrderNum = orders.IndexOf(order);
         for (int i = PositionInList; i <= DisplayedOrders.Count; i++)
         {
             foreach (Transform t in DisplayedOrders)
@@ -160,5 +157,6 @@ public class UIOrders : MonoBehaviour
                 }
             }
         }
+        orderTimes.RemoveAt(CompletedOrderNum);
     }
 }
