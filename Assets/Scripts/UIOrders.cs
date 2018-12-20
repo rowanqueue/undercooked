@@ -146,16 +146,25 @@ public class UIOrders : MonoBehaviour
 	public void CompletedOrder(Order order)
 	{
         CompletedOrderNum = orders.IndexOf(order);
-        for (int i = PositionInList; i <= DisplayedOrders.Count; i++)
+        for (int i = CompletedOrderNum+1; i <= DisplayedOrders.Count; i++)
         {
-            foreach (Transform t in DisplayedOrders)
+            Transform g = DisplayedOrders[i - 1];
+            float xMove = 0;
+            if (g.CompareTag("SmallOrder"))
             {
-                if (CompletedOrderNum == 0)
-                {
-                    t.position -= new Vector3(57, 0, 0);
-
-                }
+                xMove += 92 + 5;//old 57, whatever x scale is + 3
             }
+
+            if (g.CompareTag("MediumOrder"))
+            {
+                xMove += 119 + 5;//old 72
+            }
+
+            if (g.CompareTag("LargeOrder"))
+            {
+                xMove += 148 + 5;//old 89
+            }
+            DisplayedOrders[i].position -= new Vector3(xMove, 0, 0);
         }
         orderTimes.RemoveAt(CompletedOrderNum);
     }
