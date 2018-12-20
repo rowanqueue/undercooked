@@ -67,13 +67,12 @@ public class Movement : MonoBehaviour
 			transform.forward = inputVector;
 			inputVector.y = 0;
 		}
-	
-		if (!boosting)
+        else { animator.SetBool("Walking", false); }
+
+        if (!boosting)
 		{
 			boostMultiplier = 0;
 		}
-
-		else{animator.SetBool("Walking", false);}
 }
 
 	void FixedUpdate()

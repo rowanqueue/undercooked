@@ -26,7 +26,7 @@ public class ServingCounter : Counter {
         }
         if (itemHere != null && itemHere is Plate)
         {
-            Score.me.score += Serve((Plate)itemHere);
+            //Score.me.score += Serve((Plate)itemHere);
             Destroy(itemHere.gameObject);
             itemHere = null;
         }
@@ -37,7 +37,6 @@ public class ServingCounter : Counter {
             requested.Add(newOrder);
             timer = 0;
         }
-        print("Requested:" + requested[0]);
     }
 
     public int Serve(Plate served) //find order in requested and deliver it

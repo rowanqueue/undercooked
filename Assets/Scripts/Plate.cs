@@ -15,9 +15,9 @@ public class Plate : Item {
         plated = new Order(); //Items on plate, to be compared at ServingCounter
     }
 
-    private void Update()
+    public override void Update()
     {
-        print("Plated:" + plated.ToString());
+
     }
 
     public bool Add(ItemStats i)
