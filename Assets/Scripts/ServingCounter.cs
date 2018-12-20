@@ -51,7 +51,7 @@ public class ServingCounter : Counter {
     {
         int orderNum = Random.Range(0, 3);
         Order newOrder = Order.GenerateBurger(orderNum);
-        UIOrders.me.InstantiateOrder(orderNum);
+        UIOrders.me.InstantiateOrder(orderNum,newOrder);
         requested.Add(newOrder);
         timer = 0;
     }
