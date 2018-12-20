@@ -126,6 +126,7 @@ ModelImporter:
     400118: transform8
     400120: transform9
     2100000: lambert1
+    2100002: lambert2
     2300000: polySurface19
     2300002: polySurface2
     2300004: polySurface3
@@ -222,7 +223,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.14999999
+    previousCalculatedGlobalScale: 0.16
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
@@ -243,7 +244,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
