@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -65,5 +66,11 @@ public class Timer : MonoBehaviour
             timesUp.gameObject.SetActive(true);
 			boolend = true;
 		}
+
+        if (boolend && Input.GetKeyDown(KeyCode.Space))
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("TestLevel");
+        }
 	}
 }
