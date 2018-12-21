@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ServingCounter : Counter {
     public float timer;
+    public int score;
     public List<Order> requested;
     public bool firstOrder;
 	public List<Transform> OtherDisplayed= new List<Transform>();
@@ -28,7 +29,7 @@ public class ServingCounter : Counter {
         }
         if (itemHere != null && itemHere is Plate)
         {
-            Score.me.score += Serve((Plate)itemHere);
+            score += Serve((Plate)itemHere);
             Destroy(itemHere.gameObject);
             itemHere = null;
         }
@@ -36,7 +37,6 @@ public class ServingCounter : Counter {
         {
             CreateOrder();
         }
-        print("Requested:" + requested[0]);
         if(waitForReturnPlate > 0)
         {
             waitForReturnPlate -= Time.deltaTime;
@@ -62,35 +62,15 @@ public class ServingCounter : Counter {
             ReturnCounter.me.ReturnPlate();
         }
         waitForReturnPlate = returnPlateWaitTime+Time.time;
-        if (served.plated.Equals(requested[0]))
+        for (int i = 0; i < requested.Count; i++)
         {
-            /*
-	        Debug.Log("MoveOver");
-	        for (int i = 0; i < OtherDisplayed.Count; i++)
-	        {
-		        foreach (Transform t in OtherDisplayed)
-		        {
-			        if (t.transform.CompareTag("SmallOrder") && served.plated.Equals(requested[0]) )
-			        {
-				        UIOrders.CompletedOrderNum = 0;
-				        UIOrders.PositionInList = OtherDisplayed.IndexOf(t);
-				        GetComponent<UIOrders>().DisplayedOrders.Remove(t);
-				        OtherDisplayed.Remove(t);
-				        Destroy(t.gameObject);
-				        UIOrders.Completed = true;	
-				    
-				        break;
-
-			        }
-
-
-		        }
-	        }
-            */
-            UIOrders.me.CompletedOrder(requested[0]);//whatever the order is;
-            requested.RemoveAt(0);
-	        Debug.Log("Accepted");
-            return 20;
+            if (served.plated.Equals(requested[i]))
+            {
+                UIOrders.me.CompletedOrder(requested[i]);//whatever the order is;
+                requested.RemoveAt(i);
+                Debug.Log("Accepted");
+                return 20;
+            }
         }
         return 0;
     }

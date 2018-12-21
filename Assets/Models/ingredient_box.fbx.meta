@@ -36,6 +36,28 @@ ModelImporter:
     100060: pCube12
     100062: pCube13
     100064: pCube9
+    100066: base
+    100068: joint1
+    100070: lid
+    100072: pCube14
+    100074: pCube15
+    100076: pCube16
+    100078: pCube17
+    100080: pCube18
+    100082: pCube19
+    100084: pCube20
+    100086: polySurface75
+    100088: polySurface76
+    100090: polySurface76 1
+    100092: polySurface77
+    100094: polySurface79
+    100096: polySurface80
+    100098: polySurface81
+    100100: polySurface82
+    100102: polySurface83
+    100104: transform13
+    100106: transform14
+    100108: transform15
     400000: //RootNode
     400002: pCube1
     400004: pCube3
@@ -69,7 +91,30 @@ ModelImporter:
     400060: pCube12
     400062: pCube13
     400064: pCube9
+    400066: base
+    400068: joint1
+    400070: lid
+    400072: pCube14
+    400074: pCube15
+    400076: pCube16
+    400078: pCube17
+    400080: pCube18
+    400082: pCube19
+    400084: pCube20
+    400086: polySurface75
+    400088: polySurface76
+    400090: polySurface76 1
+    400092: polySurface77
+    400094: polySurface79
+    400096: polySurface80
+    400098: polySurface81
+    400100: polySurface82
+    400102: polySurface83
+    400104: transform13
+    400106: transform14
+    400108: transform15
     2100000: lambert1
+    2100002: lambert2
     2300000: pCube8
     2300002: polySurface74
     2300004: pCube10
@@ -77,6 +122,7 @@ ModelImporter:
     2300008: pCube12
     2300010: pCube13
     2300012: pCube9
+    2300014: pCube20
     3300000: pCube8
     3300002: polySurface74
     3300004: pCube10
@@ -84,6 +130,7 @@ ModelImporter:
     3300008: pCube12
     3300010: pCube13
     3300012: pCube9
+    3300014: pCube20
     4300000: polySurface74
     4300002: pCube8
     4300004: pCube9
@@ -91,6 +138,10 @@ ModelImporter:
     4300008: pCube11
     4300010: pCube12
     4300012: pCube13
+    4300014: pCube20
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pCube20
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -111,7 +162,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -142,8 +193,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.089999996
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -163,12 +214,11 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

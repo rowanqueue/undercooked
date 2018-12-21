@@ -122,6 +122,7 @@ ModelImporter:
     400114: Head
     400116: Neck
     2100000: lambert1
+    2100002: lambert2
     2300000: pCube1
     2300002: pCylinder11
     2300004: pCylinder12
@@ -272,7 +273,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0.0053772097, y: 0.9999856, z: 6.156072e-17, w: -6.0902205e-17}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1

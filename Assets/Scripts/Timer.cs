@@ -13,7 +13,8 @@ public class Timer : MonoBehaviour
 	public AudioSource countdown;
 	public AudioClip endofRound;
 	private bool boolend = false;
-	public Text timeRemaining; 
+	public Text timeRemaining;
+    public Text timesUp;
 	
 	void Start ()
 	{
@@ -61,10 +62,8 @@ public class Timer : MonoBehaviour
 			countdown.Stop();
 			countdown.clip = endofRound;
 			countdown.PlayOneShot(endofRound);
+            timesUp.gameObject.SetActive(true);
 			boolend = true;
 		}
-
-		
-		
 	}
 }

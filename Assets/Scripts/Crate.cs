@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Crate : Counter {
     public string itemSpawn;//name of the item this spawns
+    private Animator animator;
 
-    public void SpawnItem()//spawns an item of its type on top of it
+    private void Start()
     {
-        if(itemHere == null)
-        {
-            GameObject obj = (GameObject)Instantiate(Resources.Load("Items/" + itemSpawn), transform) as GameObject;
-            obj.transform.position = counterPos.position;
-            itemHere = obj.GetComponent<Item>();
-            
-        }
+        animator = GetComponent<Animator>();
+    }
+
+    public Item SpawnItem()//spawns an item of its type on top of it
+    {
+        animator.ResetTrigger("Open");
+        animator.SetTrigger("Open");
+        GameObject obj = (GameObject)Instantiate(Resources.Load("Items/" + itemSpawn)) as GameObject;
+        return obj.GetComponent<Item>();
     }
 }
