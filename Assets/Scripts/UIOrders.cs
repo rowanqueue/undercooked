@@ -45,12 +45,11 @@ public class UIOrders : MonoBehaviour
     public List<float> orderTimes;//when order was created
 	 void Awake()
 	 {
-        orderTime = 240;
+         orderTime = 240;
          me = this;
 		 missedOrder = 0;
 		 first = true;
-		 testComplete = 0;
-		 
+         testComplete = 0;
 	 }
 
 	void Update()
@@ -74,17 +73,17 @@ public class UIOrders : MonoBehaviour
             {
                 if (g.CompareTag("SmallOrder"))
                 {
-                    orderXdisplacement += 92 + 5;//old 57, whatever x scale is + 3
+                    orderXdisplacement += 69 + 3.5f;//old 57, whatever x scale is + 3
                 }
 
                 if (g.CompareTag("MediumOrder"))
                 {
-                    orderXdisplacement += 119 + 5;//old 72
+                    orderXdisplacement += 104 + 3.5f;//old 72
                 }
 
                 if (g.CompareTag("LargeOrder"))
                 {
-                    orderXdisplacement += 148 + 5;//old 89
+                    orderXdisplacement += 139 + 3.5f;//old 89
                 }
             }
 
@@ -95,7 +94,7 @@ public class UIOrders : MonoBehaviour
             orders.Add(order);
             orderTimes.Add(Time.time);
             RectTransform newBurger = Instantiate(OrderRects[orderNum],
-                new Vector3(40 + orderXdisplacement, -31.4f, 0f), Quaternion.Euler(0, 0, 0));
+                new Vector3(OrderRects[orderNum].rect.width/2 + orderXdisplacement, -25f, 0f), Quaternion.Euler(0, 0, 0));
             newBurger.transform.SetParent(Canvas.transform, false);
             DisplayedOrders.Add(newBurger);//Adds new order to Displayed Ui for completed order comparison 
         }
@@ -146,26 +145,28 @@ public class UIOrders : MonoBehaviour
 	public void CompletedOrder(Order order)
 	{
         CompletedOrderNum = orders.IndexOf(order);
-        for (int i = CompletedOrderNum+1; i <= DisplayedOrders.Count; i++)
+        Transform g = DisplayedOrders[CompletedOrderNum];
+        float xMove = 0;
+        if (g.CompareTag("SmallOrder"))
         {
-            Transform g = DisplayedOrders[i - 1];
-            float xMove = 0;
-            if (g.CompareTag("SmallOrder"))
-            {
-                xMove += 92 + 5;//old 57, whatever x scale is + 3
-            }
+            xMove += 69 + 3.5f;//old 57, whatever x scale is + 3
+        }
 
-            if (g.CompareTag("MediumOrder"))
-            {
-                xMove += 119 + 5;//old 72
-            }
+        if (g.CompareTag("MediumOrder"))
+        {
+            xMove += 104 + 3.5f;//old 72
+        }
 
-            if (g.CompareTag("LargeOrder"))
-            {
-                xMove += 148 + 5;//old 89
-            }
-            DisplayedOrders[i].position -= new Vector3(xMove, 0, 0);
+        if (g.CompareTag("LargeOrder"))
+        {
+            xMove += 139 + 3.5f;//old 89
+        }
+        for (int i = CompletedOrderNum+1; i < DisplayedOrders.Count; i++)
+        {
+            DisplayedOrders[i].localPosition -= new Vector3(xMove, 0, 0);
         }
         orderTimes.RemoveAt(CompletedOrderNum);
+        Destroy(DisplayedOrders[CompletedOrderNum].gameObject);
+        DisplayedOrders.RemoveAt(CompletedOrderNum);
     }
 }

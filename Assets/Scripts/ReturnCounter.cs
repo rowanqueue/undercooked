@@ -9,6 +9,14 @@ public class ReturnCounter : Counter {
 	void Awake () {
         me = this;
 	}
+    public override void Update()
+    {
+        base.Update();
+        if (itemHere != null && numPlates == 0)
+        {
+            Destroy(itemHere.gameObject);
+        }
+    }
     public void ReturnPlate()//this should be called by servingcounter to place a new plate here
     {
         numPlates++;
