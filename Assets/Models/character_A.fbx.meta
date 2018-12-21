@@ -190,6 +190,7 @@ ModelImporter:
     400182: transform23
     400184: transform24
     2100000: lambert1
+    2100002: lambert2
     2300000: pCone1
     2300002: pCube1
     2300004: pCube2
@@ -347,7 +348,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: Body
-    rootMotionBoneRotation: {x: -0.0012374436, y: 0.9999992, z: 6.1232296e-17, w: -7.577157e-20}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

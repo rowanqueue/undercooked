@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7cc29aacda15d1d4189b7552e474b44c
+guid: 02476176345d72c4fae7ab18652c9efb
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -126,7 +126,6 @@ ModelImporter:
     400118: transform8
     400120: transform9
     2100000: lambert1
-    2100002: lambert2
     2300000: polySurface19
     2300002: polySurface2
     2300004: polySurface3
@@ -140,7 +139,7 @@ ModelImporter:
     4300004: polySurface4
     4300006: polySurface19
     4300008: polySurface23
-    7400000: Walking_Snowman
+    7400000: Snowman_Carry_Idle
     9500000: //RootNode
     13700000: polySurface23
     2186277476908879412: ImportLogs
@@ -173,7 +172,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walking_Snowman
+      name: Snowman_Carry_Idle
       takeName: Take 001
       firstFrame: 0
       lastFrame: 80
@@ -223,7 +222,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.16
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
