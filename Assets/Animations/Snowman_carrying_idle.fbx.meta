@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 7c733f10ed25bd3419284f18b196f6d8
+=======
 guid: 02476176345d72c4fae7ab18652c9efb
+>>>>>>> origin/master
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -139,7 +143,11 @@ ModelImporter:
     4300004: polySurface4
     4300006: polySurface19
     4300008: polySurface23
+<<<<<<< HEAD
+    7400000: Take 001
+=======
     7400000: Snowman_Carry_Idle
+>>>>>>> origin/master
     9500000: //RootNode
     13700000: polySurface23
     2186277476908879412: ImportLogs
@@ -170,6 +178,13 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
+<<<<<<< HEAD
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+=======
     clipAnimations:
     - serializedVersion: 16
       name: Snowman_Carry_Idle
@@ -203,6 +218,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 16
+>>>>>>> origin/master
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -243,6 +259,10 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+<<<<<<< HEAD
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+=======
+>>>>>>> origin/master
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
