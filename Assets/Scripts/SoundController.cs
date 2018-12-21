@@ -51,7 +51,7 @@ public class SoundController : MonoBehaviour {
 
 		}
 		PlaySound(introSound,1);
-		PlaySound(song,1);
+		PlaySound(song,.85f);
 		
 
 	}
