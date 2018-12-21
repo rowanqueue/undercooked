@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: db80e00c844e8f24b81df321d07e9563
+guid: 512838a9823b7d741b299cc40654d606
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -73,9 +73,9 @@ ModelImporter:
     400064: transform7
     400066: transform8
     400068: transform9
-    2100000: lambert1
+    2100000: lambert2
     4300000: pCube20
-    7400000: Crate_Opening
+    7400000: Crate_Idle
     9500000: //RootNode
     13700000: pCube20
   externalObjects: {}
@@ -107,7 +107,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Crate_Opening
+      name: Crate_Idle
       takeName: Take 001
       firstFrame: 1
       lastFrame: 120

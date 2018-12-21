@@ -30,9 +30,9 @@ public class Pickup : MonoBehaviour {
             animator.SetBool("Carrying", false);
         }
         //this code just looks at what you're seeing
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(transform.position + (Vector3.down * .5f), transform.forward);
         DisplayRay(ray, 1.5f, 1.5f);
-        RaycastHit[] hits = Physics.SphereCastAll(ray, .30f, .75f);
+        RaycastHit[] hits = Physics.SphereCastAll(ray, .30f, 1f);
         Item potentialItem = null;//where we locally store an item we could pick up
         Counter potentialCounter = null;//storing a potentialCountertop
         foreach (RaycastHit hit in hits)
@@ -114,7 +114,7 @@ public class Pickup : MonoBehaviour {
                         trashCan.DeleteItem(itemHeld);
                         itemHeld = null;
                     }
-                    else if (potentialCounter.itemHere == null)
+                    else if (potentialCounter.itemHere == null && !(potentialCounter is ReturnCounter))
                     {
                         if (itemHeld.state.Equals("chopped"))
                         {
@@ -129,7 +129,7 @@ public class Pickup : MonoBehaviour {
                         itemHeld.collider.enabled = false;
                         itemHeld = null;
                     }
-                    else if (potentialCounter.itemHere is Plate)
+                    else if (potentialCounter.itemHere is Plate && !(potentialCounter is ReturnCounter))
                     {
                         Plate plate = (Plate)potentialCounter.itemHere;
                         if (!(itemHeld is Pan))
@@ -213,9 +213,9 @@ public class Pickup : MonoBehaviour {
                         if (rc.GetPlate())//you can grab a plate
                         {
                             SoundController.me.PlaySound(SoundController.me.pickUpItem,.6f);
-                            GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), transform);
-                            itemHeld.collider.enabled = false;
+                            GameObject obj = (GameObject)Instantiate(Resources.Load("Items/Plate"), holdingPos, Quaternion.identity);
                             itemHeld = obj.GetComponent<Item>();
+                            itemHeld.collider.enabled = false;
                         }
                     }
                     else if (potentialCounter.itemHere != null)
@@ -228,6 +228,16 @@ public class Pickup : MonoBehaviour {
                         itemHeld.transform.position = transform.position + transform.forward;
                         itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
                         
+                    }
+                    else if (potentialItem != null)//you are looking at an item
+                    {
+                        SoundController.me.PlaySound(SoundController.me.pickUpItem, .6f);
+                        itemHeld = potentialItem;
+                        itemHeld.rb.isKinematic = true;
+                        itemHeld.collider.enabled = false;
+                        itemHeld.transform.position = transform.position + transform.forward;
+                        itemHeld.transform.rotation = Quaternion.Euler(0, 0, 0);
+
                     }
                 }
                 else

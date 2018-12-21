@@ -173,4 +173,15 @@ public class Plate : Item {
             tomato.transform.localPosition = platedPos.localPosition + (Vector3.up * (tomato.offset + currentOffset));
         }
     }
+
+    public override void OnDestroy()
+    {
+        foreach (Image i in itemSprites)
+        {
+            if (i != null)
+            {
+                Destroy(i.gameObject);
+            }
+        }
+    }
 }

@@ -130,7 +130,7 @@ public class Movement : MonoBehaviour
 				boostCooldown = true;
 				rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | 
                                  RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY |
-                                 RigidbodyConstraints.FreezeRotationZ; //If player is colliding with the other player freeze position 
+                                 RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY; //If player is colliding with the other player freeze position
 				
 
 			}	
