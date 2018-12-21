@@ -3786,6 +3786,7 @@ GameObject:
   - component: {fileID: 737335320}
   - component: {fileID: 737335322}
   - component: {fileID: 737335321}
+  - component: {fileID: 737335323}
   m_Layer: 0
   m_Name: Ingredient_Box_Meat
   m_TagString: Counter
@@ -3800,7 +3801,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737335319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.584, y: 0, z: 2.554}
+  m_LocalPosition: {x: 2.609, y: 0, z: 2.554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 112212561}
@@ -3834,6 +3835,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &737335323
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737335319}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
+  m_Controller: {fileID: 9100000, guid: 42d4a3e5c22b7cb47b778a814ecba849, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &771183882
 GameObject:
   m_ObjectHideFlags: 0
@@ -5157,7 +5176,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.555
+      value: -0.028
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5165,7 +5184,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.533
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5283,6 +5302,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 166b9838d45307f44984def481f268d5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
   m_IsPrefabAsset: 0
@@ -5710,7 +5733,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.556
+      value: -0.027999949
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5718,7 +5741,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.522
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5836,6 +5859,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a3aaf6e1fe8e24eb5a5ba94759b25d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
   m_IsPrefabAsset: 0
@@ -5864,6 +5891,7 @@ GameObject:
   - component: {fileID: 1032204855}
   - component: {fileID: 1032204857}
   - component: {fileID: 1032204856}
+  - component: {fileID: 1032204858}
   m_Layer: 0
   m_Name: Ingredient_Box_Bun
   m_TagString: Counter
@@ -5878,7 +5906,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1032204854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.582, y: 0, z: 3.544}
+  m_LocalPosition: {x: 2.609, y: 0, z: 3.544}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 657443662}
@@ -5912,6 +5940,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5688567, z: 1.0171509}
   m_Center: {x: 0, y: 0.24169064, z: 0.008575439}
+--- !u!95 &1032204858
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1032204854}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
+  m_Controller: {fileID: 9100000, guid: 42d4a3e5c22b7cb47b778a814ecba849, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1035717370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4843581924274134, guid: a0a222542ead33e41b9cc067d7893dda,
@@ -7220,7 +7266,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.54
+      value: -0.027999949
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7228,7 +7274,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.538
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7346,6 +7392,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 47efb967ffc729a43a5a877244b4c32e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
   m_IsPrefabAsset: 0
@@ -7797,6 +7847,7 @@ GameObject:
   - component: {fileID: 1360793162}
   - component: {fileID: 1360793164}
   - component: {fileID: 1360793163}
+  - component: {fileID: 1360793165}
   m_Layer: 0
   m_Name: Ingredient_Box_Tomato
   m_TagString: Counter
@@ -7811,7 +7862,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1360793161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.607, y: 0, z: 1.552}
+  m_LocalPosition: {x: 2.609, y: 0, z: 1.552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1871541707}
@@ -7845,6 +7896,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1360793165
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1360793161}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
+  m_Controller: {fileID: 9100000, guid: 42d4a3e5c22b7cb47b778a814ecba849, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1363760095
 Prefab:
   m_ObjectHideFlags: 0
@@ -8814,7 +8883,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.49324134
+      value: -0.027999949
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8822,7 +8891,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.504
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8936,6 +9005,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b4da123cd8ebfbd4180eb4f182aacb83, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
   m_IsPrefabAsset: 0
@@ -9216,6 +9289,7 @@ GameObject:
   - component: {fileID: 1554265604}
   - component: {fileID: 1554265606}
   - component: {fileID: 1554265605}
+  - component: {fileID: 1554265607}
   m_Layer: 0
   m_Name: Ingredient_Box_Lettuce
   m_TagString: Counter
@@ -9230,7 +9304,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1554265603}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.635, y: -0.01, z: 4.526}
+  m_LocalPosition: {x: 2.609, y: -0.01, z: 4.526}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2024856965}
@@ -9264,6 +9338,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.110314, y: 0.5653175, z: 0.9961376}
   m_Center: {x: -0.0095850825, y: 0.25443453, z: 0.0224123}
+--- !u!95 &1554265607
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1554265603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 2955d23e46e88f643b7d3abbbf8f9125, type: 3}
+  m_Controller: {fileID: 9100000, guid: 42d4a3e5c22b7cb47b778a814ecba849, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1560013227
 Prefab:
   m_ObjectHideFlags: 0
