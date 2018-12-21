@@ -66,10 +66,16 @@ public class ServingCounter : Counter {
         {
             if (served.plated.Equals(requested[i]))
             {
+                SoundController.me.PlaySound(SoundController.me.completeOrder,1);
                 UIOrders.me.CompletedOrder(requested[i]);//whatever the order is;
                 requested.RemoveAt(i);
                 Debug.Log("Accepted");
                 return 20;
+            }
+
+            if (!served.plated.Equals(requested[i]))
+            {
+                SoundController.me.PlaySound(SoundController.me.singleCountdownBeep,1);
             }
         }
         return 0;
